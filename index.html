@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Young Ress | Vocal plug-ins</title>
+<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Young Ress, installed and kept up to date by the free Young Ress Hub.">
+<meta property="og:title" content="Young Ress | Vocal plug-ins">
+<meta property="og:description" content="Tune it. Color it. Let it breathe. TRINITY, IRON & GLASS and AIR, installed by the free Young Ress Hub.">
+<meta property="og:image" content="https://theyoungress.github.io/img/ironglass.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0d1626">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230d1626'/%3E%3Crect x='8' y='11' width='4' height='12' rx='2' fill='%23efe6c9'/%3E%3Crect x='14' y='6' width='4' height='17' rx='2' fill='%23efe6c9'/%3E%3Crect x='20' y='14' width='4' height='9' rx='2' fill='%23e0473a'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0d1626;
+  --ink-2: #13203a;
+  --cream: #efe6c9;
+  --steel: #9aa6b9;
+  --lamp: #e0473a;
+  --rule: rgba(239, 230, 201, .14);
+  --gutter: 24px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--ink); color: var(--cream);
+  font: 400 17px/1.6 "Archivo", system-ui, sans-serif; font-stretch: 100%;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 3px; }
+.wrap { width: min(1200px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+h1, h2, h3 { margin: 0; font-stretch: 125%; font-weight: 800; line-height: 1; letter-spacing: -.015em; }
+p { margin: 0 0 1em; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 16px; z-index: 10; background: var(--cream); color: var(--ink); padding: 8px 14px; }
+
+/* ---- buttons: a lit switch, like the ones on the plug-ins ---- */
+.btn {
+  display: inline-flex; align-items: center; gap: 12px; min-height: 50px; padding: 0 22px 0 18px;
+  border-radius: 6px; border: 0; font: inherit; font-weight: 650; font-size: 16px; text-decoration: none; cursor: pointer;
+  background: var(--btn-bg, var(--cream)); color: var(--btn-fg, var(--ink));
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, .22), 0 1px 0 rgba(255, 255, 255, .06);
+}
+.btn::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%; flex: none;
+  background: var(--btn-lamp-off, rgba(13, 22, 38, .28)); transition: background .2s, box-shadow .2s;
+}
+.btn:hover::before, .btn:focus-visible::before { background: var(--lamp); box-shadow: 0 0 0 3px rgba(224, 71, 58, .22), 0 0 10px var(--lamp); }
+.btn[aria-disabled="true"] { cursor: default; opacity: .62; }
+.btn[aria-disabled="true"]::before { background: var(--btn-lamp-off, rgba(13, 22, 38, .28)); box-shadow: none; }
+.link { color: inherit; text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.link:hover { text-decoration-thickness: 2px; }
+
+/* ---- top bar ---- */
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 0 0 56px; }
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-stretch: 125%; letter-spacing: .08em; font-size: 15px; }
+.logo i { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
+.logo b { display: block; width: 4px; border-radius: 2px; background: var(--cream); }
+.logo b:nth-child(1) { height: 12px; } .logo b:nth-child(2) { height: 18px; } .logo b:nth-child(3) { height: 9px; background: var(--lamp); }
+.bar nav { display: flex; align-items: center; gap: 28px; font-size: 15px; }
+.bar nav a:not(.btn) { text-decoration: none; color: var(--steel); }
+.bar nav a:not(.btn):hover { color: var(--cream); }
+.bar .btn { min-height: 40px; font-size: 15px; padding: 0 16px 0 13px; }
+
+/* ---- hero ---- */
+.hero { padding: 40px 0 0; overflow-x: clip; }
+.hero h1 { font-size: clamp(46px, 8.2vw, 116px); line-height: .94; letter-spacing: -.03em; }
+.lede { max-width: 54ch; margin: 34px 0 34px; font-size: clamp(18px, 1.6vw, 21px); color: var(--steel); }
+.lede strong { color: var(--cream); font-weight: 600; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
+.fine { font-size: 14px; color: var(--steel); margin: 16px 0 0; }
+
+/* the vocal chain: three inserts, in the order you'd load them */
+.chain { list-style: none; margin: 72px 0 0; padding: 0 0 104px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; position: relative; counter-reset: insert; }
+.chain::before {
+  content: ""; position: absolute; left: -40px; right: -40px; top: 0; height: 2px;
+  margin-top: calc((100% - 64px) * 5 / 48); /* the middle of the screenshots (a percentage margin follows the width) */
+  background: linear-gradient(90deg, transparent, var(--lamp) 6%, var(--lamp) 94%, transparent);
+  transform-origin: left; animation: signal 1.6s cubic-bezier(.6, 0, .2, 1) .3s both; opacity: .85;
+}
+.chain li { position: relative; counter-increment: insert; }
+.chain a { display: block; text-decoration: none; }
+.chain figure {
+  margin: 0; position: relative; border-radius: 8px; overflow: hidden; aspect-ratio: 16 / 10; background: #000;
+  box-shadow: 0 0 0 1px var(--rule), 0 30px 60px -20px rgba(0, 0, 0, .7);
+  transition: transform .25s ease;
+}
+.chain a:hover figure { transform: translateY(-4px); }
+.chain figure img { width: 100%; height: 100%; object-fit: cover; }
+.chain .lamp {
+  position: absolute; top: 14px; right: 14px; width: 9px; height: 9px; border-radius: 50%;
+  background: #3a2422; box-shadow: 0 0 0 2px rgba(0, 0, 0, .4);
+  animation: lamp .3s ease both;
+}
+.chain li:nth-child(1) .lamp { animation-delay: .55s; }
+.chain li:nth-child(2) .lamp { animation-delay: 1.05s; }
+.chain li:nth-child(3) .lamp { animation-delay: 1.55s; }
+.chain .slot { display: block; margin-top: 22px; font-size: 14px; color: var(--steel); }
+.chain .slot::before { content: "Insert " counter(insert); }
+.chain strong { display: block; margin-top: 6px; font-size: 24px; font-weight: 800; font-stretch: 125%; letter-spacing: -.01em; }
+.chain .what { display: flex; justify-content: space-between; gap: 12px; margin-top: 4px; color: var(--steel); }
+.chain .what b { color: var(--cream); font-weight: 600; }
+@keyframes signal { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes lamp { from { background: #3a2422; } to { background: var(--lamp); box-shadow: 0 0 0 2px rgba(0, 0, 0, .4), 0 0 12px 2px rgba(224, 71, 58, .75); } }
+
+/* ---- products: each one wears its own faceplate ---- */
+.product { padding: 120px 0; }
+.name { font-size: clamp(54px, 10vw, 148px); line-height: .9; letter-spacing: -.035em; }
+.role { font-size: clamp(20px, 2vw, 26px); line-height: 1.3; margin: 22px 0 0; max-width: 30ch; font-weight: 500; }
+.shot { margin: 64px 0 0; }
+.shot img { width: 100%; border-radius: 10px; }
+.body { display: grid; grid-template-columns: 1.5fr 1fr minmax(260px, .9fr); gap: 56px; margin-top: 72px; align-items: start; }
+.body h3 { font-size: 22px; margin-bottom: 14px; }
+.about p { max-width: 62ch; }
+.features { list-style: none; margin: 0; padding: 0; }
+.features li { padding: 12px 0; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.45; }
+.features li:last-child { border-bottom: 1px solid var(--line); }
+.buy { padding: 26px 24px; border-radius: 10px; background: var(--plate); color: var(--plate-fg); }
+.price { font-size: 64px; font-weight: 800; font-stretch: 125%; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.facts { list-style: none; padding: 0; margin: 18px 0 24px; font-size: 15px; line-height: 1.7; color: var(--plate-muted); }
+.buy .btn { width: 100%; justify-content: center; white-space: nowrap; padding-inline: 14px; }
+.note { font-size: 14px; line-height: 1.5; margin: 16px 0 0; color: var(--plate-muted); }
+
+/* TRINITY: purple-black, teal and purple like its interface */
+.trinity {
+  --line: rgba(236, 232, 244, .12); --plate: #1f1a2b; --plate-fg: #ece8f4; --plate-muted: #a59db8;
+  background: radial-gradient(70% 50% at 70% 36%, rgba(151, 99, 194, .22), transparent 70%), #15121c; color: #ece8f4;
+}
+.trinity .role { color: #c9bfe0; }
+.trinity .about p, .trinity .features li { color: #c4bdd3; }
+.trinity .shot img { box-shadow: 0 0 0 1px rgba(183, 124, 226, .25), 0 50px 120px -30px rgba(151, 99, 194, .45); }
+.trinity .btn { --btn-bg: #9763c2; --btn-fg: #fff; --btn-lamp-off: rgba(255, 255, 255, .35); }
+
+/* IRON & GLASS: grey steel on top, the blue compressor panel below, a cream VU plate for the price */
+.ironglass { padding: 0; background: #1d4a8f; }
+.iron { background: #2a2f37; padding: 120px 0 0; color: #eef0f3; }
+.iron .role { color: #c7ccd4; }
+/* the page splits exactly where the plug-in's own Iron and Glass panels meet (52% up from the bottom of the picture) */
+.ironglass { --overlap: calc(min(1200px, 100vw - 2 * var(--gutter)) * .3275); }
+.ironglass .shot { margin-bottom: calc(-1 * var(--overlap)); position: relative; }
+.ironglass .shot img { box-shadow: 0 0 0 1px rgba(255, 255, 255, .08), 0 60px 120px -30px rgba(0, 0, 0, .65); }
+.glass { padding: calc(var(--overlap) + 80px) 0 120px; color: #fff; --line: rgba(255, 255, 255, .2); }
+.glass .about p, .glass .features li { color: #dbe5f5; }
+.glass .about { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+@media (min-width: 1001px) {
+  .glass .body { grid-template-columns: 1fr 1fr minmax(280px, .85fr); }
+  .glass .about, .glass .features { grid-column: 1 / 3; }
+  .glass .buy { grid-column: 3; grid-row: 1 / 3; }
+  .glass .body { row-gap: 40px; }
+  .glass .features { display: grid; grid-template-columns: 1fr 1fr; column-gap: 36px; }
+  .glass .features li:nth-last-child(-n + 2) { border-bottom: 1px solid var(--line); }
+}
+.ironglass .buy { --plate: #f1e6c3; --plate-fg: #16181c; --plate-muted: #4c4a42; box-shadow: inset 0 0 0 6px #e4d6ab, 0 30px 60px -25px rgba(0, 0, 0, .55); }
+.ironglass .price { border-bottom: 2px solid #16181c; padding-bottom: 14px; }
+.ironglass .price::after { content: ""; display: block; height: 2px; margin-top: -2px; width: 22%; margin-left: auto; background: #c2362b; transform: translateY(16px); }
+.ironglass .btn { --btn-bg: #16181c; --btn-fg: #f1e6c3; --btn-lamp-off: #4a2420; }
+
+/* AIR: white and blue, open and light */
+.air {
+  --line: rgba(19, 38, 74, .14); --plate: #ffffff; --plate-fg: #13264a; --plate-muted: #4f6286;
+  background: radial-gradient(60% 70% at 26% 50%, #c8dcf8, transparent 70%), linear-gradient(90deg, #e2ecfb, #eef4fd 60%, #dce8fa);
+  color: #13264a; color-scheme: light;
+}
+.air .split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
+.air .shot { margin: 0; }
+.air .shot img { aspect-ratio: 1; object-fit: cover; border-radius: 0;
+  --fade: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent), linear-gradient(transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: var(--fade); -webkit-mask-composite: source-in; mask-image: var(--fade); mask-composite: intersect; }
+.air .role { color: #2b4374; }
+.air .about { margin-top: 36px; }
+.air .about p, .air .features li { color: #34496f; }
+.air .lower { display: grid; grid-template-columns: 1fr minmax(240px, .95fr); gap: 36px; margin-top: 36px; align-items: start; }
+.air .buy { box-shadow: 0 30px 70px -30px rgba(29, 74, 160, .45); }
+.air .btn { --btn-bg: #2f6bea; --btn-fg: #fff; --btn-lamp-off: rgba(255, 255, 255, .45); }
+.air .btn:hover::before, .air .btn:focus-visible::before { background: #fff; box-shadow: 0 0 10px #9cc0ff; }
+
+/* ---- Hub ---- */
+.hub { padding: 128px 0; }
+.hub-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px 80px; align-items: end; }
+.hub h2 { font-size: clamp(36px, 4.4vw, 62px); line-height: .98; letter-spacing: -.025em; }
+.hub-copy p { color: var(--steel); max-width: 48ch; }
+.hub-copy .lede { margin: 0 0 28px; }
+.app { margin: 72px 0 0; border-radius: 12px; overflow: hidden; background: #0b0c0f;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .1), 0 50px 120px -40px rgba(0, 0, 0, .8); }
+.app-bar { display: flex; align-items: center; justify-content: space-between; height: 34px; padding: 0 14px; background: #16181d; color: #8b909b; font-size: 12px; }
+.app-bar i { display: flex; gap: 18px; font-style: normal; letter-spacing: .1em; }
+.app img { width: 100%; }
+.btn.ghost { --btn-bg: transparent; --btn-fg: var(--cream); --btn-lamp-off: rgba(239, 230, 201, .3); box-shadow: inset 0 0 0 1px rgba(239, 230, 201, .3); }
+.steps { list-style: none; margin: 64px 0 0; padding: 0; counter-reset: step; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; }
+.steps li { counter-increment: step; padding-top: 22px; border-top: 1px solid var(--rule); }
+.steps li::before { content: counter(step); display: block; margin-bottom: 18px; font-weight: 800; font-stretch: 125%; font-size: 30px; line-height: 1; color: var(--lamp); }
+.steps h3 { font-size: 20px; letter-spacing: -.005em; margin-bottom: 8px; }
+.steps p { margin: 0; color: var(--steel); font-size: 16px; }
+
+/* ---- help ---- */
+.help { padding: 120px 0; background: var(--ink-2); }
+.help-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 80px; }
+.help h2 { font-size: clamp(36px, 4.6vw, 64px); letter-spacing: -.025em; }
+.help-grid > div > p { color: var(--steel); margin-top: 22px; max-width: 32ch; }
+details { border-top: 1px solid var(--rule); }
+details:last-child { border-bottom: 1px solid var(--rule); }
+summary { cursor: pointer; list-style: none; padding: 22px 40px 22px 0; position: relative; font-size: 19px; font-weight: 600; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: ""; position: absolute; right: 6px; top: 50%; width: 12px; height: 12px; margin-top: -8px; border-right: 2px solid var(--steel); border-bottom: 2px solid var(--steel); transform: rotate(45deg); transition: transform .2s; }
+details[open] summary::after { transform: rotate(-135deg); margin-top: -2px; }
+details p { color: var(--steel); max-width: 62ch; padding-bottom: 8px; }
+
+/* ---- footer ---- */
+footer { padding: 56px 0 64px; font-size: 15px; color: var(--steel); }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 8px 26px; }
+.foot a { color: var(--steel); text-underline-offset: 4px; }
+.foot a:hover { color: var(--cream); }
+
+/* ---- after paying ---- */
+dialog { max-width: 520px; width: calc(100% - 32px); border: 0; border-radius: 12px; padding: 36px; background: var(--cream); color: var(--ink); }
+dialog::backdrop { background: rgba(5, 10, 20, .72); }
+dialog h2 { font-size: 34px; margin-bottom: 18px; }
+dialog ol { padding-left: 20px; margin: 0 0 26px; }
+dialog li { margin-bottom: 8px; }
+dialog .btn { --btn-bg: var(--ink); --btn-fg: var(--cream); --btn-lamp-off: #4a2420; }
+dialog form { display: flex; flex-wrap: wrap; gap: 14px 22px; align-items: center; }
+dialog .link { background: none; border: 0; padding: 0; font: inherit; cursor: pointer; text-decoration: underline; }
+
+@media (max-width: 1000px) {
+  .body { grid-template-columns: 1fr 1fr; }
+  .body .about { grid-column: 1 / -1; }
+  .hub-grid, .help-grid { grid-template-columns: 1fr; gap: 32px; }
+  .steps { grid-template-columns: 1fr 1fr; }
+  .air .split { grid-template-columns: 1fr; }
+  .air .shot { max-width: 520px; }
+}
+@media (max-width: 760px) {
+  :root { --gutter: 16px; }
+  .bar nav a:not(.btn) { display: none; }
+  .hero { padding-top: 40px; }
+  .chain { grid-template-columns: 1fr; gap: 40px; margin-top: 64px; padding-bottom: 80px; }
+  .chain::before { left: 18px; right: auto; top: 0; bottom: 80px; width: 2px; height: auto; margin-top: 0; transform-origin: top;
+    background: linear-gradient(transparent, var(--lamp) 4%, var(--lamp) 96%, transparent); animation-name: signal-v; }
+  .chain li { padding-left: 44px; }
+  .product:not(.ironglass), .glass { padding-bottom: 88px; }
+  .product:not(.ironglass), .iron { padding-top: 88px; }
+  .body, .glass .about, .air .lower { grid-template-columns: 1fr; gap: 40px; }
+  .shot { margin-top: 40px; }
+  .body { margin-top: 48px; }
+  .hub, .help { padding: 88px 0; }
+  .steps { grid-template-columns: 1fr; gap: 28px; }
+  .app { margin-top: 48px; }
+  .app-bar i { display: none; }
+  .price { font-size: 54px; }
+}
+@keyframes signal-v { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#trinity">Skip to the plug-ins</a>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="logo" href="./" aria-label="Young Ress home"><i aria-hidden="true"><b></b><b></b><b></b></i>YOUNG RESS</a>
+      <nav aria-label="Main">
+        <a href="#trinity">TRINITY</a>
+        <a href="#ironglass">IRON &amp; GLASS</a>
+        <a href="#air">AIR</a>
+        <a href="#help">Help</a>
+        <a class="btn" href="#hub">Get the Hub</a>
+      </nav>
+    </div>
+
+    <h1>Tune it.<br> Color it.<br> Let it breathe.</h1>
+    <p class="lede">Three vocal plug-ins, in the order you'd load them: <strong>TRINITY</strong> for pitch, <strong>IRON &amp; GLASS</strong> for console color and compression, <strong>AIR</strong> for the top end. Young Ress Hub installs them and keeps them up to date.</p>
+    <div class="actions">
+      <a class="btn" data-dl="auto" href="https://github.com/theyoungress/youngress-hub-releases/releases/latest">Download Young Ress Hub</a>
+      <a class="link" data-dl="other" href="#hub">Mac version</a>
+    </div>
+    <p class="fine">The Hub is free. TRINITY is free with an account.</p>
+
+    <ol class="chain" aria-label="The vocal chain">
+      <li>
+        <a href="#trinity">
+          <figure><img src="img/trinity.png" width="1120" height="700" alt="TRINITY's interface: detected note, pitch path, retune speed and correction knobs, and a keyboard for the key"><span class="lamp" aria-hidden="true"></span></figure>
+          <span class="slot"></span>
+          <strong>TRINITY</strong>
+          <span class="what">Pitch correction <b>Free</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#ironglass">
+          <figure><img src="img/ironglass.jpg" width="1120" height="700" alt="IRON & GLASS: a grey preamp and EQ panel above a blue tube compressor panel with a VU meter"><span class="lamp" aria-hidden="true"></span></figure>
+          <span class="slot"></span>
+          <strong>IRON &amp; GLASS</strong>
+          <span class="what">Preamp, EQ, compressor <b data-price="ironglass">$33</b></span>
+        </a>
+      </li>
+      <li>
+        <a href="#air">
+          <figure><img src="img/air.jpg" width="1600" height="1000" alt="AIR: one large silver knob with a blue LED ring and a preset display reading Vocal Silk"><span class="lamp" aria-hidden="true"></span></figure>
+          <span class="slot"></span>
+          <strong>AIR</strong>
+          <span class="what">Top-end air <b data-price="air">$30</b></span>
+        </a>
+      </li>
+    </ol>
+  </div>
+</header>
+
+<main>
+  <section class="product trinity" id="trinity" aria-labelledby="trinity-name">
+    <div class="wrap">
+      <h2 class="name" id="trinity-name">TRINITY</h2>
+      <p class="role">Pitch correction that goes from natural to hard-locked.</p>
+      <figure class="shot"><img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="TRINITY with the Underground tuning style selected, the key set to A minor and the pitch path showing input, target and output"></figure>
+      <div class="body">
+        <div class="about">
+          <p>Classic follows the singer and leaves the expression in. Underground snaps every note to the key for the locked sound modern rap vocals are built on. Either way, formant-preserving correction keeps the voice sounding like the person who sang it.</p>
+          <p>Set the key and scale on the keyboard, pick a vocal range, and watch the pitch path show what came in, where it's headed and what came out.</p>
+        </div>
+        <ul class="features">
+          <li>Classic and Underground tuning styles</li>
+          <li>Retune speed, correction, humanize, transition, tracking and sustain</li>
+          <li>Pitch, formant and mix shaping</li>
+          <li>HQ (10 ms) or Low Latency (3 ms) for recording through it</li>
+        </ul>
+        <div class="buy">
+          <div class="price">Free</div>
+          <ul class="facts">
+            <li>Version <span data-version="trinity">1.0.7</span></li>
+            <li>Windows VST3</li>
+            <li>macOS VST3 and AU</li>
+          </ul>
+          <a class="btn" href="#hub">Get TRINITY in the Hub</a>
+          <p class="note">Free with a Young Ress account. Install it from the Hub in one click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product ironglass" id="ironglass" aria-labelledby="ironglass-name">
+    <div class="iron">
+      <div class="wrap">
+        <h2 class="name" id="ironglass-name">IRON &amp; GLASS</h2>
+        <p class="role">A British console preamp and EQ, into a tube optical compressor.</p>
+        <figure class="shot"><img src="img/ironglass.jpg" width="1120" height="700" loading="lazy" alt="IRON & GLASS: preamp gain, air, mid and low EQ, high-pass filter, then the GLASS compressor with gain, ratio, threshold, mix, attack, release and a VU meter"></figure>
+      </div>
+    </div>
+    <div class="glass">
+      <div class="wrap body">
+        <div class="about">
+          <div>
+            <h3>Iron</h3>
+            <p>The console half. A Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit: air at 12 kHz, a sweepable mid from 360 Hz to 7.2 kHz, a low band from 35 to 220 Hz, and a high-pass filter.</p>
+          </div>
+          <div>
+            <h3>Glass</h3>
+            <p>A tube optical compressor that holds a vocal steady without squashing it. Pick Fixed, Manual or Fix/Man timing, blend it in with the mix knob, and keep the low end from pumping it with the sidechain high-pass. Put it before or after the EQ.</p>
+          </div>
+        </div>
+        <ul class="features">
+          <li>Mic and line input modes</li>
+          <li>VU meter for input, gain reduction and output</li>
+          <li>Up to 8x oversampling</li>
+          <li>A/B compare and presets</li>
+        </ul>
+        <div class="buy">
+          <div class="price" data-price="ironglass">$33</div>
+          <ul class="facts">
+            <li>Version <span data-version="ironglass">1.14.0</span></li>
+            <li>Windows VST3, 64-bit</li>
+            <li>Mac version in progress</li>
+          </ul>
+          <a class="btn" data-buy="ironglass" aria-disabled="true">Checkout opens soon</a>
+          <p class="note">Pay by card, PayPal, Apple Pay or Google Pay. The plug-in shows up in Young Ress Hub when you sign in with the email you paid with.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product air" id="air" aria-labelledby="air-name">
+    <div class="wrap split">
+      <figure class="shot"><img src="img/air.jpg" width="1600" height="1000" loading="lazy" alt="AIR: a single silver knob set to 66 percent on the Vocal Silk preset, with AIR and SMOOTH meters underneath"></figure>
+      <div>
+        <h2 class="name" id="air-name">AIR</h2>
+        <p class="role">One knob of air that never turns harsh.</p>
+        <div class="about">
+          <p>AIR lifts the top of a vocal, mix or instrument with a dynamic shelf set above the harsh zone, and adds an octave-up sheen to sources that came in dull. Built-in smoothing gives esses and spikes less lift than everything else, so pushing it harder only gets smoother.</p>
+        </div>
+        <div class="lower">
+          <ul class="features">
+            <li>16 presets for vocals, mix bus, master and instruments</li>
+            <li>Click-free preset switching</li>
+            <li>Live AIR and SMOOTH meters</li>
+            <li>Resizable interface, zero latency</li>
+          </ul>
+          <div class="buy">
+            <div class="price" data-price="air">$30</div>
+            <ul class="facts">
+              <li>Version <span data-version="air">1.4.1</span></li>
+              <li>Windows VST3, 64-bit</li>
+              <li>Mac version in progress</li>
+            </ul>
+            <a class="btn" data-buy="air" aria-disabled="true">Checkout opens soon</a>
+            <p class="note">Pay by card, PayPal, Apple Pay or Google Pay. The plug-in shows up in Young Ress Hub when you sign in with the email you paid with.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hub" id="hub" aria-labelledby="hub-title">
+    <div class="wrap">
+      <div class="hub-grid">
+        <h2 id="hub-title">One app installs, updates and activates everything.</h2>
+        <div class="hub-copy">
+          <p class="lede">Young Ress Hub is free. It puts each plug-in where your DAW looks for it, updates it when a new version is out, and moves your licenses between computers.</p>
+          <div class="actions">
+            <a class="btn" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.7/Young-Ress-Hub-Setup-1.0.7.exe">Download for Windows</a>
+            <a class="btn ghost" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.7/Young-Ress-Hub-1.0.7-Mac.dmg">Download for Mac</a>
+          </div>
+          <p class="fine" id="hub-meta">Version 1.0.7. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
+        </div>
+      </div>
+      <figure class="app">
+        <div class="app-bar" aria-hidden="true"><span>Young Ress Hub</span><i><span>&#8212;</span><span>&#9633;</span><span>&#10005;</span></i></div>
+        <img src="img/hub.jpg" width="1600" height="690" loading="lazy" alt="Young Ress Hub's Store page listing TRINITY for free, IRON & GLASS for $33 and AIR for $30">
+      </figure>
+      <ol class="steps">
+        <li><h3>Download the Hub</h3><p>Run the installer. If Windows says it protected your PC, click More info, then Run anyway.</p></li>
+        <li><h3>Create your account</h3><p>Confirm your email with the 6-digit code we send. Bought a plug-in here? Use the same email.</p></li>
+        <li><h3>Install your plug-ins</h3><p>TRINITY installs in one click. Plug-ins you bought are already in your library.</p></li>
+        <li><h3>Open your DAW</h3><p>Rescan plug-ins and load them on a vocal. The Hub keeps them up to date from then on.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="help" id="help" aria-labelledby="help-title">
+    <div class="wrap help-grid">
+      <div>
+        <h2 id="help-title">Help</h2>
+        <p>Something else? Email <a class="link" href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a>.</p>
+      </div>
+      <div>
+        <details>
+          <summary>I paid. Where's my plug-in?</summary>
+          <p>Install Young Ress Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. The plug-in is waiting in your library: click Install. Your receipt comes from Lemon Squeezy.</p>
+        </details>
+        <details>
+          <summary>I used a different email at checkout.</summary>
+          <p>Email <a class="link" href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with the order number from your receipt and the email of your Hub account, and we'll move the plug-in over.</p>
+        </details>
+        <details>
+          <summary>How many computers can I use?</summary>
+          <p>Each plug-in activates on up to 3 of your computers. To free a slot, deactivate a computer on the Hub's Account page.</p>
+        </details>
+        <details>
+          <summary>Which DAWs and systems work?</summary>
+          <p>Any DAW that loads VST3 plug-ins on Windows 10 or 11 (64-bit). TRINITY also runs on macOS as VST3 and AU, so it works in Logic Pro. Mac versions of IRON &amp; GLASS and AIR are in progress.</p>
+        </details>
+        <details>
+          <summary>My computer warns me about the installer.</summary>
+          <p>The Hub isn't signed with a paid certificate yet, so Windows shows "Windows protected your PC": click More info, then Run anyway. On a Mac, open System Settings, then Privacy &amp; Security, and click Open Anyway once.</p>
+        </details>
+        <details>
+          <summary>Can I get a refund?</summary>
+          <p>If a plug-in doesn't work on a computer that meets its requirements and we can't fix it, contact us within 14 days of buying and we'll refund you. The details are in the <a class="link" href="legal.html#terms">Terms of Service</a>.</p>
+        </details>
+        <details>
+          <summary>Who handles the payment?</summary>
+          <p>Lemon Squeezy is the seller of record. It takes the payment, adds any sales tax or VAT for your country and sends your receipt. Young Ress never sees your card details.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <a class="logo" href="./" aria-label="Young Ress home"><i aria-hidden="true"><b></b><b></b><b></b></i>YOUNG RESS</a>
+    <nav aria-label="Legal">
+      <a href="legal.html#terms">Terms of Service</a>
+      <a href="legal.html#privacy">Privacy Policy</a>
+      <a href="legal.html#eula">Plug-in License</a>
+      <a href="mailto:theyoungress@gmail.com">Support</a>
+    </nav>
+    <span>&copy; 2026 Young Ress</span>
+  </div>
+</footer>
+
+<dialog id="thanks" aria-labelledby="thanks-title">
+  <h2 id="thanks-title">Payment received.</h2>
+  <ol>
+    <li>Download Young Ress Hub and open it.</li>
+    <li>Sign in with the email you just paid with, or create an account with it.</li>
+    <li>Your plug-in is in your library. Click Install.</li>
+  </ol>
+  <form method="dialog">
+    <a class="btn" data-dl="auto" href="#hub">Download Young Ress Hub</a>
+    <button class="link">Close</button>
+  </form>
+</dialog>
+
+<script>
+// The live store (the same catalogue Young Ress Hub reads; this key is public and read-only).
+const STORE = "https://zxeuoqrnwxopohtcbhep.supabase.co", KEY = "sb_publishable_4vWXSIQDY0aYhfaKtc3ZuA_cvWQo3yP";
+
+// Versions, prices, and a Buy button for every plug-in whose checkout is live.
+fetch(STORE + "/rest/v1/products?select=*", { headers: { apikey: KEY } })
+  .then((r) => (r.ok ? r.json() : []))
+  .then((rows) => {
+    for (const p of rows) {
+      document.querySelectorAll(`[data-version="${p.id}"]`).forEach((el) => (el.textContent = p.version));
+      const btn = document.querySelector(`[data-buy="${p.id}"]`);
+      if (!btn || p.free || p.coming_soon || !/^https:\/\/[\w.-]+\.lemonsqueezy\.com\//.test(p.buy_url || "")) continue;
+      btn.href = p.buy_url;
+      btn.textContent = "Buy for " + p.price_label;
+      btn.removeAttribute("aria-disabled");
+      document.querySelectorAll(`[data-price="${p.id}"]`).forEach((el) => (el.textContent = p.price_label));
+    }
+  })
+  .catch(() => {});
+
+// Checkout opens over the page; if Lemon Squeezy's script can't load, the buy link opens as a page.
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("[data-buy]");
+  if (!a) return;
+  e.preventDefault();
+  if (!a.getAttribute("aria-disabled")) openCheckout(a.href);
+});
+function openCheckout(url) {
+  const open = () => {
+    try {
+      window.LemonSqueezy.Setup({ eventHandler: (ev) => ev.event === "Checkout.Success" && document.getElementById("thanks").showModal() });
+      window.LemonSqueezy.Url.Open(url + (url.includes("?") ? "&" : "?") + "embed=1");
+    } catch { location.href = url; }
+  };
+  if (window.LemonSqueezy) return open();
+  const s = document.createElement("script");
+  s.src = "https://app.lemonsqueezy.com/js/lemon.js";
+  s.onload = () => { if (window.createLemonSqueezy) window.createLemonSqueezy(); open(); };
+  s.onerror = () => (location.href = url);
+  document.head.append(s);
+}
+
+// Hub installers: the newest release, the right one for this computer first.
+const isMac = /Mac/i.test(navigator.platform || navigator.userAgent);
+const setDownloads = (win, mac, version) => {
+  document.querySelectorAll('[data-dl="win"]').forEach((a) => (a.href = win));
+  document.querySelectorAll('[data-dl="mac"]').forEach((a) => (a.href = mac));
+  document.querySelectorAll('[data-dl="auto"]').forEach((a) => (a.href = isMac ? mac : win));
+  document.querySelectorAll('[data-dl="other"]').forEach((a) => { a.href = isMac ? win : mac; a.textContent = isMac ? "Windows version" : "Mac version"; });
+  if (version) document.getElementById("hub-meta").textContent = `Version ${version}. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.`;
+};
+setDownloads(document.querySelector('[data-dl="win"]').href, document.querySelector('[data-dl="mac"]').href);
+fetch("https://api.github.com/repos/theyoungress/youngress-hub-releases/releases/latest")
+  .then((r) => (r.ok ? r.json() : null))
+  .then((rel) => {
+    const win = rel?.assets?.find((a) => /Setup.*\.exe$/.test(a.name)), mac = rel?.assets?.find((a) => /Mac\.dmg$/.test(a.name));
+    if (win && mac) setDownloads(win.browser_download_url, mac.browser_download_url, rel.tag_name.replace(/^v/, ""));
+  })
+  .catch(() => {});
+</script>
+</body>
+</html>
