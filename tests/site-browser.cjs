@@ -1,0 +1,53 @@
+const fs=require('node:fs');
+const http=require('node:http');
+const path=require('node:path');
+const {spawn}=require('node:child_process');
+const assert=require('node:assert/strict');
+const root=path.resolve(__dirname,'..');
+const products=[{id:'trinity',version:'1.0.7',free:true,coming_soon:false,price_label:'Free'}, {id:'ironglass',version:'1.14.0',free:true,coming_soon:false,price_label:'Free'}, {id:'air',version:'1.4.1',free:true,coming_soon:false,price_label:'Free'}];
+const release={tag_name:'v1.0.7',assets:[{name:'Young-Ress-Hub-Setup-1.0.7.exe',browser_download_url:'https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.7/Young-Ress-Hub-Setup-1.0.7.exe'},{name:'Young-Ress-Hub-1.0.7-Mac.dmg',browser_download_url:'https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.7/Young-Ress-Hub-1.0.7-Mac.dmg'}]};
+const pause=ms=>new Promise(r=>setTimeout(r,ms));
+let browser,ws,server;
+(async()=>{
+ server=http.createServer((req,res)=>{
+  const name=path.join(root,decodeURIComponent(new URL(req.url,'http://localhost').pathname));
+  const file=name.endsWith('/')?path.join(name,'index.html'):name;
+  try{const types={'.html':'text/html','.js':'text/javascript','.png':'image/png','.jpg':'image/jpeg'};res.setHeader('Content-Type',types[path.extname(file)]||'application/octet-stream');res.end(fs.readFileSync(file))}catch{res.writeHead(404);res.end('Not found')}
+ }).listen(0,'127.0.0.1');
+ await new Promise(r=>server.once('listening',r));
+ const base='http://127.0.0.1:'+server.address().port;
+ const profile=fs.mkdtempSync('/tmp/website-chromium-');
+ browser=spawn('/usr/bin/chromium',['--headless','--no-sandbox','--disable-gpu','--remote-debugging-port=0','--user-data-dir='+profile,'about:blank'],{stdio:'ignore'});
+ let port;
+ for(let i=0;i<100;i++){try{port=fs.readFileSync(path.join(profile,'DevToolsActivePort'),'utf8').split('\n')[0];break}catch{await pause(100)}}
+ assert(port,'Chromium did not start');
+ const targets=await(await fetch('http://127.0.0.1:'+port+'/json')).json();
+ ws=new WebSocket(targets.find(t=>t.type==='page').webSocketDebuggerUrl);
+ await new Promise((resolve,reject)=>{ws.addEventListener('open',resolve);ws.addEventListener('error',reject)});
+ const pending=new Map();let id=0;const exceptions=[];
+ ws.addEventListener('message',e=>{const m=JSON.parse(e.data);if(m.id){const p=pending.get(m.id);pending.delete(m.id);m.error?p.reject(Error(JSON.stringify(m.error))):p.resolve(m.result)}else if(m.method==='Runtime.exceptionThrown')exceptions.push(m.params.exceptionDetails.text)});
+ const call=(method,params={})=>new Promise((resolve,reject)=>{const n=++id;pending.set(n,{resolve,reject});ws.send(JSON.stringify({id:n,method,params}))});
+ const js=async(expression)=>{const r=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});assert(!r.exceptionDetails,JSON.stringify(r.exceptionDetails));return r.result.value};
+ await call('Runtime.enable');await call('Page.enable');
+ await call('Page.addScriptToEvaluateOnNewDocument',{source:`const nativeFetch=window.fetch;const fixtureProducts=${JSON.stringify(products)};if(location.search==='?paid'){fixtureProducts[1]={id:'ironglass',version:'1.14.0',free:false,price_label:'$29',buy_url:'https://youngress.lemonsqueezy.com/buy/test'};fixtureProducts[2].coming_soon=true;}window.fetch=(url,opts)=>String(url).includes('/rest/v1/products')?Promise.resolve(new Response(JSON.stringify(fixtureProducts))):String(url).includes('/releases/latest')?Promise.resolve(new Response(JSON.stringify(${JSON.stringify(release)}))):nativeFetch(url,opts);`});
+ await call('Page.navigate',{url:base+'/'});await pause(1000);
+ await js(`Promise.all([...document.images].map(i=>{i.loading='eager';return i.decode()}))`);
+ const buttons=await js(`([...document.querySelectorAll('[data-buy]')].map(a=>({id:a.dataset.buy,disabled:a.hasAttribute('aria-disabled'),text:a.textContent,href:a.getAttribute('href')})))`);
+ assert(buttons.length>=6,'Expected product action buttons');
+ assert(buttons.every(b=>!b.disabled&&b.href==='#hub'&&/get it free/i.test(b.text)),'Free products still have disabled checkout buttons: '+JSON.stringify(buttons));
+ assert.deepEqual(await js(`[...document.querySelectorAll('[data-price]')].map(e=>e.textContent)`),['Free','Free','Free','Free']);
+ await js(`document.querySelector('[data-buy]').click()`);
+ assert.equal(await js('location.hash'),'#hub','Free action should navigate to Hub downloads');
+ assert((await js(`document.querySelector('[data-dl="win"]').href`)).endsWith('.exe'));
+ assert((await js(`document.querySelector('[data-dl="mac"]').href`)).endsWith('.dmg'));
+ await call('Emulation.setDeviceMetricsOverride',{width:390,height:844,deviceScaleFactor:1,mobile:true});
+ await pause(100);assert(await js('document.documentElement.scrollWidth<=innerWidth+1'),'Mobile horizontal overflow');
+ await call('Page.navigate',{url:base+'/?paid'});await pause(500);
+ assert(await js(`([...document.querySelectorAll('[data-buy="ironglass"]')].every(a=>a.dataset.checkout==='true'&&!a.hasAttribute('aria-disabled')&&a.textContent==='Buy for $29'&&a.href==='https://youngress.lemonsqueezy.com/buy/test'))`),'Paid checkout behavior regressed');
+ assert(await js(`([...document.querySelectorAll('[data-buy="air"]')].every(a=>a.hasAttribute('aria-disabled')&&!a.hasAttribute('href')&&a.textContent==='Coming soon'))`),'Coming-soon product should remain unavailable');
+ await call('Page.navigate',{url:base+'/legal.html#privacy'});await pause(500);
+ assert(await js(`['terms','privacy','eula'].every(id=>document.getElementById(id)?.textContent.length>100)`),'Missing legal documents');
+ assert.equal(exceptions.length,0,'JavaScript exceptions: '+JSON.stringify(exceptions));
+ console.log('PASS: free-product prices/actions, Hub navigation, paid checkout links, coming-soon state, installer links, all images, 390px layout, and legal documents (catalog and release responses mocked).');
+})().catch(e=>{console.error(e);process.exitCode=1}).finally(()=>{ws?.close();browser?.kill();server?.close()});
+setTimeout(()=>{console.error('Browser check timed out');process.exit(1)},30000).unref();

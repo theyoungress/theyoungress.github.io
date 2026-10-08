@@ -245,7 +245,7 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <p class="sub">A British console preamp and EQ, into a tube optical compressor.</p>
       <div class="pills">
         <a class="pill" href="#ironglass">Learn more</a>
-        <a class="pill solid" data-buy="ironglass" aria-disabled="true">Checkout opens soon</a>
+        <a class="pill solid" data-buy="ironglass" href="#hub">Get it free</a>
       </div>
     </div>
     <img class="hero-shot" src="img/ironglass.jpg" width="1120" height="700" alt="IRON & GLASS: a grey preamp and EQ panel above a blue tube compressor panel with a VU meter">
@@ -261,7 +261,7 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
     <div class="tile tile-air">
       <h2 class="display">AIR</h2>
       <p>One knob of silky top end for vocals, mixes and instruments.</p>
-      <div class="pills"><a class="pill" href="#air">Learn more</a><a class="pill" data-buy="air" aria-disabled="true">Checkout opens soon</a></div>
+      <div class="pills"><a class="pill" href="#air">Learn more</a><a class="pill" data-buy="air" href="#hub">Get it free</a></div>
       <img src="img/air-card.png" width="676" height="860" loading="lazy" alt="">
     </div>
   </div>
@@ -283,15 +283,15 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
         <a class="card-img" href="#ironglass"><img src="img/ironglass.jpg" width="1120" height="700" loading="lazy" alt="IRON & GLASS interface"></a>
         <h3>IRON &amp; GLASS</h3>
         <p class="card-sub">Preamp, EQ and tube compressor</p>
-        <p class="card-price" data-price="ironglass">$33</p>
-        <a class="pill" data-buy="ironglass" aria-disabled="true">Checkout opens soon</a>
+        <p class="card-price" data-price="ironglass">Free</p>
+        <a class="pill" data-buy="ironglass" href="#hub">Get it free</a>
       </article>
       <article class="card">
         <a class="card-img" href="#air"><img class="air-img" src="img/air-card.png" width="676" height="860" loading="lazy" alt="AIR interface"><span class="badge">New</span></a>
         <h3>AIR</h3>
         <p class="card-sub">One-knob air enhancer</p>
-        <p class="card-price" data-price="air">$30</p>
-        <a class="pill" data-buy="air" aria-disabled="true">Checkout opens soon</a>
+        <p class="card-price" data-price="air">Free</p>
+        <a class="pill" data-buy="air" href="#hub">Get it free</a>
       </article>
     </div>
   </section>
@@ -359,9 +359,9 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <div class="pdp-info">
         <h2 class="display" id="ironglass-name">IRON &amp; GLASS</h2>
         <p class="pdp-sub">Analog channel strip</p>
-        <p class="pdp-price" data-price="ironglass">$33</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="ironglass" aria-disabled="true">Checkout opens soon</a></div>
-        <p class="pay-note">Card, PayPal, Apple Pay or Google Pay. Sign in to Young Ress Hub with the email you paid with and it's in your library.</p>
+        <p class="pdp-price" data-price="ironglass">Free</p>
+        <div class="pdp-buy"><a class="pill solid" data-buy="ironglass" href="#hub">Get it free</a></div>
+        <p class="pay-note" data-pay-note="ironglass">Free with a Young Ress account. Installs in one click.</p>
         <div class="pdp-body">
           <p><b>Iron</b> is the console half: a Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit.</p>
           <p><b>Glass</b> is a tube optical compressor that holds a vocal steady without squashing it. Blend it in with the mix knob, keep the low end from pumping it with the sidechain high-pass, and put it before or after the EQ.</p>
@@ -390,9 +390,9 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <div class="pdp-info">
         <h2 class="display" id="air-name">AIR</h2>
         <p class="pdp-sub">One-knob air enhancer</p>
-        <p class="pdp-price" data-price="air">$30</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="air" aria-disabled="true">Checkout opens soon</a></div>
-        <p class="pay-note">Card, PayPal, Apple Pay or Google Pay. Sign in to Young Ress Hub with the email you paid with and it's in your library.</p>
+        <p class="pdp-price" data-price="air">Free</p>
+        <div class="pdp-buy"><a class="pill solid" data-buy="air" href="#hub">Get it free</a></div>
+        <p class="pay-note" data-pay-note="air">Free with a Young Ress account. Installs in one click.</p>
         <div class="pdp-body">
           <p>AIR lifts the top of a vocal, mix or instrument with a dynamic shelf set above the harsh zone, and adds an octave-up sheen to sources that came in dull. Built-in smoothing gives esses and spikes less lift than everything else, so pushing it harder only gets smoother.</p>
           <h3>Features</h3>
@@ -486,19 +486,39 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
 // The live store (the same catalogue Young Ress Hub reads; this key is public and read-only).
 const STORE = "https://zxeuoqrnwxopohtcbhep.supabase.co", KEY = "sb_publishable_4vWXSIQDY0aYhfaKtc3ZuA_cvWQo3yP";
 
-// Versions, prices, and Buy buttons for every plug-in whose checkout is live.
+// Versions, prices, and download or checkout buttons from the live catalogue.
 fetch(STORE + "/rest/v1/products?select=*", { headers: { apikey: KEY } })
   .then((r) => (r.ok ? r.json() : []))
   .then((rows) => {
     for (const p of rows) {
       document.querySelectorAll(`[data-version="${p.id}"]`).forEach((el) => (el.textContent = p.version));
-      if (p.free || p.coming_soon || !/^https:\/\/[\w.-]+\.lemonsqueezy\.com\//.test(p.buy_url || "")) continue;
+      document.querySelectorAll(`[data-price="${p.id}"]`).forEach((el) => (el.textContent = p.free ? "Free" : p.price_label));
       document.querySelectorAll(`[data-buy="${p.id}"]`).forEach((btn) => {
-        btn.href = p.buy_url;
-        btn.textContent = "Buy for " + p.price_label;
-        btn.removeAttribute("aria-disabled");
+        delete btn.dataset.checkout;
+        if (p.coming_soon) {
+          btn.removeAttribute("href");
+          btn.textContent = "Coming soon";
+          btn.setAttribute("aria-disabled", "true");
+        } else if (p.free) {
+          btn.href = "#hub";
+          btn.textContent = "Get it free";
+          btn.removeAttribute("aria-disabled");
+        } else if (/^https:\/\/[\w.-]+\.lemonsqueezy\.com\//.test(p.buy_url || "")) {
+          btn.href = p.buy_url;
+          btn.textContent = "Buy for " + p.price_label;
+          btn.dataset.checkout = "true";
+          btn.removeAttribute("aria-disabled");
+        } else {
+          btn.removeAttribute("href");
+          btn.textContent = "Checkout opens soon";
+          btn.setAttribute("aria-disabled", "true");
+        }
       });
-      document.querySelectorAll(`[data-price="${p.id}"]`).forEach((el) => (el.textContent = p.price_label));
+      document.querySelectorAll(`[data-pay-note="${p.id}"]`).forEach((el) => {
+        el.textContent = p.coming_soon ? "Available soon in Young Ress Hub." : p.free
+          ? "Free with a Young Ress account. Installs in one click."
+          : "Card, PayPal, Apple Pay or Google Pay. Sign in to Young Ress Hub with the email you paid with and it's in your library.";
+      });
     }
   })
   .catch(() => {});
@@ -507,6 +527,7 @@ fetch(STORE + "/rest/v1/products?select=*", { headers: { apikey: KEY } })
 document.addEventListener("click", (e) => {
   const a = e.target.closest("[data-buy]");
   if (!a) return;
+  if (a.dataset.checkout !== "true") return;
   e.preventDefault();
   if (!a.getAttribute("aria-disabled")) openCheckout(a.href);
 });
