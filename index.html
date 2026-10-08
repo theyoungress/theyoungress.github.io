@@ -181,14 +181,6 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
 .foot a:hover { color: var(--white); }
 .legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid #222; font-size: 13px; color: #7d7f86; }
 
-/* ---- after paying ---- */
-dialog { max-width: 500px; width: calc(100% - 32px); border: 0; border-radius: 20px; padding: 36px; color: var(--ink); }
-dialog::backdrop { background: rgba(0, 0, 0, .6); }
-dialog h2 { font-size: 28px; font-weight: 800; letter-spacing: -.02em; margin-bottom: 16px; }
-dialog ol { padding-left: 20px; margin: 0 0 26px; color: #34373d; }
-dialog li { margin-bottom: 8px; }
-dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
-
 @media (max-width: 1080px) {
   .tiles { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr 1fr; }
@@ -245,7 +237,7 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <p class="sub">A British console preamp and EQ, into a tube optical compressor.</p>
       <div class="pills">
         <a class="pill" href="#ironglass">Learn more</a>
-        <a class="pill solid" data-buy="ironglass" href="#hub">Get it free</a>
+        <a class="pill solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a>
       </div>
     </div>
     <img class="hero-shot" src="img/ironglass.jpg" width="1120" height="700" alt="IRON & GLASS: a grey preamp and EQ panel above a blue tube compressor panel with a VU meter">
@@ -255,13 +247,13 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
     <div class="tile tile-trinity on-dark">
       <h2 class="display">TRINITY</h2>
       <p>Pitch correction that goes from natural to hard-locked. Free with your Young Ress account.</p>
-      <div class="pills"><a class="pill" href="#trinity">Learn more</a><a class="pill solid" href="#hub">Get it free</a></div>
+      <div class="pills"><a class="pill" href="#trinity">Learn more</a><a class="pill solid" data-buy="trinity" href="#hub">Get it free</a></div>
       <img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="">
     </div>
     <div class="tile tile-air">
       <h2 class="display">AIR</h2>
       <p>One knob of silky top end for vocals, mixes and instruments.</p>
-      <div class="pills"><a class="pill" href="#air">Learn more</a><a class="pill" data-buy="air" href="#hub">Get it free</a></div>
+      <div class="pills"><a class="pill" href="#air">Learn more</a><a class="pill" data-buy="air" href="checkout.html?product=air">Buy for $30</a></div>
       <img src="img/air-card.png" width="676" height="860" loading="lazy" alt="">
     </div>
   </div>
@@ -277,21 +269,21 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
         <h3>TRINITY</h3>
         <p class="card-sub">Vocal pitch correction</p>
         <p class="card-price">Free</p>
-        <a class="pill" href="#hub">Get it free</a>
+        <a class="pill" data-buy="trinity" href="#hub">Get it free</a>
       </article>
       <article class="card">
         <a class="card-img" href="#ironglass"><img src="img/ironglass.jpg" width="1120" height="700" loading="lazy" alt="IRON & GLASS interface"></a>
         <h3>IRON &amp; GLASS</h3>
         <p class="card-sub">Preamp, EQ and tube compressor</p>
-        <p class="card-price" data-price="ironglass">Free</p>
-        <a class="pill" data-buy="ironglass" href="#hub">Get it free</a>
+        <p class="card-price" data-price="ironglass">$33</p>
+        <a class="pill" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a>
       </article>
       <article class="card">
         <a class="card-img" href="#air"><img class="air-img" src="img/air-card.png" width="676" height="860" loading="lazy" alt="AIR interface"><span class="badge">New</span></a>
         <h3>AIR</h3>
         <p class="card-sub">One-knob air enhancer</p>
-        <p class="card-price" data-price="air">Free</p>
-        <a class="pill" data-buy="air" href="#hub">Get it free</a>
+        <p class="card-price" data-price="air">$30</p>
+        <a class="pill" data-buy="air" href="checkout.html?product=air">Buy for $30</a>
       </article>
     </div>
   </section>
@@ -329,7 +321,7 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
         <h2 class="display" id="trinity-name">TRINITY</h2>
         <p class="pdp-sub">Vocal pitch engine</p>
         <p class="pdp-price">Free</p>
-        <div class="pdp-buy"><a class="pill solid" href="#hub">Get it free in Young Ress Hub</a></div>
+        <div class="pdp-buy"><a class="pill solid" data-buy="trinity" href="#hub">Get it free in Young Ress Hub</a></div>
         <p class="pay-note">Free with a Young Ress account. Installs in one click.</p>
         <div class="pdp-body">
           <p>Classic follows the singer and leaves the expression in. Underground snaps every note to the key for the locked sound modern rap vocals are built on. Either way, formant-preserving correction keeps the voice sounding like the person who sang it.</p>
@@ -359,9 +351,9 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <div class="pdp-info">
         <h2 class="display" id="ironglass-name">IRON &amp; GLASS</h2>
         <p class="pdp-sub">Analog channel strip</p>
-        <p class="pdp-price" data-price="ironglass">Free</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="ironglass" href="#hub">Get it free</a></div>
-        <p class="pay-note" data-pay-note="ironglass">Free with a Young Ress account. Installs in one click.</p>
+        <p class="pdp-price" data-price="ironglass">$33</p>
+        <div class="pdp-buy"><a class="pill solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a></div>
+        <p class="pay-note" data-pay-note="ironglass">One-time purchase. Use your Hub email at checkout, then install in Young Ress Hub.</p>
         <div class="pdp-body">
           <p><b>Iron</b> is the console half: a Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit.</p>
           <p><b>Glass</b> is a tube optical compressor that holds a vocal steady without squashing it. Blend it in with the mix knob, keep the low end from pumping it with the sidechain high-pass, and put it before or after the EQ.</p>
@@ -390,9 +382,9 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <div class="pdp-info">
         <h2 class="display" id="air-name">AIR</h2>
         <p class="pdp-sub">One-knob air enhancer</p>
-        <p class="pdp-price" data-price="air">Free</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="air" href="#hub">Get it free</a></div>
-        <p class="pay-note" data-pay-note="air">Free with a Young Ress account. Installs in one click.</p>
+        <p class="pdp-price" data-price="air">$30</p>
+        <div class="pdp-buy"><a class="pill solid" data-buy="air" href="checkout.html?product=air">Buy for $30</a></div>
+        <p class="pay-note" data-pay-note="air">One-time purchase. Use your Hub email at checkout, then install in Young Ress Hub.</p>
         <div class="pdp-body">
           <p>AIR lifts the top of a vocal, mix or instrument with a dynamic shelf set above the harsh zone, and adds an octave-up sheen to sources that came in dull. Built-in smoothing gives esses and spikes less lift than everything else, so pushing it harder only gets smoother.</p>
           <h3>Features</h3>
@@ -423,7 +415,7 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
       <div>
         <details>
           <summary>I paid. Where's my plug-in?</summary>
-          <p>Install Young Ress Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. The plug-in is waiting in your library: click Install. Your receipt comes from Lemon Squeezy.</p>
+          <p>Install Young Ress Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. Once your payment is verified, the plug-in appears in your library. Allow a moment for it to sync, then click Install. Your receipt comes from Lemon Squeezy.</p>
         </details>
         <details>
           <summary>I used a different email at checkout.</summary>
@@ -469,82 +461,17 @@ dialog form { display: flex; flex-wrap: wrap; gap: 12px; }
   </div>
 </footer>
 
-<dialog id="thanks" aria-labelledby="thanks-title">
-  <h2 id="thanks-title">Payment received.</h2>
-  <ol>
-    <li>Download Young Ress Hub and open it.</li>
-    <li>Sign in with the email you just paid with, or create an account with it.</li>
-    <li>Your plug-in is in your library. Click Install.</li>
-  </ol>
-  <form method="dialog">
-    <a class="pill solid" data-dl="auto" href="#hub">Download Young Ress Hub</a>
-    <button class="pill">Close</button>
-  </form>
-</dialog>
-
+<script src="store.js"></script>
 <script>
-// The live store (the same catalogue Young Ress Hub reads; this key is public and read-only).
-const STORE = "https://zxeuoqrnwxopohtcbhep.supabase.co", KEY = "sb_publishable_4vWXSIQDY0aYhfaKtc3ZuA_cvWQo3yP";
-
-// Versions, prices, and download or checkout buttons from the live catalogue.
-fetch(STORE + "/rest/v1/products?select=*", { headers: { apikey: KEY } })
-  .then((r) => (r.ok ? r.json() : []))
-  .then((rows) => {
-    for (const p of rows) {
-      document.querySelectorAll(`[data-version="${p.id}"]`).forEach((el) => (el.textContent = p.version));
-      document.querySelectorAll(`[data-price="${p.id}"]`).forEach((el) => (el.textContent = p.free ? "Free" : p.price_label));
-      document.querySelectorAll(`[data-buy="${p.id}"]`).forEach((btn) => {
-        delete btn.dataset.checkout;
-        if (p.coming_soon) {
-          btn.removeAttribute("href");
-          btn.textContent = "Coming soon";
-          btn.setAttribute("aria-disabled", "true");
-        } else if (p.free) {
-          btn.href = "#hub";
-          btn.textContent = "Get it free";
-          btn.removeAttribute("aria-disabled");
-        } else if (/^https:\/\/[\w.-]+\.lemonsqueezy\.com\//.test(p.buy_url || "")) {
-          btn.href = p.buy_url;
-          btn.textContent = "Buy for " + p.price_label;
-          btn.dataset.checkout = "true";
-          btn.removeAttribute("aria-disabled");
-        } else {
-          btn.removeAttribute("href");
-          btn.textContent = "Checkout opens soon";
-          btn.setAttribute("aria-disabled", "true");
-        }
-      });
-      document.querySelectorAll(`[data-pay-note="${p.id}"]`).forEach((el) => {
-        el.textContent = p.coming_soon ? "Available soon in Young Ress Hub." : p.free
-          ? "Free with a Young Ress account. Installs in one click."
-          : "Card, PayPal, Apple Pay or Google Pay. Sign in to Young Ress Hub with the email you paid with and it's in your library.";
-      });
+// Refresh versions without letting a pending catalog change the approved prices.
+YoungRessStore.catalog().then((rows) => {
+  for (const id of ["trinity", "ironglass", "air"]) {
+    const product = rows.find((row) => row.id === id && row.published === true);
+    if (product && typeof product.version === "string") {
+      document.querySelectorAll(`[data-version="${id}"]`).forEach((el) => (el.textContent = product.version));
     }
-  })
-  .catch(() => {});
-
-// Checkout opens over the page; if Lemon Squeezy's script can't load, the buy link opens as a page.
-document.addEventListener("click", (e) => {
-  const a = e.target.closest("[data-buy]");
-  if (!a) return;
-  if (a.dataset.checkout !== "true") return;
-  e.preventDefault();
-  if (!a.getAttribute("aria-disabled")) openCheckout(a.href);
-});
-function openCheckout(url) {
-  const open = () => {
-    try {
-      window.LemonSqueezy.Setup({ eventHandler: (ev) => ev.event === "Checkout.Success" && document.getElementById("thanks").showModal() });
-      window.LemonSqueezy.Url.Open(url + (url.includes("?") ? "&" : "?") + "embed=1");
-    } catch { location.href = url; }
-  };
-  if (window.LemonSqueezy) return open();
-  const s = document.createElement("script");
-  s.src = "https://app.lemonsqueezy.com/js/lemon.js";
-  s.onload = () => { if (window.createLemonSqueezy) window.createLemonSqueezy(); open(); };
-  s.onerror = () => (location.href = url);
-  document.head.append(s);
-}
+  }
+}).catch(() => {});
 
 // Hub installers: the newest release, the right one for this computer first.
 const isMac = /Mac/i.test(navigator.platform || navigator.userAgent);
