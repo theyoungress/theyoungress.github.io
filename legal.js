@@ -2,8 +2,8 @@
 // matters? Raise `version`: every customer is then asked to agree again the next time they sign in.
 // <span class="contact"></span> is filled in with the support email from config.js.
 window.YR_LEGAL = {
-  version: "2026-10-04",
-  updated: "October 4, 2026",
+  version: "2026-10-19",
+  updated: "October 19, 2026",
   docs: {
     terms: {
       title: "Terms of Service",
@@ -24,8 +24,8 @@ account that breaks these terms, is used for fraud or piracy, or puts other peop
 
 <h3>3. Buying plug-ins</h3>
 <ul>
-<li><b>Lemon Squeezy is the seller of record.</b> Orders are processed by our reseller, Lemon Squeezy, which takes the
-payment, charges and pays any sales tax or VAT, and sends your receipt. Lemon Squeezy's own buyer terms also apply to the
+<li><b>Gumroad is the seller of record.</b> Orders are processed by our reseller, Gumroad, which takes the
+payment, charges and pays any sales tax or VAT, and sends your receipt. Gumroad's own buyer terms also apply to the
 payment. We never see or store your card or bank details.</li>
 <li>Prices are shown in US dollars. Tax may be added at checkout depending on where you live.</li>
 <li><b>Prices and mistakes.</b> Prices, and which plug-ins are free, can change at any time. A change never affects what
@@ -43,7 +43,7 @@ activation of the plug-in has started, as far as the law allows.</li>
 
 <h3>4. Refunds</h3>
 <p>If a plug-in does not work on a computer that meets its system requirements and we cannot fix the problem, contact us
-within 14 days of buying and we will refund you through Lemon Squeezy. We also give refunds whenever the law requires it.
+within 14 days of buying and we will refund you through Gumroad. We also give refunds whenever the law requires it.
 Other refund requests are at our discretion. When a purchase is refunded, its license ends and it is deactivated on your
 computers. If you dispute a payment with your bank, the license may be suspended while the dispute is open and ends if
 the payment is reversed.</p>
@@ -85,7 +85,7 @@ in advance. License files are stored on your computer, so plug-ins you have alre
 computers.</p>
 
 <h3>12. Other companies' services</h3>
-<p>The hub relies on and links to services run by other companies, for example Lemon Squeezy for payments and GitHub for
+<p>The hub relies on and links to services run by other companies, for example Gumroad for payments and GitHub for
 hub updates. Their own terms and privacy policies apply to them. We do not control them and are not responsible for their
 websites, services or content.</p>
 
@@ -144,7 +144,7 @@ our plug-ins, why, who we share it with and the choices you have. Young Ress is 
 by our hosting provider, never readable), when you signed up and last signed in, and a record of when you agreed to our
 terms.</li>
 <li><b>Purchases:</b> order number, plug-in, price, tax, currency, date, status and the email used at checkout, which our
-reseller Lemon Squeezy sends us. We never receive your card or bank details.</li>
+reseller Gumroad sends us. We never receive your card or bank details.</li>
 <li><b>Activated computers:</b> for each computer you activate, a one-way fingerprint made from your operating system's
 machine ID (it cannot be turned back into the ID), the computer's name (for example "STUDIO-PC", so you can tell your
 computers apart) and the date. The license file saved on your computer contains your account email, account ID and that
@@ -170,7 +170,7 @@ advertising.</p>
 <ul>
 <li><b>Supabase</b>: hosts our database, sign-in system, store functions and plug-in downloads, and sends sign-in and
 verification emails.</li>
-<li><b>Lemon Squeezy</b>: our reseller (merchant of record). It handles checkout, payment, tax and receipts under its own
+<li><b>Gumroad</b>: our reseller (merchant of record). It handles checkout, payment, tax and receipts under its own
 privacy policy, and uses payment processors such as Stripe and PayPal.</li>
 <li><b>GitHub</b>: hosts hub updates. When the hub checks for or downloads an update, GitHub receives your IP address as
 with any website.</li>
@@ -180,7 +180,7 @@ with any website.</li>
 use safeguards such as standard contractual clauses.</p>
 
 <h3>Other websites</h3>
-<p>The hub links to websites we do not run, such as Lemon Squeezy's checkout and GitHub. What you give them is covered by
+<p>The hub links to websites we do not run, such as Gumroad's checkout and GitHub. What you give them is covered by
 their own privacy policies, not this one.</p>
 
 <h3>How long we keep it</h3>

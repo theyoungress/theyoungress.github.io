@@ -18,7 +18,7 @@ window.YoungRessStore = (() => {
     if (!new RegExp('^\\$' + product.price + '(?:\\.00)?(?: USD)?$').test(row.price_label.trim())) return null;
     try {
       const url = new URL(row.buy_url);
-      if (url.protocol !== 'https:' || !/^[a-z0-9-]+\.lemonsqueezy\.com$/i.test(url.hostname) || url.username || url.password || url.port || url.hash || !/^\/buy\/[a-z0-9_-]+\/?$/i.test(url.pathname)) return null;
+      if (url.protocol !== 'https:' || !/^[a-z0-9-]+\.gumroad\.com$/i.test(url.hostname) || url.username || url.password || url.port || url.hash || !/^\/l\/[a-z0-9_-]+\/?$/i.test(url.pathname)) return null;
       // Checkout destinations and amounts must be configured by the store, not overridden in a catalog link.
       if ([...url.searchParams.keys()].some((key) => /success_url|redirect|price/i.test(key))) return null;
       return url;
