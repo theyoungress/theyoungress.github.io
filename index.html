@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://zxeuoqrnwxopohtcbhep.supabase.co https://api.github.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Young Ress | Vocal plug-ins</title>
 <meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Young Ress, installed and kept up to date by the free Young Ress Hub.">
@@ -294,10 +296,10 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         <h2 id="hub-title">Young Ress Hub installs, updates and activates every plug-in.</h2>
         <p>It's free. Sign in once, click install, and each plug-in lands where your DAW looks for it. New versions arrive on their own, and your licenses move between your computers.</p>
         <div class="pills">
-          <a class="pill solid" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.8/Young-Ress-Hub-Setup-1.0.8.exe">Download for Windows</a>
-          <a class="pill" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.8/Young-Ress-Hub-1.0.8-Mac.dmg">Download for Mac</a>
+          <a class="pill solid" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.9/Young-Ress-Hub-Setup-1.0.9.exe">Download for Windows</a>
+          <a class="pill" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.0.9/Young-Ress-Hub-1.0.9-Mac.dmg">Download for Mac</a>
         </div>
-        <p class="fine" id="hub-meta">Version 1.0.8. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
+        <p class="fine" id="hub-meta">Version 1.0.9. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
       </div>
     </div>
     <div class="wrap">
@@ -307,7 +309,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
       </figure>
       <ol class="steps">
         <li><h3>Download the Hub</h3><p>Run the installer. If Windows says it protected your PC, click More info, then Run anyway.</p></li>
-        <li><h3>Create your account</h3><p>Confirm your email with the 6-digit code we send. Bought a plug-in here? Use the same email.</p></li>
+        <li><h3>Create your account</h3><p>Confirm your email with the 6-digit code we send. Bought a plug-in? Use the email you paid with, or redeem the licence key from your receipt.</p></li>
         <li><h3>Install your plug-ins</h3><p>TRINITY installs in one click. Plug-ins you bought are already in your library.</p></li>
         <li><h3>Open your DAW</h3><p>Rescan plug-ins and load them on a vocal. The Hub keeps them up to date.</p></li>
       </ol>
@@ -415,15 +417,15 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
       <div>
         <details>
           <summary>I paid. Where's my plug-in?</summary>
-          <p>Install Young Ress Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. Once your payment is verified, the plug-in appears in your library. Allow a moment for it to sync, then click Install. Your receipt comes from Gumroad.</p>
+          <p>Install Young Ress Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. The plug-in appears in your Library within a minute of paying: click Install. Your receipt comes from Gumroad. Buying from inside the Hub? Its Buy now button opens Gumroad with your account email already filled in.</p>
         </details>
         <details>
           <summary>I used a different email at checkout.</summary>
-          <p>Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with the order number from your receipt and the email of your Hub account, and we'll move the plug-in over.</p>
+          <p>No problem: open Young Ress Hub, go to <b>Library</b> and paste the licence key from your Gumroad receipt under <b>Bought on Gumroad with another email?</b>. The plug-in moves into your account straight away. Stuck? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with your order number.</p>
         </details>
         <details>
           <summary>How many computers can I use?</summary>
-          <p>Each plug-in activates on up to 3 of your computers. To free a slot, deactivate a computer on the Hub's Account page.</p>
+          <p>Each plug-in activates on up to 3 of your computers. To free a slot, deactivate a computer on the Hub's Account page (up to 3 moves per plug-in each month; email us if you need more).</p>
         </details>
         <details>
           <summary>Which DAWs and systems work?</summary>
@@ -462,33 +464,6 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
 </footer>
 
 <script src="store.js"></script>
-<script>
-// Refresh versions without letting a pending catalog change the approved prices.
-YoungRessStore.catalog().then((rows) => {
-  for (const id of ["trinity", "ironglass", "air"]) {
-    const product = rows.find((row) => row.id === id && row.published === true);
-    if (product && typeof product.version === "string") {
-      document.querySelectorAll(`[data-version="${id}"]`).forEach((el) => (el.textContent = product.version));
-    }
-  }
-}).catch(() => {});
-
-// Hub installers: the newest release, the right one for this computer first.
-const isMac = /Mac/i.test(navigator.platform || navigator.userAgent);
-const setDownloads = (win, mac, version) => {
-  document.querySelectorAll('[data-dl="win"]').forEach((a) => (a.href = win));
-  document.querySelectorAll('[data-dl="mac"]').forEach((a) => (a.href = mac));
-  document.querySelectorAll('[data-dl="auto"]').forEach((a) => (a.href = isMac ? mac : win));
-  if (version) document.getElementById("hub-meta").textContent = `Version ${version}. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.`;
-};
-setDownloads(document.querySelector('[data-dl="win"]').href, document.querySelector('[data-dl="mac"]').href);
-fetch("https://api.github.com/repos/theyoungress/youngress-hub-releases/releases/latest")
-  .then((r) => (r.ok ? r.json() : null))
-  .then((rel) => {
-    const win = rel?.assets?.find((a) => /Setup.*\.exe$/.test(a.name)), mac = rel?.assets?.find((a) => /Mac\.dmg$/.test(a.name));
-    if (win && mac) setDownloads(win.browser_download_url, mac.browser_download_url, rel.tag_name.replace(/^v/, ""));
-  })
-  .catch(() => {});
-</script>
+<script src="site.js"></script>
 </body>
 </html>

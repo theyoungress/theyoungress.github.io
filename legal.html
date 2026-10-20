@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://zxeuoqrnwxopohtcbhep.supabase.co https://api.github.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Young Ress | Terms, privacy and license</title>
 <meta name="description" content="Young Ress Terms of Service, Privacy Policy and Plug-in License.">
@@ -50,19 +52,6 @@ footer { padding: 40px 0 64px; color: var(--muted); font-size: 15px; border-top:
   <footer>Questions? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a>. <a href="./">Back to Young Ress</a></footer>
 </div>
 <script src="legal.js"></script>
-<script>
-// The same documents Young Ress Hub shows and customers agree to (legal.js is copied from the hub).
-const SUPPORT = "theyoungress@gmail.com";
-const L = window.YR_LEGAL;
-document.getElementById("updated").textContent = "Last updated " + L.updated + ".";
-document.getElementById("docs").innerHTML = ["terms", "privacy", "eula"]
-  .map((id) => `<section id="${id}"><h2>${L.docs[id].title}</h2>${L.docs[id].html}</section>`).join("");
-document.querySelectorAll("a[data-doc]").forEach((a) => {
-  if (L.docs[a.dataset.doc]) a.href = "#" + a.dataset.doc;
-  else a.replaceWith(a.textContent);   // documents that only live inside the hub
-});
-document.querySelectorAll(".contact").forEach((s) => (s.innerHTML = `<a href="mailto:${SUPPORT}">${SUPPORT}</a>`));
-if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
-</script>
+<script src="legal-page.js"></script>
 </body>
 </html>
