@@ -6,219 +6,207 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aphotic Audio | Vocal plug-ins</title>
-<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Aphotic Audio, installed and kept up to date by the free Aphotic Hub.">
+<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Aphotic Audio for Windows and Mac, installed and kept up to date by the free Aphotic Hub.">
 <meta property="og:title" content="Aphotic Audio | Vocal plug-ins">
-<meta property="og:description" content="TRINITY, IRON & GLASS and AIR: vocal plug-ins by Aphotic Audio, installed by the free Aphotic Hub.">
+<meta property="og:description" content="Pitch, tone and air for every vocal: TRINITY, IRON & GLASS and AIR, installed by the free Aphotic Hub.">
 <meta property="og:image" content="https://theyoungress.github.io/img/og-aphotic.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0b0b0c">
+<meta name="theme-color" content="#000000">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=Inter:wght@400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Montserrat:wght@300;700;800&display=swap" rel="stylesheet">
 <style>
+/* Aphotic Audio: the deep, where no light reaches. Black, white and the logo's rings, nothing else.
+   The one bold moment is the sonar at the top; everything after it stays quiet. */
 :root {
-  --ink: #0b0b0c;
-  --ink-2: #1c1c1f;
-  --muted: #62666e;
-  --line: #e7e8eb;
-  --surface: #f3f4f6;
-  --white: #ffffff;
-  --gutter: 32px;
-  color-scheme: light;
+  --black: #000;
+  --raised: #0d1014;      /* the only surface lighter than black: the Hub window */
+  --white: #fff;
+  --text: #e8ebef;
+  --dim: #8f97a2;
+  --rule: rgba(255, 255, 255, .13);
+  --ring: rgba(255, 255, 255, .16);
+  --display: "Montserrat", "Segoe UI", sans-serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --gutter: clamp(20px, 5vw, 64px);
+  color-scheme: dark;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--white); color: var(--ink); font: 400 16px/1.55 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--black); color: var(--text); font: 400 17px/1.6 var(--body); -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
-a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 6px; }
-.wrap { width: min(1280px, 100% - 2 * var(--gutter)); margin-inline: auto; }
-h1, h2, h3, p { margin: 0; }
-.display { font-family: "Archivo", "Inter", sans-serif; font-stretch: 125%; font-weight: 800; letter-spacing: -.01em; line-height: .95; }
-[id] { scroll-margin-top: 84px; }
+a { color: inherit; }
+h1, h2, h3, p, ol, ul, dl, figure { margin: 0; }
+:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; border-radius: 4px; }
+[id] { scroll-margin-top: 76px; }
+.wrap { width: min(1240px, 100% - 2 * var(--gutter)); margin-inline: auto; }
 
-/* ---- buttons ---- */
-.pill {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 46px; padding: 0 24px; border-radius: 999px;
-  font: 600 15px/1 "Inter", sans-serif; white-space: nowrap; cursor: pointer; border: 1.5px solid var(--ink);
-  background: transparent; color: var(--ink); transition: background .15s, color .15s, border-color .15s;
-}
-.pill:hover { background: var(--ink); color: var(--white); }
-.pill.solid { background: var(--ink); color: var(--white); }
-.pill.solid:hover { background: var(--ink-2); border-color: var(--ink-2); }
-.on-dark .pill { border-color: rgba(255, 255, 255, .9); color: var(--white); }
-.on-dark .pill:hover { background: var(--white); color: var(--ink); }
-.on-dark .pill.solid { background: var(--white); color: var(--ink); border-color: var(--white); }
-.on-dark .pill.solid:hover { background: #e9e9ec; }
-.pill[aria-disabled="true"] { opacity: .45; cursor: default; pointer-events: none; }
-.pills { display: flex; flex-wrap: wrap; gap: 12px; }
+/* ---- buttons: one solid, one outlined ---- */
+.btn { display: inline-flex; align-items: center; justify-content: center; height: 46px; padding: 0 22px; border-radius: 6px;
+  font: 600 15px/1 var(--body); text-decoration: none; white-space: nowrap; border: 1px solid rgba(255, 255, 255, .34); color: var(--white); background: transparent; }
+.btn:hover { border-color: var(--white); }
+.btn.solid { background: var(--white); color: var(--black); border-color: var(--white); }
+.btn.solid:hover { background: #d9dde2; border-color: #d9dde2; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; }
 
-/* ---- announcement + header ---- */
-.announce { background: #000; color: #d7d7db; font-size: 13px; text-align: center; padding: 9px var(--gutter); }
-.announce b { color: #fff; font-weight: 600; }
-.announce a { text-decoration: underline; text-underline-offset: 3px; color: #fff; margin-left: 6px; }
-.top { position: sticky; top: 0; z-index: 20; background: rgba(11, 11, 12, .94); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); color: var(--white); }
-.top-in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 68px; }
+/* ---- announcement and header ---- */
+.announce { border-bottom: 1px solid var(--rule); font-size: 14px; color: var(--dim); text-align: center; padding: 10px var(--gutter); }
+.announce b { color: var(--white); font-weight: 600; }
+.announce a { color: var(--white); margin-left: 8px; text-underline-offset: 3px; }
+.top { position: sticky; top: 0; z-index: 30; background: rgba(0, 0, 0, .86); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
+.top-in { display: flex; align-items: center; gap: 32px; height: 68px; }
 .logo { display: inline-flex; align-items: center; }
 .logo img { height: 20px; width: auto; }
-.foot .logo img { height: 46px; }
-.menu { display: flex; gap: 34px; font-size: 15px; font-weight: 500; }
-.menu a { color: #d9d9de; }
+.menu { display: flex; gap: 28px; margin-left: auto; font-size: 15px; }
+.menu a { text-decoration: none; color: var(--dim); }
 .menu a:hover { color: var(--white); }
-.top .pill { justify-self: end; height: 38px; padding: 0 18px; font-size: 14px; }
+.top .btn { height: 38px; padding: 0 16px; font-size: 14px; }
 
-/* ---- hero banner ---- */
-.hero { position: relative; overflow: hidden; background: #0d1014; color: var(--white); border-radius: 0 0 28px 28px; isolation: isolate; }
-.hero-bg { position: absolute; inset: -60px; z-index: -2; background: url(img/ironglass.jpg) center / cover; filter: blur(46px) saturate(120%) brightness(.42); transform: scale(1.1); }
-.hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(60% 55% at 50% 30%, transparent, rgba(5, 7, 10, .55)), linear-gradient(transparent 55%, rgba(5, 7, 10, .5)); }
-.hero-copy { text-align: center; padding: 92px var(--gutter) 0; display: grid; justify-items: center; }
-.hero h1 { font-size: clamp(52px, 8vw, 112px); }
-.hero .sub { margin-top: 18px; font-size: clamp(18px, 1.7vw, 22px); color: #d6dae2; max-width: 34ch; }
-.hero .pills { justify-content: center; margin-top: 30px; }
-.hero-shot { width: min(980px, 88vw); margin: 64px auto -150px; border-radius: 14px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .08), 0 40px 100px -20px rgba(0, 0, 0, .8); }
+/* ---- hero: the sonar ---- */
+.hero { position: relative; overflow: hidden; background: radial-gradient(1100px 560px at 70% -18%, rgba(255, 255, 255, .09), transparent 62%), var(--black); }
+.hero-in { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); align-items: center; gap: clamp(24px, 4vw, 72px); min-height: min(88vh, 860px); padding-block: 56px; }
+.hero h1 { font: 800 clamp(42px, 5.4vw, 80px)/1 var(--display); letter-spacing: -.035em; color: var(--white); }
+.hero .lede { margin: 26px 0 34px; max-width: 34ch; font-size: clamp(17px, 1.5vw, 20px); color: var(--dim); }
 
-/* ---- two feature tiles ---- */
-.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-.tile { position: relative; overflow: hidden; border-radius: 22px; min-height: 520px; padding: 48px; display: flex; flex-direction: column; isolation: isolate; }
-.tile h2 { font-size: clamp(40px, 4.4vw, 60px); }
-.tile p { margin-top: 14px; font-size: 17px; max-width: 30ch; }
-.tile .pills { margin-top: 26px; }
-.tile img { position: absolute; z-index: -1; }
-.tile-trinity { background: radial-gradient(80% 70% at 85% 90%, #4a2a6e, transparent 70%), linear-gradient(160deg, #19131f, #120e18); color: var(--white); }
-.tile-trinity p { color: #cfc6de; }
-.tile-trinity img { width: 84%; right: -12%; top: 268px; border-radius: 12px; box-shadow: 0 30px 80px -20px rgba(0, 0, 0, .8), 0 0 0 1px rgba(183, 124, 226, .25); }
-.tile-air { background: radial-gradient(70% 70% at 75% 70%, #bcd4f7, transparent 75%), linear-gradient(160deg, #eef4fd, #d6e4f9); color: #13264a; }
-.tile-air p { color: #3c5180; }
-.tile-air img { width: 40%; right: 9%; top: 250px; filter: drop-shadow(0 30px 40px rgba(29, 74, 160, .35)); }
-.tile-air .pill { border-color: #13264a; color: #13264a; }
-.tile-air .pill:hover { background: #13264a; color: var(--white); }
+.sonar { position: relative; width: 100%; max-width: 660px; aspect-ratio: 1; justify-self: end; }
+.sonar .ring { position: absolute; inset: 0; margin: auto; border-radius: 50%; border: 1px solid var(--ring); }
+.sonar .r1 { width: 26%; height: 26%; } .sonar .r2 { width: 48%; height: 48%; } .sonar .r3 { width: 70%; height: 70%; }
+.sonar .r4 { width: 92%; height: 92%; } .sonar .r5 { width: 100%; height: 100%; border-color: rgba(255, 255, 255, .28); }
+.sonar .axis { position: absolute; background: rgba(255, 255, 255, .07); }
+.sonar .ax { left: 0; right: 0; top: 50%; height: 1px; } .sonar .ay { top: 0; bottom: 0; left: 50%; width: 1px; }
+/* the sweep: bright on its leading edge, fading behind; one turn every 8 s, starting at 3 o'clock */
+.sonar .sweep { position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(from 90deg, transparent 0deg, transparent 290deg, rgba(255, 255, 255, .03) 320deg, rgba(255, 255, 255, .2) 360deg);
+  animation: sweep 8s linear infinite; }
+@keyframes sweep { to { transform: rotate(360deg); } }
+.sonar .core { position: absolute; left: 50%; top: 50%; width: 11%; transform: translate(-50%, -50%); opacity: .95; }
+/* contacts: a dot that pings as the sweep passes it, and its label */
+.contact { position: absolute; display: flex; align-items: center; gap: 12px; text-decoration: none; transform: translate(-7px, -7px); }
+.contact .dot { position: relative; flex: none; width: 14px; height: 14px; border-radius: 50%; background: var(--white); box-shadow: 0 0 18px rgba(255, 255, 255, .55); }
+.contact .dot::after { content: ""; position: absolute; inset: -2px; border-radius: 50%; border: 2px solid var(--white); opacity: 0;
+  animation: ping 8s linear infinite; animation-delay: var(--at); }
+@keyframes ping { 0% { transform: scale(.6); opacity: .9; } 10% { transform: scale(3.4); opacity: 0; } 100% { opacity: 0; } }
+.contact .tag { padding: 8px 12px 9px; border-radius: 6px; background: rgba(0, 0, 0, .72); border: 1px solid var(--rule); line-height: 1.25; }
+.contact .tag b { display: block; font: 800 15px/1.2 var(--display); letter-spacing: -.01em; color: var(--white); }
+.contact .tag span { font-size: 13px; color: var(--dim); }
+.contact:hover .tag { border-color: rgba(255, 255, 255, .5); }
+.contact:hover .dot { box-shadow: 0 0 26px rgba(255, 255, 255, .9); }
+/* positions on the rings (angle clockwise from 3 o'clock, radius as a share of the sonar) */
+.c-trinity { left: 59%; top: 34.4%; --at: 6.67s; }        /* 300°, inner ring */
+.c-ironglass { left: 21.9%; top: 36.9%; --at: 4.56s; }    /* 205°, middle ring */
+.c-air { left: 66.5%; top: 70.5%; --at: 1.13s; }          /* 51°, outer ring */
+.c-ironglass { flex-direction: row-reverse; transform: translate(calc(-100% + 7px), -7px); }
 
-/* ---- shop grid ---- */
-.shop { padding: 110px 0 40px; }
-.shop-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 20px; margin-bottom: 30px; }
-.shop-head h2, .section-title { font-size: clamp(28px, 2.6vw, 36px); font-weight: 700; letter-spacing: -.025em; line-height: 1.1; }
-.shop-head a { font-weight: 500; color: var(--muted); }
-.shop-head a:hover { color: var(--ink); }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 18px; padding: 14px 14px 22px; transition: box-shadow .2s, border-color .2s; }
-.card:hover { border-color: #d5d7dc; box-shadow: 0 18px 40px -24px rgba(0, 0, 0, .25); }
-.card-img { position: relative; display: block; aspect-ratio: 4 / 3; background: var(--surface); border-radius: 12px; }
-.card-img img, .pdp-media img { position: absolute; inset: 24px; width: calc(100% - 48px); height: calc(100% - 48px); object-fit: contain; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .3)); }
-.card-img .air-img, .pdp-media .air-img { filter: drop-shadow(0 16px 22px rgba(29, 74, 160, .3)); }
-.badge { position: absolute; top: 12px; right: 12px; background: var(--ink); color: var(--white); font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 999px; }
-.card h3 { margin: 20px 8px 0; font-size: 20px; font-weight: 700; letter-spacing: -.01em; }
-.card-sub { margin: 4px 8px 0; color: var(--muted); font-size: 15px; }
-.card-price { margin: 18px 8px 16px; font-size: 18px; font-weight: 700; }
-.card .pill { margin: auto 8px 0; }
-
-/* ---- Aphotic Hub banner ---- */
-.hub { padding: 110px 0 0; }
-.hub-banner { position: relative; overflow: hidden; isolation: isolate; background: #0e0b14; color: var(--white); border-radius: 28px; padding: 88px 0 260px; margin-inline: 12px; }
-.hub-banner::before { content: ""; position: absolute; inset: -80px; z-index: -1; background: url(img/hub.jpg) center / cover; filter: blur(50px) brightness(.45) saturate(130%); }
-.hub-banner h2 { font-size: clamp(36px, 4.4vw, 60px); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; max-width: 17ch; }
-.hub-banner p { margin-top: 18px; font-size: 18px; color: #d4d0dc; max-width: 52ch; }
-.hub-banner .pills { margin-top: 30px; }
-.hub-banner .fine { margin-top: 16px; font-size: 13px; color: #a9a4b3; }
-.app { margin: -210px auto 0; position: relative; border-radius: 14px; overflow: hidden; background: #0b0c0f; box-shadow: 0 0 0 1px rgba(0, 0, 0, .08), 0 50px 100px -30px rgba(20, 10, 40, .55); }
-.app-bar { display: flex; align-items: center; justify-content: space-between; height: 34px; padding: 0 14px; background: #16181d; color: #8b909b; font-size: 12px; }
-.app-bar i { display: flex; gap: 18px; font-style: normal; }
-.app img { width: 100%; }
-.steps { list-style: none; padding: 0; margin: 56px auto 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; counter-reset: step; }
-.steps li { counter-increment: step; border-top: 1px solid var(--line); padding-top: 20px; }
-.steps li::before { content: counter(step); display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--ink); color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 16px; }
-.steps h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; }
-.steps p { color: var(--muted); font-size: 15px; }
-
-/* ---- product pages ---- */
-.pdp { padding: 110px 0 0; }
-.pdp + .pdp { padding-top: 90px; }
-.pdp-grid { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: start; border-top: 1px solid var(--line); padding-top: 90px; }
-#trinity .pdp-grid { border-top: 0; padding-top: 0; }
-.pdp-media { position: sticky; top: 100px; background: var(--surface); border-radius: 22px; aspect-ratio: 5 / 4; }
-.pdp-media img { inset: 40px; width: calc(100% - 80px); height: calc(100% - 80px); }
-.pdp-media.trinity-bg { background: radial-gradient(70% 70% at 50% 60%, #3a2456, #15111c); }
-.pdp-media.ig-bg { background: linear-gradient(#2a2f37 0 50%, #1d4a8f 50% 100%); }
-.pdp-media.air-bg { background: radial-gradient(60% 60% at 50% 50%, #c4d9f8, #e8f0fc); }
-.pdp-info h2 { font-size: clamp(38px, 3.6vw, 52px); }
-.pdp-sub { margin-top: 12px; font-size: 19px; color: var(--muted); }
-.pdp-price { margin-top: 26px; font-size: 30px; font-weight: 700; letter-spacing: -.02em; }
-.pdp-buy { margin-top: 18px; display: grid; gap: 12px; }
-.pdp-buy .pill { width: 100%; height: 54px; font-size: 16px; }
-.pay-note { margin-top: 12px; font-size: 13px; color: var(--muted); }
-.pdp-body { margin-top: 34px; padding-top: 30px; border-top: 1px solid var(--line); }
-.pdp-body > p { color: #34373d; margin-bottom: 14px; }
-.pdp-body h3 { font-size: 15px; font-weight: 700; margin: 28px 0 10px; }
-.feat { list-style: none; padding: 0; margin: 0; }
-.feat li { position: relative; padding: 7px 0 7px 26px; color: #34373d; }
-.feat li::before { content: ""; position: absolute; left: 2px; top: 13px; width: 11px; height: 6px; border-left: 2px solid var(--ink); border-bottom: 2px solid var(--ink); transform: rotate(-45deg); }
-.specs { margin: 0; display: grid; grid-template-columns: max-content 1fr; }
-.specs dt, .specs dd { padding: 10px 0; border-top: 1px solid var(--line); font-size: 15px; }
-.specs dt { color: var(--muted); padding-right: 24px; }
+/* ---- the vocal chain ---- */
+.chain { padding-block: clamp(80px, 11vw, 150px) 40px; }
+.chain-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: end; padding-bottom: 56px; }
+.chain-head h2, .hub h2, .help h2 { font: 800 clamp(34px, 4.4vw, 60px)/1.02 var(--display); letter-spacing: -.03em; color: var(--white); }
+.chain-head p { max-width: 46ch; color: var(--dim); }
+.stages { list-style: none; padding: 0; position: relative; }
+/* the cable that runs through every stage */
+.stages::before { content: ""; position: absolute; left: 13px; top: 30px; bottom: 30px; width: 1px; background: linear-gradient(var(--rule), rgba(255, 255, 255, .45) 40%, var(--rule)); }
+.stage { position: relative; display: grid; grid-template-columns: 28px minmax(0, 5fr) minmax(0, 7fr); gap: 0 clamp(24px, 4vw, 64px); padding-block: 48px; border-top: 1px solid var(--rule); }
+.stage:first-child { border-top: 0; }
+.node { position: relative; z-index: 1; width: 28px; height: 28px; margin-top: 10px; border-radius: 50%; background: var(--black);
+  box-shadow: inset 0 0 0 2px var(--white), inset 0 0 0 5px var(--black), inset 0 0 0 7px var(--white), inset 0 0 0 9px var(--black), inset 0 0 0 14px var(--white); }
+.role { font-size: 15px; color: var(--dim); }
+.stage h3 { margin: 6px 0 14px; font: 800 clamp(40px, 5vw, 76px)/.95 var(--display); letter-spacing: -.035em; color: var(--white); }
+.stage .what { max-width: 40ch; font-size: 18px; }
+.buy { display: flex; align-items: center; flex-wrap: wrap; gap: 14px 20px; margin: 26px 0 10px; }
+.price { font: 700 26px/1 var(--display); color: var(--white); }
+.note { font-size: 14px; color: var(--dim); max-width: 46ch; }
+.shot { align-self: start; display: grid; place-items: center; min-height: 340px; border-radius: 10px; overflow: hidden;
+  background: radial-gradient(70% 70% at 50% 40%, rgba(255, 255, 255, .07), transparent 70%); }
+.shot img { width: 100%; border-radius: 8px; box-shadow: 0 30px 80px -30px rgba(0, 0, 0, .9), 0 0 0 1px rgba(255, 255, 255, .08); }
+.shot.tall img { width: auto; max-height: 460px; }
+details.more { margin-top: 26px; border-top: 1px solid var(--rule); }
+details.more summary { cursor: pointer; padding: 14px 0; font-weight: 600; color: var(--white); list-style: none; }
+details.more summary::-webkit-details-marker { display: none; }
+details.more summary::after { content: "+"; float: right; color: var(--dim); font-weight: 400; }
+details.more[open] summary::after { content: "\2212"; }
+.more-in { padding: 4px 0 8px; }
+.more-in p + p { margin-top: 12px; }
+.more-in ul { margin: 16px 0; padding-left: 18px; }
+.more-in li { margin: 4px 0; }
+.specs { display: grid; grid-template-columns: 9.5em 1fr; gap: 6px 14px; font-size: 15px; margin-top: 8px; }
+.specs dt { color: var(--dim); }
 .specs dd { margin: 0; }
+.stage.out { grid-template-columns: 28px 1fr; padding-block: 28px 0; border-top: 0; }
+.stage.out p { align-self: center; color: var(--dim); font-size: 15px; margin-top: 10px; }
+
+/* ---- Aphotic Hub ---- */
+.hub { padding-block: clamp(80px, 10vw, 140px); border-top: 1px solid var(--rule); }
+.hub-head { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; align-items: end; }
+.hub-head p { color: var(--dim); max-width: 50ch; }
+.hub .btns { margin-top: 26px; }
+.fine { margin-top: 12px; font-size: 14px; color: var(--dim); }
+.window { margin-top: 56px; border-radius: 12px; overflow: hidden; background: var(--raised); border: 1px solid var(--rule); box-shadow: 0 50px 120px -50px rgba(255, 255, 255, .12); }
+.window-bar { display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 14px; font-size: 13px; color: var(--dim); border-bottom: 1px solid var(--rule); }
+.window-bar i { font-style: normal; letter-spacing: 12px; }
+.steps { list-style: none; padding: 0; margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: step; }
+.steps li { counter-increment: step; padding-top: 18px; border-top: 1px solid var(--rule); }
+.steps li::before { content: counter(step); display: block; font: 700 15px/1 var(--display); color: var(--dim); margin-bottom: 14px; }
+.steps h3 { font: 700 18px/1.3 var(--display); color: var(--white); margin-bottom: 8px; }
+.steps p { font-size: 15px; color: var(--dim); }
 
 /* ---- help ---- */
-.help { padding: 130px 0 120px; }
-.help-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; }
-.help-grid > div > p { color: var(--muted); margin-top: 14px; }
-.help-grid > div > p a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-details { border-bottom: 1px solid var(--line); }
-details:first-child { border-top: 1px solid var(--line); }
-summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative; font-size: 17px; font-weight: 600; }
-summary::-webkit-details-marker { display: none; }
-summary::after { content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 400; color: var(--muted); }
-details[open] summary::after { content: "\2212"; }
-details p { color: #4a4e56; padding: 0 0 22px; max-width: 64ch; }
-details a { text-decoration: underline; text-underline-offset: 3px; }
+.help { padding-block: clamp(70px, 9vw, 120px); border-top: 1px solid var(--rule); }
+.help-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 48px; }
+.help-grid > div:first-child p { margin-top: 16px; color: var(--dim); }
+.help details { border-bottom: 1px solid var(--rule); }
+.help details:first-child { border-top: 1px solid var(--rule); }
+.help summary { cursor: pointer; padding: 18px 0; font-weight: 600; color: var(--white); list-style: none; display: flex; justify-content: space-between; gap: 20px; }
+.help summary::-webkit-details-marker { display: none; }
+.help summary::after { content: "+"; color: var(--dim); font-weight: 400; }
+.help details[open] summary::after { content: "\2212"; }
+.help details p { padding: 0 0 20px; color: var(--dim); max-width: 64ch; }
+.help details a, .help-grid a { color: var(--white); text-underline-offset: 3px; }
 
-/* ---- footer ---- */
-footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px; }
-.foot { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 40px; }
-.foot .logo { color: var(--white); }
-.foot p { margin-top: 16px; max-width: 34ch; }
-.foot h4 { margin: 0 0 14px; color: var(--white); font-size: 14px; font-weight: 600; }
+/* ---- footer: the full logo ---- */
+footer { border-top: 1px solid var(--rule); padding-block: 72px 40px; color: var(--dim); font-size: 15px; }
+.foot { display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 40px; }
+.foot .logo img { height: 52px; }
+.foot p { margin-top: 18px; max-width: 30ch; }
+.foot h4 { margin: 0 0 14px; color: var(--white); font: 700 15px/1 var(--display); }
 .foot ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.foot a { text-decoration: none; }
 .foot a:hover { color: var(--white); }
-.legal { margin-top: 56px; padding-top: 24px; border-top: 1px solid #222; font-size: 13px; color: #7d7f86; }
+.legal { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--rule); font-size: 13px; }
 
-@media (max-width: 1080px) {
-  .tiles { grid-template-columns: 1fr; }
-  .cards { grid-template-columns: 1fr 1fr; }
-  .pdp-grid { grid-template-columns: 1fr; gap: 36px; }
-  .pdp-media { position: relative; top: 0; }
+/* ---- smaller screens ---- */
+@media (max-width: 980px) {
+  .hero-in, .chain-head, .hub-head { grid-template-columns: 1fr; }
+  .hero-in { min-height: 0; padding-block: 48px 64px; }
+  .sonar { justify-self: center; max-width: 520px; }
+  .stage { grid-template-columns: 28px 1fr; }
+  .stage .shot { grid-column: 2; margin-top: 30px; min-height: 0; }
   .steps { grid-template-columns: 1fr 1fr; }
-  .foot { grid-template-columns: 1fr 1fr; }
+  .help-grid, .foot { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 760px) {
-  :root { --gutter: 16px; }
+@media (max-width: 640px) {
   .menu { display: none; }
-  .top-in { grid-template-columns: 1fr auto; height: 60px; }
-  .hero { border-radius: 0 0 20px 20px; }
-  .hero-copy { padding-top: 64px; }
-  .hero-shot { margin: 44px auto -40px; width: 94vw; }
-  .tile { min-height: 460px; padding: 32px 24px; border-radius: 18px; }
-  .tile-trinity img { width: 110%; right: -30%; top: 290px; }
-  .tile-air img { width: 56%; right: 8%; top: 270px; }
-  .cards, .steps, .help-grid { grid-template-columns: 1fr; }
-  .shop, .hub, .pdp { padding-top: 80px; }
-  .pdp-grid { padding-top: 64px; }
-  .pdp-media img { inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px); }
-  .hub-banner { margin-inline: 0; border-radius: 20px; padding: 56px 0 140px; }
-  .app { margin-top: -110px; }
-  .app-bar i { display: none; }
-  .help { padding: 90px 0; }
-  .help-grid { gap: 24px; }
-  .foot { grid-template-columns: 1fr; }
+  .top .btn { margin-left: auto; }
+  .contact .tag span { display: none; }
+  .contact .tag { padding: 6px 9px; }
+  .contact .tag b { font-size: 13px; }
+  .c-ironglass { flex-direction: column-reverse; align-items: flex-start; gap: 8px; transform: translate(-7px, calc(-100% + 7px)); }
+  .steps, .help-grid, .foot { grid-template-columns: 1fr; }
+  .specs { grid-template-columns: 1fr; }
+  .specs dt { margin-top: 8px; }
 }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .sonar .sweep, .contact .dot::after { animation: none; }
+}
 </style>
 </head>
 <body>
 
-<div class="announce"><b>Young Ress is now Aphotic Audio.</b> Same plug-ins, same account, new name. Every plug-in now runs on Mac too.<a href="#hub">Get Aphotic Hub</a></div>
+<div class="announce"><b>Young Ress is now Aphotic Audio.</b> Same plug-ins and account, new name. Every plug-in now runs on Mac too.<a href="#hub">Get Aphotic Hub</a></div>
 
-<header class="top on-dark">
+<header class="top">
   <div class="wrap top-in">
     <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-wordmark.png" alt="Aphotic Audio" width="137" height="20"></a>
     <nav class="menu" aria-label="Main">
@@ -226,84 +214,152 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
       <a href="#hub">Aphotic Hub</a>
       <a href="#help">Help</a>
     </nav>
-    <a class="pill solid" href="#hub">Download Hub</a>
+    <a class="btn solid" href="#hub">Get Aphotic Hub</a>
   </div>
 </header>
 
 <main>
-  <section class="hero on-dark" aria-labelledby="hero-title">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="hero-copy">
-      <h1 class="display" id="hero-title">IRON &amp; GLASS</h1>
-      <p class="sub">A British console preamp and EQ, into a tube optical compressor.</p>
-      <div class="pills">
-        <a class="pill" href="#ironglass">Learn more</a>
-        <a class="pill solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-in">
+      <div>
+        <h1 id="hero-title">Pitch, tone and air for every vocal.</h1>
+        <p class="lede">Three plug-ins for Windows and Mac, from free pitch correction to a full analog channel strip. One free app installs and updates them.</p>
+        <div class="btns">
+          <a class="btn solid" href="#plugins">See the plug-ins</a>
+          <a class="btn" href="#hub">Get Aphotic Hub</a>
+        </div>
+      </div>
+      <div class="sonar" role="group" aria-label="The three plug-ins">
+        <span class="ring r1"></span><span class="ring r2"></span><span class="ring r3"></span><span class="ring r4"></span><span class="ring r5"></span>
+        <span class="axis ax"></span><span class="axis ay"></span>
+        <span class="sweep" aria-hidden="true"></span>
+        <img class="core" src="img/aphotic-mark.png" width="256" height="256" alt="">
+        <a class="contact c-trinity" href="#trinity"><span class="dot"></span><span class="tag"><b>TRINITY</b><span>Pitch correction, free</span></span></a>
+        <a class="contact c-ironglass" href="#ironglass"><span class="dot"></span><span class="tag"><b>IRON &amp; GLASS</b><span>Channel strip, $33</span></span></a>
+        <a class="contact c-air" href="#air"><span class="dot"></span><span class="tag"><b>AIR</b><span>Air enhancer, $30</span></span></a>
       </div>
     </div>
-    <img class="hero-shot" src="img/ironglass.jpg" width="1600" height="1083" alt="IRON & GLASS: a grey preamp and EQ panel above a blue tube compressor panel with a VU meter">
   </section>
 
-  <div class="wrap tiles">
-    <div class="tile tile-trinity on-dark">
-      <h2 class="display">TRINITY</h2>
-      <p>Pitch correction that goes from natural to hard-locked. Free with your Aphotic Audio account.</p>
-      <div class="pills"><a class="pill" href="#trinity">Learn more</a><a class="pill solid" data-buy="trinity" href="#hub">Get it free</a></div>
-      <img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="">
-    </div>
-    <div class="tile tile-air">
-      <h2 class="display">AIR</h2>
-      <p>One knob of silky top end for vocals, mixes and instruments.</p>
-      <div class="pills"><a class="pill" href="#air">Learn more</a><a class="pill" data-buy="air" href="checkout.html?product=air">Buy for $30</a></div>
-      <img src="img/air-card.png" width="676" height="860" loading="lazy" alt="">
-    </div>
-  </div>
+  <section class="chain" id="plugins" aria-labelledby="chain-title">
+    <div class="wrap">
+      <div class="chain-head">
+        <h2 id="chain-title">One vocal chain</h2>
+        <p>Use them on a vocal in this order: tune it, give it body and weight, then open up the top. Each one also works on its own, on any track.</p>
+      </div>
+      <ol class="stages">
+        <li class="stage" id="trinity" aria-labelledby="trinity-name">
+          <span class="node" aria-hidden="true"></span>
+          <div>
+            <p class="role">Pitch</p>
+            <h3 id="trinity-name">TRINITY</h3>
+            <p class="what">Pitch correction that goes from natural to hard-locked, with formant-preserving correction that keeps the voice sounding like the singer.</p>
+            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="trinity" href="#hub">Get it free in Aphotic Hub</a></div>
+            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
+            <details class="more">
+              <summary>Features and specs</summary>
+              <div class="more-in">
+                <p>Classic follows the singer and leaves the expression in. Underground snaps every note to the key for the locked sound modern rap vocals are built on.</p>
+                <p>Set the key and scale on the keyboard, pick a vocal range, and watch the pitch path show what came in, where it's headed and what came out.</p>
+                <ul>
+                  <li>Classic and Underground tuning styles</li>
+                  <li>Retune speed, correction, humanize, transition, tracking and sustain</li>
+                  <li>Pitch, formant and mix shaping</li>
+                  <li>Key, scale, A4 reference and vocal range</li>
+                </ul>
+                <dl class="specs">
+                  <dt>Latency</dt><dd>HQ 10 ms, Low Latency 3 ms</dd>
+                  <dt>Formats</dt><dd>Windows VST3, macOS VST3 and AU</dd>
+                  <dt>Version</dt><dd data-version="trinity">1.0.8</dd>
+                  <dt>Computers</dt><dd>Up to 3 per license</dd>
+                </dl>
+              </div>
+            </details>
+          </div>
+          <figure class="shot"><img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="TRINITY with the Underground tuning style selected, the key set to A minor and the pitch path showing input, target and output"></figure>
+        </li>
 
-  <section class="wrap shop" id="plugins" aria-labelledby="shop-title">
-    <div class="shop-head">
-      <h2 id="shop-title">Plug-ins</h2>
-      <a href="#hub">Installed by Aphotic Hub</a>
-    </div>
-    <div class="cards">
-      <article class="card">
-        <a class="card-img" href="#trinity"><img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="TRINITY interface"><span class="badge">Free</span></a>
-        <h3>TRINITY</h3>
-        <p class="card-sub">Vocal pitch correction</p>
-        <p class="card-price">Free</p>
-        <a class="pill" data-buy="trinity" href="#hub">Get it free</a>
-      </article>
-      <article class="card">
-        <a class="card-img" href="#ironglass"><img src="img/ironglass.jpg" width="1600" height="1083" loading="lazy" alt="IRON & GLASS interface"></a>
-        <h3>IRON &amp; GLASS</h3>
-        <p class="card-sub">Preamp, EQ and tube compressor</p>
-        <p class="card-price" data-price="ironglass">$33</p>
-        <a class="pill" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a>
-      </article>
-      <article class="card">
-        <a class="card-img" href="#air"><img class="air-img" src="img/air-card.png" width="676" height="860" loading="lazy" alt="AIR interface"><span class="badge">New</span></a>
-        <h3>AIR</h3>
-        <p class="card-sub">One-knob air enhancer</p>
-        <p class="card-price" data-price="air">$30</p>
-        <a class="pill" data-buy="air" href="checkout.html?product=air">Buy for $30</a>
-      </article>
+        <li class="stage" id="ironglass" aria-labelledby="ironglass-name">
+          <span class="node" aria-hidden="true"></span>
+          <div>
+            <p class="role">Tone</p>
+            <h3 id="ironglass-name">IRON &amp; GLASS</h3>
+            <p class="what">A British console preamp and EQ, into a tube optical compressor that holds a vocal steady without squashing it.</p>
+            <div class="buy"><span class="price" data-price="ironglass">$33</span><a class="btn solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a></div>
+            <p class="note" data-pay-note="ironglass">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
+            <details class="more">
+              <summary>Features and specs</summary>
+              <div class="more-in">
+                <p><b>Iron</b> is the console half: a Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit.</p>
+                <p><b>Glass</b> is the tube optical compressor. Blend it in with the mix knob, keep the low end from pumping it with the sidechain high-pass, and put it before or after the EQ.</p>
+                <ul>
+                  <li>Mic and line input modes with iron drive</li>
+                  <li>Fixed, Manual and Fix/Man compressor timing</li>
+                  <li>VU meter for input, gain reduction and output</li>
+                  <li>A/B compare and presets</li>
+                </ul>
+                <dl class="specs">
+                  <dt>EQ</dt><dd>Air 12 kHz, mid 360 Hz to 7.2 kHz, low 35 to 220 Hz, high-pass 50 to 300 Hz</dd>
+                  <dt>Oversampling</dt><dd>Off, 2x, 4x or 8x</dd>
+                  <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
+                  <dt>Version</dt><dd data-version="ironglass">1.22.2</dd>
+                </dl>
+              </div>
+            </details>
+          </div>
+          <figure class="shot"><img src="img/ironglass.jpg" width="1600" height="1083" loading="lazy" alt="IRON & GLASS: preamp gain, air, mid and low EQ, high-pass filter, then the GLASS compressor with gain, ratio, threshold, mix, attack, release and a VU meter"></figure>
+        </li>
+
+        <li class="stage" id="air" aria-labelledby="air-name">
+          <span class="node" aria-hidden="true"></span>
+          <div>
+            <p class="role">Air</p>
+            <h3 id="air-name">AIR</h3>
+            <p class="what">One knob that lifts the top of a vocal, mix or instrument and never turns harsh: esses get less lift than everything else.</p>
+            <div class="buy"><span class="price" data-price="air">$30</span><a class="btn solid" data-buy="air" href="checkout.html?product=air">Buy for $30</a></div>
+            <p class="note" data-pay-note="air">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
+            <details class="more">
+              <summary>Features and specs</summary>
+              <div class="more-in">
+                <p>A dynamic shelf set above the harsh zone, plus an octave-up sheen for sources that came in dull. Built-in smoothing means pushing it harder only gets smoother.</p>
+                <ul>
+                  <li>16 presets for vocals, mix bus, master and instruments</li>
+                  <li>Click-free preset switching</li>
+                  <li>Live AIR and SMOOTH meters</li>
+                  <li>Resizable interface</li>
+                </ul>
+                <dl class="specs">
+                  <dt>Latency</dt><dd>Zero</dd>
+                  <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
+                  <dt>Version</dt><dd data-version="air">1.6.1</dd>
+                  <dt>Computers</dt><dd>Up to 3 per license</dd>
+                </dl>
+              </div>
+            </details>
+          </div>
+          <figure class="shot tall"><img src="img/air-card.png" width="676" height="860" loading="lazy" alt="AIR: a single silver knob set to 66 percent on the Vocal Silk preset, with AIR and SMOOTH meters underneath"></figure>
+        </li>
+
+        <li class="stage out" aria-hidden="true"><span class="node"></span><p>Into your mix.</p></li>
+      </ol>
     </div>
   </section>
 
   <section class="hub" id="hub" aria-labelledby="hub-title">
-    <div class="hub-banner on-dark">
-      <div class="wrap">
-        <h2 id="hub-title">Aphotic Hub installs, updates and activates every plug-in.</h2>
-        <p>It's free. Sign in once, click install, and each plug-in lands where your DAW looks for it. New versions arrive on their own, and your licenses move between your computers.</p>
-        <div class="pills">
-          <a class="pill solid" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.2.0/Aphotic-Hub-Setup-1.2.0.exe">Download for Windows</a>
-          <a class="pill" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.2.0/Aphotic-Hub-1.2.0-Mac.dmg">Download for Mac</a>
-        </div>
-        <p class="fine" id="hub-meta">Version 1.2.0. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
-      </div>
-    </div>
     <div class="wrap">
-      <figure class="app">
-        <div class="app-bar" aria-hidden="true"><span>Aphotic Hub</span><i><span>&#8212;</span><span>&#9633;</span><span>&#10005;</span></i></div>
+      <div class="hub-head">
+        <div>
+          <h2 id="hub-title">Aphotic Hub installs every plug-in for you.</h2>
+          <div class="btns">
+            <a class="btn solid" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.2.0/Aphotic-Hub-Setup-1.2.0.exe">Download for Windows</a>
+            <a class="btn" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.2.0/Aphotic-Hub-1.2.0-Mac.dmg">Download for Mac</a>
+          </div>
+          <p class="fine" id="hub-meta">Version 1.2.0. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
+        </div>
+        <p>It's free. Sign in once and click Install: each plug-in lands where your DAW looks for it, activates on your computer, and updates itself when a new version comes out. Your licenses move with you to a new computer.</p>
+      </div>
+      <figure class="window">
+        <div class="window-bar" aria-hidden="true"><span>Aphotic Hub</span><i>&#8212;&#9633;&#10005;</i></div>
         <img src="img/hub.jpg" width="1600" height="690" loading="lazy" alt="Aphotic Hub's Store page listing TRINITY for free, IRON & GLASS for $33 and AIR for $30">
       </figure>
       <ol class="steps">
@@ -315,102 +371,10 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
     </div>
   </section>
 
-  <section class="pdp" id="trinity" aria-labelledby="trinity-name">
-    <div class="wrap pdp-grid">
-      <div class="pdp-media trinity-bg"><img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="TRINITY with the Underground tuning style selected, the key set to A minor and the pitch path showing input, target and output"></div>
-      <div class="pdp-info">
-        <h2 class="display" id="trinity-name">TRINITY</h2>
-        <p class="pdp-sub">Vocal pitch engine</p>
-        <p class="pdp-price">Free</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="trinity" href="#hub">Get it free in Aphotic Hub</a></div>
-        <p class="pay-note">Free with an Aphotic Audio account. Installs in one click.</p>
-        <div class="pdp-body">
-          <p>Classic follows the singer and leaves the expression in. Underground snaps every note to the key for the locked sound modern rap vocals are built on. Either way, formant-preserving correction keeps the voice sounding like the person who sang it.</p>
-          <p>Set the key and scale on the keyboard, pick a vocal range, and watch the pitch path show what came in, where it's headed and what came out.</p>
-          <h3>Features</h3>
-          <ul class="feat">
-            <li>Classic and Underground tuning styles</li>
-            <li>Retune speed, correction, humanize, transition, tracking and sustain</li>
-            <li>Pitch, formant and mix shaping</li>
-            <li>Key, scale, A4 reference and vocal range</li>
-          </ul>
-          <h3>Specs</h3>
-          <dl class="specs">
-            <dt>Latency</dt><dd>HQ 10 ms, Low Latency 3 ms</dd>
-            <dt>Formats</dt><dd>Windows VST3, macOS VST3 and AU</dd>
-            <dt>Version</dt><dd data-version="trinity">1.0.7</dd>
-            <dt>Computers</dt><dd>Up to 3 per license</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pdp" id="ironglass" aria-labelledby="ironglass-name">
-    <div class="wrap pdp-grid">
-      <div class="pdp-media ig-bg"><img src="img/ironglass.jpg" width="1600" height="1083" loading="lazy" alt="IRON & GLASS: preamp gain, air, mid and low EQ, high-pass filter, then the GLASS compressor with gain, ratio, threshold, mix, attack, release and a VU meter"></div>
-      <div class="pdp-info">
-        <h2 class="display" id="ironglass-name">IRON &amp; GLASS</h2>
-        <p class="pdp-sub">Analog channel strip</p>
-        <p class="pdp-price" data-price="ironglass">$33</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a></div>
-        <p class="pay-note" data-pay-note="ironglass">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-        <div class="pdp-body">
-          <p><b>Iron</b> is the console half: a Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit.</p>
-          <p><b>Glass</b> is a tube optical compressor that holds a vocal steady without squashing it. Blend it in with the mix knob, keep the low end from pumping it with the sidechain high-pass, and put it before or after the EQ.</p>
-          <h3>Features</h3>
-          <ul class="feat">
-            <li>Mic and line input modes with iron drive</li>
-            <li>Fixed, Manual and Fix/Man compressor timing</li>
-            <li>VU meter for input, gain reduction and output</li>
-            <li>A/B compare and presets</li>
-          </ul>
-          <h3>Specs</h3>
-          <dl class="specs">
-            <dt>EQ</dt><dd>Air 12 kHz, mid 360 Hz to 7.2 kHz, low 35 to 220 Hz, high-pass 50 to 300 Hz</dd>
-            <dt>Oversampling</dt><dd>Off, 2x, 4x or 8x</dd>
-            <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-            <dt>Version</dt><dd data-version="ironglass">1.21.1</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="pdp" id="air" aria-labelledby="air-name">
-    <div class="wrap pdp-grid">
-      <div class="pdp-media air-bg"><img class="air-img" src="img/air-card.png" width="676" height="860" loading="lazy" alt="AIR: a single silver knob set to 66 percent on the Vocal Silk preset, with AIR and SMOOTH meters underneath"></div>
-      <div class="pdp-info">
-        <h2 class="display" id="air-name">AIR</h2>
-        <p class="pdp-sub">One-knob air enhancer</p>
-        <p class="pdp-price" data-price="air">$30</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="air" href="checkout.html?product=air">Buy for $30</a></div>
-        <p class="pay-note" data-pay-note="air">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-        <div class="pdp-body">
-          <p>AIR lifts the top of a vocal, mix or instrument with a dynamic shelf set above the harsh zone, and adds an octave-up sheen to sources that came in dull. Built-in smoothing gives esses and spikes less lift than everything else, so pushing it harder only gets smoother.</p>
-          <h3>Features</h3>
-          <ul class="feat">
-            <li>16 presets for vocals, mix bus, master and instruments</li>
-            <li>Click-free preset switching</li>
-            <li>Live AIR and SMOOTH meters</li>
-            <li>Resizable interface</li>
-          </ul>
-          <h3>Specs</h3>
-          <dl class="specs">
-            <dt>Latency</dt><dd>Zero</dd>
-            <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-            <dt>Version</dt><dd data-version="air">1.4.1</dd>
-            <dt>Computers</dt><dd>Up to 3 per license</dd>
-          </dl>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap help" id="help" aria-labelledby="help-title">
-    <div class="help-grid">
+  <section class="help" id="help" aria-labelledby="help-title">
+    <div class="wrap help-grid">
       <div>
-        <h2 class="section-title" id="help-title">Help</h2>
+        <h2 id="help-title">Help</h2>
         <p>Something else? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a>.</p>
       </div>
       <div>
@@ -420,7 +384,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         </details>
         <details>
           <summary>I used a different email at checkout.</summary>
-          <p>No problem: open Aphotic Hub, go to <b>Library</b> and paste the licence key from your Gumroad receipt under <b>Bought on Gumroad with another email?</b>. The plug-in moves into your account straight away. Stuck? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with your order number.</p>
+          <p>Open Aphotic Hub, go to <b>Library</b> and paste the licence key from your Gumroad receipt under <b>Bought on Gumroad with another email?</b>. The plug-in moves into your account straight away. Stuck? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with your order number.</p>
         </details>
         <details>
           <summary>How many computers can I use?</summary>
@@ -451,8 +415,8 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-logo.png" alt="Aphotic Audio" width="181" height="46"></a>
-        <p>Vocal plug-ins, installed and kept up to date by Aphotic Hub.</p>
+        <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-logo.png" alt="Aphotic Audio" width="205" height="52"></a>
+        <p>Vocal plug-ins for Windows and Mac, installed and kept up to date by Aphotic Hub.</p>
       </div>
       <div><h4>Plug-ins</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#hub">Download Aphotic Hub</a></li><li><a href="#help">Help</a></li><li><a href="mailto:theyoungress@gmail.com">Email support</a></li></ul></div>
