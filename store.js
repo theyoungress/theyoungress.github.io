@@ -1,10 +1,10 @@
-// Public, read-only catalog access shared with Young Ress Hub.
+// Public, read-only catalog access shared with Aphotic Hub.
 window.YoungRessStore = (() => {
   const store = 'https://zxeuoqrnwxopohtcbhep.supabase.co';
   const key = 'sb_publishable_4vWXSIQDY0aYhfaKtc3ZuA_cvWQo3yP';
   const products = Object.freeze({
-    ironglass: Object.freeze({ name: 'IRON & GLASS', price: 33, image: 'img/ironglass.jpg', description: 'Preamp, EQ and tube optical compressor', format: 'VST3 · Windows 10 or 11 (64-bit)' }),
-    air: Object.freeze({ name: 'AIR', price: 30, image: 'img/air-card.png', description: 'One-knob air enhancer', format: 'VST3 · Windows 10 or 11 (64-bit)' }),
+    ironglass: Object.freeze({ name: 'IRON & GLASS', price: 33, image: 'img/ironglass.jpg', description: 'Preamp, EQ and tube optical compressor', format: 'Windows VST3 · macOS VST3 and AU' }),
+    air: Object.freeze({ name: 'AIR', price: 30, image: 'img/air-card.png', description: 'One-knob air enhancer', format: 'Windows VST3 · macOS VST3 and AU' }),
   });
   async function catalog() {
     const response = await fetch(store + '/rest/v1/products?select=*', { headers: { apikey: key }, signal: AbortSignal.timeout(10000) });

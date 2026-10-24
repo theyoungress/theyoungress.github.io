@@ -1,4 +1,4 @@
-// The same documents Young Ress Hub shows and customers agree to (legal.js is copied from the hub).
+// The same documents Aphotic Hub shows and customers agree to (legal.js is copied from the hub).
 const SUPPORT = "theyoungress@gmail.com";
 const L = window.YR_LEGAL;
 document.getElementById("updated").textContent = "Last updated " + L.updated + ".";

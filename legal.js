@@ -3,12 +3,12 @@
 // <span class="contact"></span> is filled in with the support email from config.js.
 window.YR_LEGAL = {
   version: "2026-10-19",
-  updated: "October 19, 2026",
+  updated: "October 23, 2026",
   docs: {
     terms: {
       title: "Terms of Service",
       html: `
-<p>These terms are an agreement between you and Young Ress ("we", "us") about Young Ress Hub (the "hub"), your Young Ress
+<p>These terms are an agreement between you and Aphotic Audio, formerly Young Ress ("we", "us") about Aphotic Hub (the "hub"), your Aphotic Audio
 account, the store in the hub and the plug-ins you get through it. By creating an account or using the hub you agree to
 these terms, to the <a data-doc="privacy">Privacy Policy</a> and, for each plug-in, to the <a data-doc="eula">Plug-in License</a>.</p>
 
@@ -58,7 +58,7 @@ is on (Account page), it also updates the plug-ins you have installed. Updates c
 plug-ins may ask for your computer's administrator permission.</p>
 
 <h3>7. System requirements</h3>
-<p>Young Ress Hub: Windows 10 or 11 (64-bit) or macOS 12 or later. TRINITY: Windows 10 or 11 (64-bit) with a VST3 host,
+<p>Aphotic Hub: Windows 10 or 11 (64-bit) or macOS 12 or later. TRINITY: Windows 10 or 11 (64-bit) with a VST3 host,
 or macOS 10.13 or later (Intel or Apple silicon) with a VST3 or Audio Unit host. IRON &amp; GLASS: Windows 10 or 11
 (64-bit) with a VST3 host; there is no Mac version yet. An internet connection is needed to sign
 in, buy, download and activate. Other plug-ins list their requirements in the store.</p>
@@ -70,7 +70,7 @@ the store or its servers; upload viruses or other harmful code; scrape or crawl 
 information; harass anyone; pretend to be someone else or give false information; or use them to break the law.</p>
 
 <h3>9. Our names and other people's</h3>
-<p>Young Ress, the Young Ress logo, the plug-ins and their names, designs and sounds belong to us. Other names shown in
+<p>Aphotic Audio, the Aphotic Audio logo, the plug-ins and their names, designs and sounds belong to us. Other names shown in
 the hub or the plug-in documents (for example VST, Audio Units, Apple Pay, Google Pay, PayPal and DAW names) are
 trademarks of their owners and are used only to describe compatibility or payment options. It does not mean those
 companies endorse us.</p>
@@ -110,7 +110,7 @@ a consumer that the law says cannot be taken away; there, the exclusions and lim
 
 <h3>17. Disagreements</h3>
 <p>If you have a problem, please contact us first so we can try to fix it; give us 30 days to do so. These terms are
-governed by the laws of the United States and of the state where Young Ress is based, except where the consumer law of
+governed by the laws of the United States and of the state where Aphotic Audio is based, except where the consumer law of
 the place you live says otherwise. Either of us may bring an individual claim in small-claims court.</p>
 
 <h3>18. Ending this agreement</h3>
@@ -134,8 +134,8 @@ new version applies from the date shown at the top.</p>
     privacy: {
       title: "Privacy Policy",
       html: `
-<p>This policy explains what personal information Young Ress ("we", "us") collects through Young Ress Hub, the store and
-our plug-ins, why, who we share it with and the choices you have. Young Ress is responsible for this information
+<p>This policy explains what personal information Aphotic Audio, formerly Young Ress ("we", "us"), collects through Aphotic Hub, the store and
+our plug-ins, why, who we share it with and the choices you have. Aphotic Audio is responsible for this information
 (the "controller").</p>
 
 <h3>What we collect</h3>
@@ -219,12 +219,12 @@ forged. No system is perfectly secure, but if a breach affects you, we will tell
     eula: {
       title: "Plug-in License",
       html: `
-<p>This license applies to every Young Ress plug-in, including TRINITY and IRON &amp; GLASS. Each plug-in download also includes it as
+<p>This license applies to every Aphotic Audio plug-in, including TRINITY and IRON &amp; GLASS. Each plug-in download also includes it as
 LICENSE.txt. Plug-ins are licensed, not sold. By installing, activating or using a plug-in you agree to it.</p>
 
 <h3>1. Your license</h3>
 <p>If you bought a plug-in, or we gave you a license, you may install and use it on up to 3 computers that you own or
-control, activated through Young Ress Hub. The license is personal to you, non-exclusive and not transferable. You may
+control, activated through Aphotic Hub. The license is personal to you, non-exclusive and not transferable. You may
 use the plug-in in any music or audio you make, including commercial releases. We claim no rights in your recordings.</p>
 
 <h3>2. You may not</h3>
@@ -233,13 +233,13 @@ use the plug-in in any music or audio you make, including commercial releases. W
 <li>Bypass, disable or tamper with activation or license checks, or use a license on more computers than allowed.</li>
 <li>Reverse engineer, decompile, disassemble, unpack or modify the plug-in, or try to obtain its source code, except where
 the law expressly allows this despite this restriction.</li>
-<li>Remove or change the Young Ress or plug-in names, logos or notices, rebrand the plug-in, or present it as your own work.</li>
+<li>Remove or change the Aphotic Audio or plug-in names, logos or notices, rebrand the plug-in, or present it as your own work.</li>
 <li>Use the plug-in, its design or its behaviour to build or train a competing product.</li>
 <li>Use the plug-in in breach of any law, including export-control and sanctions laws.</li>
 </ul>
 
 <h3>3. Activation</h3>
-<p>Activation needs a Young Ress account and an internet connection once per computer. The hub saves a license file on
+<p>Activation needs an Aphotic Audio account and an internet connection once per computer. The hub saves a license file on
 your computer containing your account email and a one-way fingerprint of the computer. Without a valid license file
 the plug-in passes audio through unchanged and shows an activation screen.</p>
 
@@ -252,7 +252,7 @@ sounds: keep monitoring levels safe, especially on headphones, and check your ou
 remove features.</p>
 
 <h3>6. Ownership</h3>
-<p>The plug-ins, their code, sound, design and names belong to Young Ress. No rights are granted except those written
+<p>The plug-ins, their code, sound, design and names belong to Aphotic Audio. No rights are granted except those written
 here. Third-party parts are listed under <a data-doc="notices">Open-source notices</a> and in THIRD-PARTY-NOTICES.txt.</p>
 
 <h3>7. Ending the license</h3>

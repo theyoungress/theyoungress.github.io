@@ -8,13 +8,13 @@
   if (!product) {
     if (id === 'trinity') {
       document.getElementById('product-name').textContent = 'TRINITY is free.';
-      document.getElementById('product-description').textContent = 'Download Young Ress Hub and create an account to install TRINITY for free.';
+      document.getElementById('product-description').textContent = 'Download Aphotic Hub and create an account to install TRINITY for free.';
       document.getElementById('checkout-free').hidden = false;
     }
-    unavailable('Choose a paid plug-in from the store. TRINITY is free in Young Ress Hub.');
+    unavailable('Choose a paid plug-in from the store. TRINITY is free in Aphotic Hub.');
     return;
   }
-  document.title = product.name + ' checkout | Young Ress';
+  document.title = product.name + ' checkout | Aphotic Audio';
   document.getElementById('product-name').textContent = product.name;
   document.getElementById('product-price').textContent = '$' + product.price;
   document.getElementById('product-description').textContent = product.description;

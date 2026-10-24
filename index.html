@@ -5,14 +5,15 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://zxeuoqrnwxopohtcbhep.supabase.co https://api.github.com; base-uri 'none'; form-action 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Young Ress | Vocal plug-ins</title>
-<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Young Ress, installed and kept up to date by the free Young Ress Hub.">
-<meta property="og:title" content="Young Ress | Vocal plug-ins">
-<meta property="og:description" content="TRINITY, IRON & GLASS and AIR: vocal plug-ins by Young Ress, installed by the free Young Ress Hub.">
-<meta property="og:image" content="https://theyoungress.github.io/img/ironglass.jpg">
+<title>Aphotic Audio | Vocal plug-ins</title>
+<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Aphotic Audio, installed and kept up to date by the free Aphotic Hub.">
+<meta property="og:title" content="Aphotic Audio | Vocal plug-ins">
+<meta property="og:description" content="TRINITY, IRON & GLASS and AIR: vocal plug-ins by Aphotic Audio, installed by the free Aphotic Hub.">
+<meta property="og:image" content="https://theyoungress.github.io/img/og-aphotic.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0b0b0c">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0b0c'/%3E%3Crect x='8' y='11' width='4' height='12' rx='2' fill='%23b77ce2'/%3E%3Crect x='14' y='6' width='4' height='17' rx='2' fill='%239763c2'/%3E%3Crect x='20' y='14' width='4' height='9' rx='2' fill='%2369488a'/%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800&family=Inter:wght@400..800&display=swap" rel="stylesheet">
@@ -24,7 +25,6 @@
   --line: #e7e8eb;
   --surface: #f3f4f6;
   --white: #ffffff;
-  --purple: #9763c2;
   --gutter: 32px;
   color-scheme: light;
 }
@@ -33,7 +33,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--white); color: var(--ink); font: 400 16px/1.55 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
-:focus-visible { outline: 2px solid var(--purple); outline-offset: 3px; border-radius: 6px; }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 6px; }
 .wrap { width: min(1280px, 100% - 2 * var(--gutter)); margin-inline: auto; }
 h1, h2, h3, p { margin: 0; }
 .display { font-family: "Archivo", "Inter", sans-serif; font-stretch: 125%; font-weight: 800; letter-spacing: -.01em; line-height: .95; }
@@ -61,10 +61,9 @@ h1, h2, h3, p { margin: 0; }
 .announce a { text-decoration: underline; text-underline-offset: 3px; color: #fff; margin-left: 6px; }
 .top { position: sticky; top: 0; z-index: 20; background: rgba(11, 11, 12, .94); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); color: var(--white); }
 .top-in { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 68px; }
-.logo { display: inline-flex; align-items: center; gap: 11px; font-weight: 800; letter-spacing: .14em; font-size: 14px; }
-.logo i { display: inline-flex; gap: 3px; align-items: flex-end; height: 18px; }
-.logo b { display: block; width: 4px; border-radius: 2px; background: #b77ce2; }
-.logo b:nth-child(1) { height: 12px; } .logo b:nth-child(2) { height: 18px; background: var(--purple); } .logo b:nth-child(3) { height: 9px; background: #69488a; }
+.logo { display: inline-flex; align-items: center; }
+.logo img { height: 20px; width: auto; }
+.foot .logo img { height: 46px; }
 .menu { display: flex; gap: 34px; font-size: 15px; font-weight: 500; }
 .menu a { color: #d9d9de; }
 .menu a:hover { color: var(--white); }
@@ -114,7 +113,7 @@ h1, h2, h3, p { margin: 0; }
 .card-price { margin: 18px 8px 16px; font-size: 18px; font-weight: 700; }
 .card .pill { margin: auto 8px 0; }
 
-/* ---- Young Ress Hub banner ---- */
+/* ---- Aphotic Hub banner ---- */
 .hub { padding: 110px 0 0; }
 .hub-banner { position: relative; overflow: hidden; isolation: isolate; background: #0e0b14; color: var(--white); border-radius: 28px; padding: 88px 0 260px; margin-inline: 12px; }
 .hub-banner::before { content: ""; position: absolute; inset: -80px; z-index: -1; background: url(img/hub.jpg) center / cover; filter: blur(50px) brightness(.45) saturate(130%); }
@@ -217,14 +216,14 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
 </head>
 <body>
 
-<div class="announce"><b>AIR 1.4.1 is out.</b> One knob of air that never turns harsh.<a href="#air">See AIR</a></div>
+<div class="announce"><b>Young Ress is now Aphotic Audio.</b> Same plug-ins, same account, new name. Every plug-in now runs on Mac too.<a href="#hub">Get Aphotic Hub</a></div>
 
 <header class="top on-dark">
   <div class="wrap top-in">
-    <a class="logo" href="./" aria-label="Young Ress home"><i aria-hidden="true"><b></b><b></b><b></b></i>YOUNG RESS</a>
+    <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-wordmark.png" alt="Aphotic Audio" width="137" height="20"></a>
     <nav class="menu" aria-label="Main">
       <a href="#plugins">Plug-ins</a>
-      <a href="#hub">Young Ress Hub</a>
+      <a href="#hub">Aphotic Hub</a>
       <a href="#help">Help</a>
     </nav>
     <a class="pill solid" href="#hub">Download Hub</a>
@@ -248,7 +247,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
   <div class="wrap tiles">
     <div class="tile tile-trinity on-dark">
       <h2 class="display">TRINITY</h2>
-      <p>Pitch correction that goes from natural to hard-locked. Free with your Young Ress account.</p>
+      <p>Pitch correction that goes from natural to hard-locked. Free with your Aphotic Audio account.</p>
       <div class="pills"><a class="pill" href="#trinity">Learn more</a><a class="pill solid" data-buy="trinity" href="#hub">Get it free</a></div>
       <img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="">
     </div>
@@ -263,7 +262,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
   <section class="wrap shop" id="plugins" aria-labelledby="shop-title">
     <div class="shop-head">
       <h2 id="shop-title">Plug-ins</h2>
-      <a href="#hub">Installed by Young Ress Hub</a>
+      <a href="#hub">Installed by Aphotic Hub</a>
     </div>
     <div class="cards">
       <article class="card">
@@ -293,19 +292,19 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
   <section class="hub" id="hub" aria-labelledby="hub-title">
     <div class="hub-banner on-dark">
       <div class="wrap">
-        <h2 id="hub-title">Young Ress Hub installs, updates and activates every plug-in.</h2>
+        <h2 id="hub-title">Aphotic Hub installs, updates and activates every plug-in.</h2>
         <p>It's free. Sign in once, click install, and each plug-in lands where your DAW looks for it. New versions arrive on their own, and your licenses move between your computers.</p>
         <div class="pills">
-          <a class="pill solid" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.1.0/Young-Ress-Hub-Setup-1.1.0.exe">Download for Windows</a>
-          <a class="pill" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.1.0/Young-Ress-Hub-1.1.0-Mac.dmg">Download for Mac</a>
+          <a class="pill solid" data-dl="win" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.2.0/Aphotic-Hub-Setup-1.2.0.exe">Download for Windows</a>
+          <a class="pill" data-dl="mac" href="https://github.com/theyoungress/youngress-hub-releases/releases/download/v1.2.0/Aphotic-Hub-1.2.0-Mac.dmg">Download for Mac</a>
         </div>
-        <p class="fine" id="hub-meta">Version 1.1.0. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
+        <p class="fine" id="hub-meta">Version 1.2.0. Windows 10 or 11 (64-bit), or macOS on Apple silicon or Intel.</p>
       </div>
     </div>
     <div class="wrap">
       <figure class="app">
-        <div class="app-bar" aria-hidden="true"><span>Young Ress Hub</span><i><span>&#8212;</span><span>&#9633;</span><span>&#10005;</span></i></div>
-        <img src="img/hub.jpg" width="1600" height="690" loading="lazy" alt="Young Ress Hub's Store page listing TRINITY for free, IRON & GLASS for $33 and AIR for $30">
+        <div class="app-bar" aria-hidden="true"><span>Aphotic Hub</span><i><span>&#8212;</span><span>&#9633;</span><span>&#10005;</span></i></div>
+        <img src="img/hub.jpg" width="1600" height="690" loading="lazy" alt="Aphotic Hub's Store page listing TRINITY for free, IRON & GLASS for $33 and AIR for $30">
       </figure>
       <ol class="steps">
         <li><h3>Download the Hub</h3><p>Run the installer. If Windows says it protected your PC, click More info, then Run anyway.</p></li>
@@ -323,8 +322,8 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         <h2 class="display" id="trinity-name">TRINITY</h2>
         <p class="pdp-sub">Vocal pitch engine</p>
         <p class="pdp-price">Free</p>
-        <div class="pdp-buy"><a class="pill solid" data-buy="trinity" href="#hub">Get it free in Young Ress Hub</a></div>
-        <p class="pay-note">Free with a Young Ress account. Installs in one click.</p>
+        <div class="pdp-buy"><a class="pill solid" data-buy="trinity" href="#hub">Get it free in Aphotic Hub</a></div>
+        <p class="pay-note">Free with an Aphotic Audio account. Installs in one click.</p>
         <div class="pdp-body">
           <p>Classic follows the singer and leaves the expression in. Underground snaps every note to the key for the locked sound modern rap vocals are built on. Either way, formant-preserving correction keeps the voice sounding like the person who sang it.</p>
           <p>Set the key and scale on the keyboard, pick a vocal range, and watch the pitch path show what came in, where it's headed and what came out.</p>
@@ -355,7 +354,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         <p class="pdp-sub">Analog channel strip</p>
         <p class="pdp-price" data-price="ironglass">$33</p>
         <div class="pdp-buy"><a class="pill solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a></div>
-        <p class="pay-note" data-pay-note="ironglass">One-time purchase. Use your Hub email at checkout, then install in Young Ress Hub.</p>
+        <p class="pay-note" data-pay-note="ironglass">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
         <div class="pdp-body">
           <p><b>Iron</b> is the console half: a Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit.</p>
           <p><b>Glass</b> is a tube optical compressor that holds a vocal steady without squashing it. Blend it in with the mix knob, keep the low end from pumping it with the sidechain high-pass, and put it before or after the EQ.</p>
@@ -370,7 +369,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
           <dl class="specs">
             <dt>EQ</dt><dd>Air 12 kHz, mid 360 Hz to 7.2 kHz, low 35 to 220 Hz, high-pass 50 to 300 Hz</dd>
             <dt>Oversampling</dt><dd>Off, 2x, 4x or 8x</dd>
-            <dt>Formats</dt><dd>Windows VST3, 64-bit. Mac version in progress.</dd>
+            <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
             <dt>Version</dt><dd data-version="ironglass">1.21.1</dd>
           </dl>
         </div>
@@ -386,7 +385,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         <p class="pdp-sub">One-knob air enhancer</p>
         <p class="pdp-price" data-price="air">$30</p>
         <div class="pdp-buy"><a class="pill solid" data-buy="air" href="checkout.html?product=air">Buy for $30</a></div>
-        <p class="pay-note" data-pay-note="air">One-time purchase. Use your Hub email at checkout, then install in Young Ress Hub.</p>
+        <p class="pay-note" data-pay-note="air">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
         <div class="pdp-body">
           <p>AIR lifts the top of a vocal, mix or instrument with a dynamic shelf set above the harsh zone, and adds an octave-up sheen to sources that came in dull. Built-in smoothing gives esses and spikes less lift than everything else, so pushing it harder only gets smoother.</p>
           <h3>Features</h3>
@@ -399,7 +398,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
           <h3>Specs</h3>
           <dl class="specs">
             <dt>Latency</dt><dd>Zero</dd>
-            <dt>Formats</dt><dd>Windows VST3, 64-bit. Mac version in progress.</dd>
+            <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
             <dt>Version</dt><dd data-version="air">1.4.1</dd>
             <dt>Computers</dt><dd>Up to 3 per license</dd>
           </dl>
@@ -417,11 +416,11 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
       <div>
         <details>
           <summary>I paid. Where's my plug-in?</summary>
-          <p>Install Young Ress Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. The plug-in appears in your Library within a minute of paying: click Install. Your receipt comes from Gumroad. Buying from inside the Hub? Its Buy now button opens Gumroad with your account email already filled in.</p>
+          <p>Install Aphotic Hub and sign in with the email you used at checkout, or create an account with it and enter the code we email you. The plug-in appears in your Library within a minute of paying: click Install. Your receipt comes from Gumroad. Buying from inside the Hub? Its Buy now button opens Gumroad with your account email already filled in.</p>
         </details>
         <details>
           <summary>I used a different email at checkout.</summary>
-          <p>No problem: open Young Ress Hub, go to <b>Library</b> and paste the licence key from your Gumroad receipt under <b>Bought on Gumroad with another email?</b>. The plug-in moves into your account straight away. Stuck? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with your order number.</p>
+          <p>No problem: open Aphotic Hub, go to <b>Library</b> and paste the licence key from your Gumroad receipt under <b>Bought on Gumroad with another email?</b>. The plug-in moves into your account straight away. Stuck? Email <a href="mailto:theyoungress@gmail.com">theyoungress@gmail.com</a> with your order number.</p>
         </details>
         <details>
           <summary>How many computers can I use?</summary>
@@ -429,7 +428,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         </details>
         <details>
           <summary>Which DAWs and systems work?</summary>
-          <p>Any DAW that loads VST3 plug-ins on Windows 10 or 11 (64-bit). TRINITY also runs on macOS as VST3 and AU, so it works in Logic Pro. Mac versions of IRON &amp; GLASS and AIR are in progress.</p>
+          <p>Any DAW that loads VST3 plug-ins on Windows 10 or 11 (64-bit). On a Mac (macOS 11 or later, Apple silicon or Intel) every plug-in comes as VST3 and AU, so it also works in Logic Pro and GarageBand.</p>
         </details>
         <details>
           <summary>My computer warns me about the installer.</summary>
@@ -441,7 +440,7 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
         </details>
         <details>
           <summary>Who handles the payment?</summary>
-          <p>Gumroad is the seller of record. It takes the payment, adds any sales tax or VAT for your country and sends your receipt. Young Ress never sees your card details.</p>
+          <p>Gumroad is the seller of record. It takes the payment, adds any sales tax or VAT for your country and sends your receipt. Aphotic Audio never sees your card details.</p>
         </details>
       </div>
     </div>
@@ -452,14 +451,14 @@ footer { background: #000; color: #b9bac0; padding: 72px 0 40px; font-size: 15px
   <div class="wrap">
     <div class="foot">
       <div>
-        <a class="logo" href="./" aria-label="Young Ress home"><i aria-hidden="true"><b></b><b></b><b></b></i>YOUNG RESS</a>
-        <p>Vocal plug-ins, installed and kept up to date by Young Ress Hub.</p>
+        <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-logo.png" alt="Aphotic Audio" width="181" height="46"></a>
+        <p>Vocal plug-ins, installed and kept up to date by Aphotic Hub.</p>
       </div>
       <div><h4>Plug-ins</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li></ul></div>
-      <div><h4>Support</h4><ul><li><a href="#hub">Download Young Ress Hub</a></li><li><a href="#help">Help</a></li><li><a href="mailto:theyoungress@gmail.com">Email support</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="#hub">Download Aphotic Hub</a></li><li><a href="#help">Help</a></li><li><a href="mailto:theyoungress@gmail.com">Email support</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="legal.html#terms">Terms of Service</a></li><li><a href="legal.html#privacy">Privacy Policy</a></li><li><a href="legal.html#eula">Plug-in License</a></li></ul></div>
     </div>
-    <p class="legal">&copy; 2026 Young Ress. Payments are processed by Gumroad, our seller of record.</p>
+    <p class="legal">&copy; 2026 Aphotic Audio. Payments are processed by Gumroad, our seller of record.</p>
   </div>
 </footer>
 
