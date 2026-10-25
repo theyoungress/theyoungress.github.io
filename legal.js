@@ -3,7 +3,7 @@
 // <span class="contact"></span> is filled in with the support email from config.js.
 window.YR_LEGAL = {
   version: "2026-10-19",
-  updated: "October 23, 2026",
+  updated: "October 24, 2026",
   docs: {
     terms: {
       title: "Terms of Service",
@@ -58,10 +58,10 @@ is on (Account page), it also updates the plug-ins you have installed. Updates c
 plug-ins may ask for your computer's administrator permission.</p>
 
 <h3>7. System requirements</h3>
-<p>Aphotic Hub: Windows 10 or 11 (64-bit) or macOS 12 or later. TRINITY: Windows 10 or 11 (64-bit) with a VST3 host,
-or macOS 10.13 or later (Intel or Apple silicon) with a VST3 or Audio Unit host. IRON &amp; GLASS: Windows 10 or 11
-(64-bit) with a VST3 host; there is no Mac version yet. An internet connection is needed to sign
-in, buy, download and activate. Other plug-ins list their requirements in the store.</p>
+<p>Aphotic Hub: Windows 10 or 11 (64-bit) or macOS 12 or later. Plug-ins: Windows 10 or 11 (64-bit) with a VST3 host,
+or a Mac (Intel or Apple silicon) with a VST3 or Audio Unit host; TRINITY needs macOS 10.13 or later, IRON &amp; GLASS
+and AIR need macOS 11 or later. An internet connection is needed to sign in, buy, download and activate. New plug-ins
+list their requirements in the store.</p>
 
 <h3>8. What you may not do</h3>
 <p>Do not copy, share, resell or crack our plug-ins; share your account or licenses; get around activation or license
@@ -74,6 +74,9 @@ information; harass anyone; pretend to be someone else or give false information
 the hub or the plug-in documents (for example VST, Audio Units, Apple Pay, Google Pay, PayPal and DAW names) are
 trademarks of their owners and are used only to describe compatibility or payment options. It does not mean those
 companies endorse us.</p>
+<p>Our plug-ins are original software. Where we compare a sound with classic studio equipment, any equipment named is
+used only to identify it; its makers are not affiliated with us and do not sponsor or endorse Aphotic Audio or our
+plug-ins.</p>
 
 <h3>10. Ideas you send us</h3>
 <p>If you send us suggestions or feedback, we may use them freely without paying you. We do not have to keep them
@@ -168,12 +171,13 @@ advertising.</p>
 
 <h3>Who we share it with</h3>
 <ul>
-<li><b>Supabase</b>: hosts our database, sign-in system, store functions and plug-in downloads, and sends sign-in and
-verification emails.</li>
+<li><b>Supabase</b>: hosts our database, sign-in system, store functions and plug-in downloads.</li>
+<li><b>Google (Gmail)</b>: delivers our sign-in and verification emails, so it receives your email address and the
+message.</li>
 <li><b>Gumroad</b>: our reseller (merchant of record). It handles checkout, payment, tax and receipts under its own
 privacy policy, and uses payment processors such as Stripe and PayPal.</li>
-<li><b>GitHub</b>: hosts hub updates. When the hub checks for or downloads an update, GitHub receives your IP address as
-with any website.</li>
+<li><b>GitHub</b>: hosts our website and hub updates. When you visit the website, or the hub checks for or downloads an
+update, GitHub receives your IP address as with any website. The website loads no outside fonts, trackers or ads.</li>
 <li>Authorities, if the law requires it, or a buyer of our business, under this same policy.</li>
 </ul>
 <p>These providers may process information in the United States and other countries. Where the law requires it, they
@@ -202,8 +206,8 @@ authority.</li>
 
 <h3>Security</h3>
 <p>Information travels over encrypted connections (HTTPS). Database access rules let each customer see only their own
-information. The owner tools need a password and an authenticator code. Licenses are digitally signed so they cannot be
-forged. No system is perfectly secure, but if a breach affects you, we will tell you as the law requires.</p>
+information. Only the store owner can use the owner tools, and their actions are logged. Licenses are digitally signed
+so they cannot be forged. No system is perfectly secure, but if a breach affects you, we will tell you as the law requires.</p>
 
 <h3>Children</h3>
 <p>The hub is not for children under 13, and we do not knowingly collect their information. If you think a child under
@@ -219,8 +223,8 @@ forged. No system is perfectly secure, but if a breach affects you, we will tell
     eula: {
       title: "Plug-in License",
       html: `
-<p>This license applies to every Aphotic Audio plug-in, including TRINITY and IRON &amp; GLASS. Each plug-in download also includes it as
-LICENSE.txt. Plug-ins are licensed, not sold. By installing, activating or using a plug-in you agree to it.</p>
+<p>This license applies to every Aphotic Audio plug-in, including TRINITY, IRON &amp; GLASS and AIR. Each plug-in download also
+includes it as LICENSE.txt. Plug-ins are licensed, not sold. By installing, activating or using a plug-in you agree to it.</p>
 
 <h3>1. Your license</h3>
 <p>If you bought a plug-in, or we gave you a license, you may install and use it on up to 3 computers that you own or
@@ -252,8 +256,9 @@ sounds: keep monitoring levels safe, especially on headphones, and check your ou
 remove features.</p>
 
 <h3>6. Ownership</h3>
-<p>The plug-ins, their code, sound, design and names belong to Aphotic Audio. No rights are granted except those written
-here. Third-party parts are listed under <a data-doc="notices">Open-source notices</a> and in THIRD-PARTY-NOTICES.txt.</p>
+<p>The plug-ins, their code, sound, design and names belong to Aphotic Audio. Each plug-in is an original work, not
+made, licensed or endorsed by the makers of any equipment or software it may be compared with. No rights are granted
+except those written here. Third-party parts are listed under <a data-doc="notices">Open-source notices</a> and in THIRD-PARTY-NOTICES.txt.</p>
 
 <h3>7. Ending the license</h3>
 <p>The license ends automatically if you break it, or if your purchase is refunded, reversed or charged back. You must
@@ -263,13 +268,14 @@ then stop using the plug-in and delete every copy.</p>
 <p>The plug-ins are provided "as is", without warranty of any kind, express or implied, including merchantability,
 fitness for a particular purpose and non-infringement. To the maximum extent the law allows, we are not liable for
 indirect, incidental, special, consequential or punitive damages, or for lost data, recordings, profits or business, or
-for damage to hearing or equipment, and our total liability is limited to the amount you paid for the plug-in. Nothing
-here takes away consumer rights that the law says cannot be taken away.</p>
+for damage to hearing or equipment, and our total liability is limited to the greater of the amount you paid for the
+plug-in and US$50. Nothing here takes away consumer rights that the law says cannot be taken away.</p>
 
 <h3>9. Trademarks</h3>
 <p>VST is a registered trademark of Steinberg Media Technologies GmbH. Audio Units, Mac and macOS are trademarks of Apple
-Inc. Windows is a trademark of Microsoft Corporation. Other product names are trademarks of their owners and are used
-only to describe compatibility.</p>`,
+Inc. Windows is a trademark of Microsoft Corporation. Other product and company names are trademarks of their owners.
+They are used only to describe compatibility or to identify equipment a sound is compared with; those owners are not
+affiliated with us and do not endorse our plug-ins.</p>`,
     },
   },
 };
