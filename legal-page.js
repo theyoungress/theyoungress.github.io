@@ -1,5 +1,5 @@
 // The same documents Aphotic Hub shows and customers agree to (legal.js is copied from the hub).
-const SUPPORT = "theyoungress@gmail.com";
+const SUPPORT = "aphoticsupport@gmail.com";
 const L = window.YR_LEGAL;
 document.getElementById("updated").textContent = "Last updated " + L.updated + ".";
 document.getElementById("docs").innerHTML = ["terms", "privacy", "eula"]
