@@ -3,7 +3,7 @@
 // <span class="contact"></span> is filled in with the support email from config.js.
 window.YR_LEGAL = {
   version: "2026-10-19",
-  updated: "October 24, 2026",
+  updated: "October 25, 2026",
   docs: {
     terms: {
       title: "Terms of Service",
@@ -18,7 +18,8 @@ age of majority where you live), you need a parent's or guardian's permission to
 true and up to date.</p>
 
 <h3>2. Your account</h3>
-<p>Keep your password secret and tell us straight away if you think someone else has used your account. You are
+<p>You can create your account with an email and password, or with Google or Facebook. Keep your password secret and
+tell us straight away if you think someone else has used your account. You are
 responsible for what happens in your account. One account is for one person; do not share it. We may suspend or close an
 account that breaks these terms, is used for fraud or piracy, or puts other people or the service at risk.</p>
 
@@ -146,6 +147,8 @@ our plug-ins, why, who we share it with and the choices you have. Aphotic Audio 
 <li><b>Account:</b> your email address, your name if you enter one, your password (stored only as a secure one-way hash
 by our hosting provider, never readable), when you signed up and last signed in, and a record of when you agreed to our
 terms.</li>
+<li><b>Google or Facebook sign-in</b> (only if you choose it): your name, email address and profile picture link from
+Google or Facebook. They learn that you signed in to Aphotic Hub. We never receive your Google or Facebook password.</li>
 <li><b>Purchases:</b> order number, plug-in, price, tax, currency, date, status and the email used at checkout, which our
 reseller Gumroad sends us. We never receive your card or bank details.</li>
 <li><b>Activated computers:</b> for each computer you activate, a one-way fingerprint made from your operating system's
@@ -176,6 +179,7 @@ advertising.</p>
 message.</li>
 <li><b>Gumroad</b>: our reseller (merchant of record). It handles checkout, payment, tax and receipts under its own
 privacy policy, and uses payment processors such as Stripe and PayPal.</li>
+<li><b>Google and Facebook (Meta)</b>: only if you sign in with them; their own privacy policies apply to that sign-in.</li>
 <li><b>GitHub</b>: hosts our website and hub updates. When you visit the website, or the hub checks for or downloads an
 update, GitHub receives your IP address as with any website. The website loads no outside fonts, trackers or ads.</li>
 <li>Authorities, if the law requires it, or a buyer of our business, under this same policy.</li>
@@ -196,7 +200,9 @@ about a day. Our providers keep their own security logs for a limited time.</p>
 <h3>Your choices and rights</h3>
 <ul>
 <li><b>Delete your account</b> at any time: Account page, "Delete my account". This removes your account, your email from
-our sales records, your activations and your agreement records.</li>
+our sales records, your activations and your agreement records, including anything we received from Google or Facebook.
+You can also remove Aphotic Hub's access in your Google or Facebook account settings. Can't open the hub? Email us and we
+delete your account for you.</li>
 <li>See or correct your information on the Account page, or ask us for a copy.</li>
 <li>Depending on where you live (for example the EU, UK, California and other US states), you can ask to access,
 correct, delete or receive a copy of your information, and object to or restrict some uses. We answer within 30 days
