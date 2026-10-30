@@ -122,6 +122,15 @@ details.more[open] summary::after { content: "\2212"; }
 .hub-head p { color: var(--on-dark-dim); max-width: 50ch; }
 .hub .btns { margin-top: 26px; }
 .fine { margin-top: 12px; font-size: 14px; color: var(--on-dark-dim); }
+.daw { background: var(--paper); padding-block: clamp(80px, 10vw, 130px); }
+.daw-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.daw .role { font: 700 13px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.daw h2 { margin: 10px 0 16px; font: 800 clamp(48px, 6vw, 84px)/.95 var(--display); letter-spacing: -.035em; color: var(--black); }
+.daw .what { max-width: 42ch; font-size: 18px; }
+.daw ul { margin: 22px 0 0; padding-left: 18px; }
+.daw .buy { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+.daw .note { margin-top: 12px; font-size: 14px; color: var(--dim); }
+.daw .shot { background: var(--white); }
 .window { margin-top: 56px; border-radius: 12px; overflow: hidden; background: #0d1014; border: 1px solid var(--rule-dark); box-shadow: 0 50px 120px -50px rgba(255, 255, 255, .14); }
 .window-bar { display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 14px; font-size: 13px; color: var(--on-dark-dim); border-bottom: 1px solid var(--rule-dark); }
 .window-bar i { font-style: normal; letter-spacing: 12px; }
@@ -157,7 +166,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
 
 /* ---- smaller screens ---- */
 @media (max-width: 980px) {
-  .hero-in, .chain-head, .hub-head { grid-template-columns: 1fr; }
+  .hero-in, .chain-head, .hub-head, .daw-in { grid-template-columns: 1fr; }
   .rack { max-width: 640px; }
   .stage { grid-template-columns: 14px 1fr; }
   .stage .shot { grid-column: 2; margin-top: 30px; }
@@ -186,6 +195,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
     <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-wordmark-dark.png" alt="Aphotic Audio" width="137" height="20"></a>
     <nav class="menu" aria-label="Main">
       <a href="#plugins">Plug-ins</a>
+      <a href="#monday">MONDAY</a>
       <a href="#hub">Aphotic Hub</a>
       <a href="#help">Help</a>
     </nav>
@@ -316,6 +326,26 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
     </div>
   </section>
 
+  <section class="daw" id="monday" aria-labelledby="monday-name">
+    <div class="wrap daw-in">
+      <div>
+        <p class="role">The DAW &middot; Public beta</p>
+        <h2 id="monday-name">MONDAY</h2>
+        <p class="what">Our DAW, built for rap vocals and beats: record with takes and punch-ins, make beats in the step sequencer, mix on a console and export every version of a song at once.</p>
+        <ul>
+          <li>Takes, comping, punch-ins and clean edits (mute, reverse or bleep a word)</li>
+          <li>Step sequencer with MONDAY DRUMS: your own sounds, 808s that follow the key, hi-hat rolls</li>
+          <li>Piano roll and MONDAY SYNTH, tempo changes, insert and duplicate bars</li>
+          <li>Console mixer with plug-in delay compensation, your VST3s and MONDAY's own EQ, compressor, de-esser, reverb, delay and limiter</li>
+          <li>Export WAV, FLAC, MP3, stems, or main, clean, instrumental, acapella and TV track in one go</li>
+        </ul>
+        <div class="buy"><span class="price">Free</span><a class="btn solid" href="#hub">Get it free in Aphotic Hub</a><a href="https://aphoticaudio.gumroad.com/l/monday">or on Gumroad</a></div>
+        <p class="note">Windows 10 and 11; the Mac version is on its way. Version 0.25.0. It's a beta: keep copies of your projects.</p>
+      </div>
+      <figure class="shot"><img src="img/monday.jpg" width="1600" height="1000" loading="lazy" alt="MONDAY with a trap beat in the step sequencer: kick, snare, hi-hats with a roll, 808 and clap, with the arrangement above and the mixer on the right"></figure>
+    </div>
+  </section>
+
   <section class="hub dark" id="hub" aria-labelledby="hub-title">
     <div class="wrap">
       <div class="hub-head">
@@ -389,7 +419,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
         <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-logo.png" alt="Aphotic Audio" width="205" height="52"></a>
         <p>Vocal plug-ins for Windows and Mac, installed and kept up to date by Aphotic Hub.</p>
       </div>
-      <div><h4>Plug-ins</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li></ul></div>
+      <div><h4>Plug-ins</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li></ul><h4>Software</h4><ul><li><a href="#monday">MONDAY</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#hub">Download Aphotic Hub</a></li><li><a href="#help">Help</a></li><li><a href="mailto:aphoticsupport@gmail.com">Email support</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="legal.html#terms">Terms of Service</a></li><li><a href="legal.html#privacy">Privacy Policy</a></li><li><a href="legal.html#eula">Plug-in License</a></li></ul></div>
     </div>
