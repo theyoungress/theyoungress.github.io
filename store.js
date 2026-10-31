@@ -5,6 +5,7 @@ window.YoungRessStore = (() => {
   const products = Object.freeze({
     ironglass: Object.freeze({ name: 'IRON & GLASS', price: 33, image: 'img/ironglass.jpg', description: 'Preamp, EQ and tube optical compressor', format: 'Windows VST3 · macOS VST3 and AU' }),
     air: Object.freeze({ name: 'AIR', price: 30, image: 'img/air-card.png', description: 'One-knob air enhancer', format: 'Windows VST3 · macOS VST3 and AU' }),
+    santa: Object.freeze({ name: 'SANTA', price: 30, image: 'img/santa.jpg', description: 'Stereo chorus pedal with tube drive', format: 'Windows VST3' }),
   });
   async function catalog() {
     const response = await fetch(store + '/rest/v1/products?select=*', { headers: { apikey: key }, signal: AbortSignal.timeout(10000) });

@@ -6,7 +6,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Aphotic Audio | Vocal plug-ins</title>
-<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip and AIR. Vocal plug-ins by Aphotic Audio for Windows and Mac, installed and kept up to date by the free Aphotic Hub.">
+<meta name="description" content="TRINITY pitch correction, the IRON & GLASS channel strip, AIR and the SANTA chorus pedal. Plug-ins by Aphotic Audio for Windows and Mac, installed and kept up to date by the free Aphotic Hub.">
 <meta property="og:title" content="Aphotic Audio | Vocal plug-ins">
 <meta property="og:description" content="Pitch, tone and air for every vocal: TRINITY, IRON & GLASS and AIR, installed by the free Aphotic Hub.">
 <meta property="og:image" content="https://theyoungress.github.io/img/og-aphotic.jpg">
@@ -131,6 +131,8 @@ details.more[open] summary::after { content: "\2212"; }
 .daw .buy { margin-top: 26px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
 .daw .note { margin-top: 12px; font-size: 14px; color: var(--dim); }
 .daw .shot { background: var(--white); }
+.daw.pedal { background: var(--white); }
+.daw.pedal .shot { background: var(--paper); }
 .window { margin-top: 56px; border-radius: 12px; overflow: hidden; background: #0d1014; border: 1px solid var(--rule-dark); box-shadow: 0 50px 120px -50px rgba(255, 255, 255, .14); }
 .window-bar { display: flex; justify-content: space-between; align-items: center; height: 36px; padding: 0 14px; font-size: 13px; color: var(--on-dark-dim); border-bottom: 1px solid var(--rule-dark); }
 .window-bar i { font-style: normal; letter-spacing: 12px; }
@@ -195,6 +197,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
     <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-wordmark-dark.png" alt="Aphotic Audio" width="137" height="20"></a>
     <nav class="menu" aria-label="Main">
       <a href="#plugins">Plug-ins</a>
+      <a href="#santa">SANTA</a>
       <a href="#monday">MONDAY</a>
       <a href="#hub">Aphotic Hub</a>
       <a href="#help">Help</a>
@@ -208,7 +211,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
     <div class="wrap hero-in">
       <div>
         <h1 id="hero-title">Pitch, tone and air for every vocal.</h1>
-        <p class="lede">Three plug-ins for Windows and Mac, from free pitch correction to a full analog channel strip. One free app installs and updates them.</p>
+        <p class="lede">Plug-ins for Windows and Mac, from free pitch correction to a full analog channel strip and a chorus pedal. One free app installs and updates them.</p>
         <div class="btns">
           <a class="btn solid" href="#plugins">See the plug-ins</a>
           <a class="btn" href="#hub">Get Aphotic Hub</a>
@@ -326,6 +329,26 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
     </div>
   </section>
 
+  <section class="daw pedal" id="santa" aria-labelledby="santa-name">
+    <div class="wrap daw-in">
+      <div>
+        <p class="role">Chorus pedal &middot; New</p>
+        <h2 id="santa-name">SANTA</h2>
+        <p class="what">A lush stereo chorus in a pedal you can actually use: three knobs, a footswitch, and Santa's nose. Click it and it glows red and adds warm tube drive.</p>
+        <ul>
+          <li>Three-voice stereo ensemble with a slow random drift: wide, smooth and never seasick</li>
+          <li>Lows stay dry and tight; the chorus is rounded off like a vintage analog chip</li>
+          <li>Rate, Depth and Mix, plus a footswitch with a status LED</li>
+          <li>Tube drive on the nose: soft warmth on quiet parts, real crunch when you hit it</li>
+          <li>Zero latency, resizable interface</li>
+        </ul>
+        <div class="buy"><span class="price" data-price="santa">$30</span><a class="btn solid" data-buy="santa" href="checkout.html?product=santa">Buy for $30</a></div>
+        <p class="note" data-pay-note="santa">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub. Windows VST3 (64-bit); not on Mac yet. Version <span data-version="santa">1.2.0</span>. Up to 3 computers per license.</p>
+      </div>
+      <figure class="shot"><img src="img/santa.jpg" width="1600" height="1000" loading="lazy" alt="SANTA: a red chorus pedal with Rate, Depth and Mix knobs, Santa's face with a glowing red nose, a red LED and a chrome footswitch"></figure>
+    </div>
+  </section>
+
   <section class="daw" id="monday" aria-labelledby="monday-name">
     <div class="wrap daw-in">
       <div>
@@ -393,7 +416,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
         </details>
         <details>
           <summary>Which DAWs and systems work?</summary>
-          <p>Any DAW that loads VST3 plug-ins on Windows 10 or 11 (64-bit). On a Mac (macOS 11 or later, Apple silicon or Intel) every plug-in comes as VST3 and AU, so it also works in Logic Pro and GarageBand.</p>
+          <p>Any DAW that loads VST3 plug-ins on Windows 10 or 11 (64-bit). On a Mac (macOS 11 or later, Apple silicon or Intel) TRINITY, IRON &amp; GLASS and AIR come as VST3 and AU, so they also work in Logic Pro and GarageBand. SANTA is Windows only for now.</p>
         </details>
         <details>
           <summary>My computer warns me about the installer.</summary>
@@ -419,7 +442,7 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
         <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-logo.png" alt="Aphotic Audio" width="205" height="52"></a>
         <p>Vocal plug-ins for Windows and Mac, installed and kept up to date by Aphotic Hub.</p>
       </div>
-      <div><h4>Plug-ins</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li></ul><h4>Software</h4><ul><li><a href="#monday">MONDAY</a></li></ul></div>
+      <div><h4>Plug-ins</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li><li><a href="#santa">SANTA</a></li></ul><h4>Software</h4><ul><li><a href="#monday">MONDAY</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#hub">Download Aphotic Hub</a></li><li><a href="#help">Help</a></li><li><a href="mailto:aphoticsupport@gmail.com">Email support</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="legal.html#terms">Terms of Service</a></li><li><a href="legal.html#privacy">Privacy Policy</a></li><li><a href="legal.html#eula">Plug-in License</a></li></ul></div>
     </div>

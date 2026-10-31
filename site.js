@@ -1,7 +1,7 @@
 // Home page: live versions from the store catalogue and the newest Hub installers.
 // Refresh versions without letting a pending catalog change the approved prices.
 YoungRessStore.catalog().then((rows) => {
-  for (const id of ["trinity", "ironglass", "air"]) {
+  for (const id of ["trinity", "ironglass", "air", "santa"]) {
     const product = rows.find((row) => row.id === id && row.published === true);
     if (product && typeof product.version === "string") {
       document.querySelectorAll(`[data-version="${id}"]`).forEach((el) => (el.textContent = product.version));
