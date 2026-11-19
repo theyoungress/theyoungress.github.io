@@ -8,6 +8,7 @@ window.YoungRessStore = (() => {
     santa: Object.freeze({ name: 'SANTA', price: 30, image: 'img/santa.jpg', description: 'Stereo chorus pedal with tube drive', format: 'Windows VST3' }),
     zion: Object.freeze({ name: 'ZION', price: 30, image: 'img/zion.jpg', description: 'Algorithmic reverb that keeps your mix clear', format: 'Windows VST3' }),
     sope: Object.freeze({ name: 'SOPE', price: 30, image: 'img/sope.jpg', description: 'Semi-modular synthesizer with patch cables', format: 'Windows VST3' }),
+    hadal: Object.freeze({ name: 'HADAL', price: 30, image: 'img/hadal.jpg', description: 'Dual reverb pedal with twelve machines', format: 'Windows VST3' }),
   });
   async function catalog() {
     const response = await fetch(store + '/rest/v1/products?select=*', { headers: { apikey: key }, signal: AbortSignal.timeout(10000) });
