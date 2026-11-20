@@ -5,6 +5,7 @@ window.YoungRessStore = (() => {
   const products = Object.freeze({
     ironglass: Object.freeze({ name: 'IRON & GLASS', price: 33, image: 'img/ironglass.jpg', description: 'Preamp, EQ and tube optical compressor', format: 'Windows VST3 · macOS VST3 and AU' }),
     air: Object.freeze({ name: 'AIR', price: 10, image: 'img/air-card.png', description: 'One-knob air enhancer', format: 'Windows VST3 · macOS VST3 and AU' }),
+    vantavox: Object.freeze({ name: 'VANTA VOX', price: 45, image: 'img/vantavox.jpg', description: 'Vocal rack: tuning, dynamics, EQ, effects, reverb and delay', format: 'Windows VST3' }),
     santa: Object.freeze({ name: 'SANTA', price: 30, image: 'img/santa.jpg', description: 'Stereo chorus pedal with tube drive', format: 'Windows VST3' }),
     zion: Object.freeze({ name: 'ZION', price: 30, image: 'img/zion.jpg', description: 'Algorithmic reverb that keeps your mix clear', format: 'Windows VST3' }),
     sope: Object.freeze({ name: 'SOPE', price: 30, image: 'img/sope.jpg', description: 'Semi-modular synthesizer with patch cables', format: 'Windows VST3' }),
