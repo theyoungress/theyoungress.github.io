@@ -12,6 +12,7 @@ window.YoungRessStore = (() => {
     abyss: Object.freeze({ name: 'ABYSS DUAL', price: 30, image: 'img/abyss.jpg', description: 'Two-channel tube limiter with optical and FET stages', format: 'Windows VST3' }),
     tube50: Object.freeze({ name: 'TUBE 50', price: 30, image: 'img/tube50.jpg', description: 'Fifty valves, each in its own simulated circuit', format: 'Windows VST3' }),
     trench: Object.freeze({ name: 'TRENCH', price: 45, image: 'img/trench.jpg', description: 'One-knob preamp saturator', format: 'Windows VST3' }),
+    jermy: Object.freeze({ name: 'JERMY', price: 50, image: 'img/jermy.jpg', description: 'Eight-circuit distortion with a monkey on its display', format: 'Windows VST3' }),
   });
   async function catalog() {
     const response = await fetch(store + '/rest/v1/products?select=*', { headers: { apikey: key }, signal: AbortSignal.timeout(10000) });
