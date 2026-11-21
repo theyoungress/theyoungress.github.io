@@ -11,7 +11,7 @@ window.YoungRessStore = (() => {
     hadal: Object.freeze({ name: 'HADAL', price: 30, image: 'img/hadal.jpg', description: 'Dual reverb pedal with twelve machines', format: 'Windows VST3 · macOS VST3 and AU' }),
     tapeorbit: Object.freeze({ name: 'TAPE ORBIT', price: 20, image: 'img/tapeorbit.jpg', description: 'Three-head tape echo with spring reverb', format: 'Windows VST3' }),
     abyss: Object.freeze({ name: 'ABYSS DUAL', price: 30, image: 'img/abyss.jpg', description: 'Two-channel tube limiter with optical and FET stages', format: 'Windows VST3 · macOS VST3 and AU' }),
-    tube50: Object.freeze({ name: 'TUBE 50', price: 30, image: 'img/tube50.jpg', description: 'Fifty valves, each in its own simulated circuit', format: 'Windows VST3' }),
+    tube50: Object.freeze({ name: 'TUBE 50', price: 30, image: 'img/tube50.jpg', description: 'Fifty valves, each in its own simulated circuit', format: 'Windows VST3 · macOS VST3 and AU' }),
     trench: Object.freeze({ name: 'TRENCH', price: 45, image: 'img/trench.jpg', description: 'One-knob preamp saturator', format: 'Windows VST3' }),
     jermy: Object.freeze({ name: 'JERMY', price: 50, image: 'img/jermy.jpg', description: 'Eight-circuit distortion with a monkey on its display', format: 'Windows VST3 · macOS VST3 and AU' }),
   });
