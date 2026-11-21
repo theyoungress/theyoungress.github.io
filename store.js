@@ -8,7 +8,7 @@ window.YoungRessStore = (() => {
     vantavox: Object.freeze({ name: 'VANTA VOX', price: 45, image: 'img/vantavox.jpg', description: 'Vocal rack: tuning, dynamics, EQ, effects, reverb and delay', format: 'Windows VST3' }),
     santa: Object.freeze({ name: 'SANTA', price: 30, image: 'img/santa.jpg', description: 'Stereo chorus pedal with tube drive', format: 'Windows VST3 · macOS VST3 and AU' }),
     sope: Object.freeze({ name: 'SOPE', price: 30, image: 'img/sope.jpg', description: 'Semi-modular synthesizer with patch cables', format: 'Windows VST3 · macOS VST3 and AU' }),
-    hadal: Object.freeze({ name: 'HADAL', price: 30, image: 'img/hadal.jpg', description: 'Dual reverb pedal with twelve machines', format: 'Windows VST3' }),
+    hadal: Object.freeze({ name: 'HADAL', price: 30, image: 'img/hadal.jpg', description: 'Dual reverb pedal with twelve machines', format: 'Windows VST3 · macOS VST3 and AU' }),
     abyss: Object.freeze({ name: 'ABYSS DUAL', price: 30, image: 'img/abyss.jpg', description: 'Two-channel tube limiter with optical and FET stages', format: 'Windows VST3' }),
     tube50: Object.freeze({ name: 'TUBE 50', price: 30, image: 'img/tube50.jpg', description: 'Fifty valves, each in its own simulated circuit', format: 'Windows VST3' }),
     trench: Object.freeze({ name: 'TRENCH', price: 45, image: 'img/trench.jpg', description: 'One-knob preamp saturator', format: 'Windows VST3' }),
