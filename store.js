@@ -7,7 +7,6 @@ window.YoungRessStore = (() => {
     air: Object.freeze({ name: 'AIR', price: 10, image: 'img/air-card.png', description: 'One-knob air enhancer', format: 'Windows VST3 · macOS VST3 and AU' }),
     vantavox: Object.freeze({ name: 'VANTA VOX', price: 45, image: 'img/vantavox.jpg', description: 'Vocal rack: tuning, dynamics, EQ, effects, reverb and delay', format: 'Windows VST3' }),
     santa: Object.freeze({ name: 'SANTA', price: 30, image: 'img/santa.jpg', description: 'Stereo chorus pedal with tube drive', format: 'Windows VST3 · macOS VST3 and AU' }),
-    zion: Object.freeze({ name: 'ZION', price: 30, image: 'img/zion.jpg', description: 'Algorithmic reverb that keeps your mix clear', format: 'Windows VST3' }),
     sope: Object.freeze({ name: 'SOPE', price: 30, image: 'img/sope.jpg', description: 'Semi-modular synthesizer with patch cables', format: 'Windows VST3 · macOS VST3 and AU' }),
     hadal: Object.freeze({ name: 'HADAL', price: 30, image: 'img/hadal.jpg', description: 'Dual reverb pedal with twelve machines', format: 'Windows VST3' }),
     abyss: Object.freeze({ name: 'ABYSS DUAL', price: 30, image: 'img/abyss.jpg', description: 'Two-channel tube limiter with optical and FET stages', format: 'Windows VST3' }),
