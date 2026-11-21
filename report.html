@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data:; connect-src https://zxeuoqrnwxopohtcbhep.supabase.co; base-uri 'none'; form-action 'none'; object-src 'none'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests; require-trusted-types-for 'script'; trusted-types 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<script src="guard.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Report a bug | Aphotic Audio</title>
+<meta name="description" content="Found a bug in an Aphotic Audio plug-in, MONDAY or Aphotic Hub? Tell us what happened and on which setup, and we'll fix it.">
+<meta property="og:title" content="Report a bug | Aphotic Audio">
+<meta property="og:description" content="Tell us what went wrong in an Aphotic Audio plug-in and we'll fix it.">
+<meta property="og:image" content="https://theyoungress.github.io/img/og-aphotic.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="report.css">
+</head>
+<body>
+
+<a class="skip" href="#bug">Skip to the form</a>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-wordmark-dark.png" alt="Aphotic Audio" width="137" height="20"></a>
+    <nav class="menu" aria-label="Main"><a href="./#plugins">Plug-ins</a><a href="./#monday">MONDAY</a><a href="./#hub">Aphotic Hub</a><a href="./#help">Help</a></nav>
+    <a class="ig" href="https://www.instagram.com/aphoticaudio/" aria-label="Aphotic Audio on Instagram" title="@aphoticaudio on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle class="dot" cx="17.3" cy="6.7" r="1.1"/></svg></a>
+    <a class="btn solid" href="./#hub">Get Aphotic Hub</a>
+    <details class="mnav">
+      <summary aria-label="Menu"><span></span></summary>
+      <nav aria-label="Main, small screens"><a href="./#plugins">Plug-ins</a><a href="./#monday">MONDAY</a><a href="./#hub">Aphotic Hub</a><a href="./#help">Help</a><a href="report.html">Report a bug</a><a href="https://www.instagram.com/aphoticaudio/">Instagram</a></nav>
+    </details>
+  </div>
+</header>
+
+<main>
+  <section class="r-hero" aria-labelledby="r-title">
+    <div class="wrap">
+      <p class="eyebrow">Support</p>
+      <h1 id="r-title">Report a bug</h1>
+      <p class="lede">Tell us what went wrong and on which setup. This page writes the email for you; you send it from your own email app, with screenshots or a recording attached.</p>
+    </div>
+  </section>
+
+  <div class="wrap r-grid">
+    <form id="bug" class="r-form" novalidate>
+      <fieldset>
+        <legend>What's broken</legend>
+        <label class="field">Plug-in or app
+          <select id="f-product" name="product" required>
+            <option value="">Choose one</option>
+            <optgroup label="Vocal chain">
+              <option value="trinity">TRINITY</option><option value="ironglass">IRON &amp; GLASS</option><option value="air">AIR</option>
+              <option value="vantavox">VANTA VOX</option><option value="eq5">EQ-5</option><option value="photic">PHOTIC</option>
+            </optgroup>
+            <optgroup label="Reverb &amp; echo">
+              <option value="zion">ZION</option><option value="hadal">HADAL</option><option value="tapeorbit">TAPE ORBIT</option>
+            </optgroup>
+            <optgroup label="Effects &amp; dynamics">
+              <option value="santa">SANTA</option><option value="abyss">ABYSS DUAL</option><option value="undertow">UNDERTOW</option>
+              <option value="lure">LURE</option><option value="tube50">TUBE 50</option><option value="trench">TRENCH</option>
+              <option value="jermy">JERMY</option><option value="sounding">SOUNDING</option>
+            </optgroup>
+            <optgroup label="Instruments &amp; software">
+              <option value="sope">SOPE</option><option value="monday">MONDAY</option><option value="hub">Aphotic Hub</option>
+            </optgroup>
+            <optgroup label="Other">
+              <option value="website">This website or checkout</option><option value="other">Something else</option>
+            </optgroup>
+          </select>
+        </label>
+        <label class="field">Version
+          <input id="f-version" name="version" placeholder="For example 1.2.0" autocomplete="off" maxlength="20">
+          <span class="hint" id="version-hint">Aphotic Hub shows it in your Library.</span>
+        </label>
+
+        <div class="field wide" role="radiogroup" aria-labelledby="kind-label">
+          <span id="kind-label" class="label">What kind of problem?</span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="kind" value="Crash or freeze" required><span>Crash or freeze</span></label>
+            <label class="opt"><input type="radio" name="kind" value="No sound or wrong sound"><span>No sound or wrong sound</span></label>
+            <label class="opt"><input type="radio" name="kind" value="Clicks, pops or glitches"><span>Clicks, pops or glitches</span></label>
+            <label class="opt"><input type="radio" name="kind" value="Looks wrong or a control doesn't work"><span>Looks wrong or a control doesn't work</span></label>
+            <label class="opt"><input type="radio" name="kind" value="Won't install or doesn't show up in my DAW"><span>Won't install or doesn't show up in my DAW</span></label>
+            <label class="opt"><input type="radio" name="kind" value="Licence or activation"><span>Licence or activation</span></label>
+            <label class="opt"><input type="radio" name="kind" value="Something else"><span>Something else</span></label>
+          </div>
+        </div>
+        <div class="field wide" role="radiogroup" aria-labelledby="often-label">
+          <span id="often-label" class="label">How often does it happen?</span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="often" value="Every time"><span>Every time</span></label>
+            <label class="opt"><input type="radio" name="often" value="Sometimes"><span>Sometimes</span></label>
+            <label class="opt"><input type="radio" name="often" value="Only once so far"><span>Only once so far</span></label>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your setup</legend>
+        <div class="field wide" role="radiogroup" aria-labelledby="os-label">
+          <span id="os-label" class="label">Computer</span>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="os" value="Windows" required><span>Windows</span></label>
+            <label class="opt"><input type="radio" name="os" value="macOS"><span>Mac</span></label>
+          </div>
+        </div>
+        <label class="field">System version
+          <input id="f-system" name="system" placeholder="For example Windows 11 or macOS 14 Sonoma" maxlength="60">
+        </label>
+        <label class="field" id="chip-field">Mac processor
+          <select id="f-chip" name="chip"><option value="">Not sure</option><option>Apple silicon (M1 or newer)</option><option>Intel</option></select>
+        </label>
+        <label class="field">DAW and its version
+          <input id="f-daw" name="daw" list="daws" placeholder="For example FL Studio 2024" maxlength="60">
+          <datalist id="daws">
+            <option value="FL Studio"></option><option value="Ableton Live"></option><option value="Logic Pro"></option><option value="Pro Tools"></option>
+            <option value="Studio One"></option><option value="Cubase"></option><option value="Reaper"></option><option value="Bitwig Studio"></option>
+            <option value="GarageBand"></option><option value="MONDAY"></option>
+          </datalist>
+        </label>
+        <label class="field">Plug-in format
+          <select id="f-format" name="format"><option value="">Not sure</option><option>VST3</option><option>Audio Unit (AU)</option></select>
+        </label>
+        <label class="field wide"><span>Sample rate and buffer size <span class="opt-tag">optional</span></span>
+          <input id="f-audio" name="audio" placeholder="For example 48 kHz, 256 samples. Your DAW's audio settings show both." maxlength="60">
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>What happened</legend>
+        <label class="field wide">In one line
+          <input id="f-summary" name="summary" required maxlength="100" placeholder="For example: crackles when I turn DRIVE past 7">
+        </label>
+        <label class="field wide">What did you see or hear?
+          <textarea id="f-what" name="what" required rows="5" maxlength="3000" placeholder="Describe it as you'd tell a friend. Any message on screen? Copy it word for word."></textarea>
+        </label>
+        <label class="field wide"><span>How can we make it happen? <span class="opt-tag">optional, but it's the part that gets bugs fixed</span></span>
+          <textarea id="f-steps" name="steps" rows="5" maxlength="3000" placeholder="1. Open a new project at 48 kHz&#10;2. Put the plug-in on a vocal track&#10;3. Turn DRIVE past 7 and press play"></textarea>
+        </label>
+        <label class="field wide"><span>What did you expect instead? <span class="opt-tag">optional</span></span>
+          <textarea id="f-expected" name="expected" rows="3" maxlength="1500"></textarea>
+        </label>
+      </fieldset>
+
+      <div class="r-send">
+        <button class="btn solid" type="submit">Write the email</button>
+        <button class="btn" type="button" id="copy">Copy the report</button>
+        <p class="r-status" id="status" role="status" aria-live="polite"></p>
+      </div>
+      <details class="more r-preview">
+        <summary>See the report before you send it</summary>
+        <pre id="preview"></pre>
+      </details>
+    </form>
+
+    <aside class="r-side">
+      <section>
+        <h2>Before you report</h2>
+        <ul class="feat">
+          <li>Update it in Aphotic Hub: the bug may already be fixed. Library shows <b>Update</b> when a new version is out.</li>
+          <li>Rescan plug-ins in your DAW, then restart it.</li>
+          <li>Try it in a new, empty project with only this plug-in on one track.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Attach to your email</h2>
+        <ul class="feat">
+          <li>A screenshot of the problem, or a short screen recording with sound.</li>
+          <li>For a crash, the crash report. Windows: open <b>Event Viewer</b>, then Windows Logs &gt; Application, and look for an error that names your DAW. Mac: open <b>Console</b>, then Crash Reports.</li>
+          <li>A short audio clip if something sounds wrong.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Not a bug?</h2>
+        <p>Payments, licences and installing are answered in <a href="./#help">Help</a>. Anything else: <a href="mailto:aphoticsupport@gmail.com">aphoticsupport@gmail.com</a>.</p>
+      </section>
+      <p class="r-privacy">Nothing on this page is sent anywhere. The report only leaves your computer when you send the email yourself.</p>
+    </aside>
+  </div>
+</main>
+
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="./" aria-label="Aphotic Audio home"><img src="img/aphotic-logo.png" alt="Aphotic Audio" width="205" height="52"></a>
+        <p>Vocal plug-ins for Windows and Mac, installed and kept up to date by Aphotic Hub.</p>
+        <a class="social" href="https://www.instagram.com/aphoticaudio/"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle class="dot" cx="17.3" cy="6.7" r="1.1"/></svg><span>@aphoticaudio on Instagram</span></a>
+      </div>
+      <div><h4>Vocal chain</h4><ul><li><a href="./#trinity">TRINITY</a></li><li><a href="./#ironglass">IRON &amp; GLASS</a></li><li><a href="./#air">AIR</a></li><li><a href="./#vantavox">VANTA VOX</a></li><li><a href="./#eq5">EQ-5</a></li><li><a href="./#photic">PHOTIC</a></li></ul><h4>Reverb &amp; echo</h4><ul><li><a href="./#zion">ZION</a></li><li><a href="./#hadal">HADAL</a></li><li><a href="./#tapeorbit">TAPE ORBIT</a></li></ul></div>
+      <div><h4>Effects &amp; dynamics</h4><ul><li><a href="./#santa">SANTA</a></li><li><a href="./#abyss">ABYSS DUAL</a></li><li><a href="./#undertow">UNDERTOW</a></li><li><a href="./#lure">LURE</a></li><li><a href="./#tube50">TUBE 50</a></li><li><a href="./#trench">TRENCH</a></li><li><a href="./#jermy">JERMY</a></li><li><a href="./#sounding">SOUNDING</a></li></ul><h4>Instruments &amp; software</h4><ul><li><a href="./#sope">SOPE</a></li><li><a href="./#monday">MONDAY</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="./#hub">Download Aphotic Hub</a></li><li><a href="./#help">Help</a></li><li><a href="report.html">Report a bug</a></li><li><a href="mailto:aphoticsupport@gmail.com">Email support</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="legal.html#terms">Terms of Service</a></li><li><a href="legal.html#privacy">Privacy Policy</a></li><li><a href="legal.html#eula">Plug-in License</a></li></ul></div>
+    </div>
+    <p class="legal">&copy; 2026 Aphotic Audio. Payments are processed by Gumroad, our seller of record. VST is a registered trademark of Steinberg Media Technologies GmbH. Audio Units is a trademark of Apple Inc. Other product names are trademarks of their owners, used only to describe compatibility.</p>
+  </div>
+</footer>
+
+<script src="store.js"></script>
+<script src="report.js"></script>
+</body>
+</html>

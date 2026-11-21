@@ -1,0 +1,53 @@
+/* Report a bug: the site's look (site.css), plus the form. */
+[hidden] { display: none !important; }
+.r-hero { background: var(--paper); padding-block: clamp(48px, 6vw, 84px) clamp(36px, 4vw, 56px); }
+.r-hero h1 { margin-top: 14px; font: 800 clamp(40px, 5vw, 64px)/1.02 var(--display); letter-spacing: -.035em; color: var(--black); }
+.r-hero .lede { margin-top: 18px; max-width: 58ch; font-size: clamp(17px, 1.4vw, 19px); color: var(--dim); }
+
+.r-grid { display: grid; grid-template-columns: minmax(0, 8fr) minmax(0, 4fr); gap: clamp(32px, 5vw, 72px); align-items: start; padding-block: 56px var(--band); }
+.r-form fieldset { margin: 0; padding: 0 0 36px; border: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
+.r-form fieldset + fieldset { padding-top: 32px; border-top: 1px solid var(--rule); }
+.r-form legend { grid-column: 1 / -1; float: left; width: 100%; padding: 0; margin-bottom: 4px; font: 800 24px/1.2 var(--display); letter-spacing: -.02em; color: var(--black); }
+.field { display: flex; flex-direction: column; gap: 8px; font-weight: 600; font-size: 15px; color: var(--black); }
+.field.wide { grid-column: 1 / -1; }
+.label { font-weight: 600; font-size: 15px; color: var(--black); }
+.opt-tag { font-weight: 400; color: var(--dim); }
+.hint { font-weight: 400; font-size: 13.5px; color: var(--dim); }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: 12px 14px; border: 1px solid rgba(0, 0, 0, .22); border-radius: 8px;
+  background: var(--white); color: var(--text); font: 400 16px/1.4 var(--body); }
+.field textarea { resize: vertical; line-height: 1.55; }
+.field select { appearance: none; padding-right: 40px; cursor: pointer;
+  background: var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23000' stroke-width='1.6'/%3E%3C/svg%3E") no-repeat right 16px center; }
+.field input:hover, .field select:hover, .field textarea:hover { border-color: rgba(0, 0, 0, .45); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--black); box-shadow: 0 0 0 3px rgba(0, 0, 0, .12); }
+.field input::placeholder, .field textarea::placeholder { color: #9aa0a8; }
+.r-form.was-checked .field :is(input, select, textarea):invalid { border-color: #b3261e; }
+.r-form.was-checked .opts:has(input:invalid) span { border-color: #b3261e; }
+
+/* Choices as pills: one click, all visible at once. */
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opt { position: relative; }
+.opt input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; }
+.opt span { display: inline-flex; align-items: center; min-height: 40px; padding: 8px 16px; border: 1px solid var(--rule); border-radius: 999px; background: var(--white);
+  font: 500 15px/1.3 var(--body); color: var(--text); }
+.opt:hover span { border-color: var(--black); }
+.opt input:checked + span { background: var(--black); border-color: var(--black); color: var(--white); }
+.opt input:focus-visible + span { outline: 2px solid var(--black); outline-offset: 3px; }
+
+.r-send { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-top: 32px; border-top: 1px solid var(--black); }
+.r-send .btn { height: 52px; padding: 0 26px; font-size: 16px; cursor: pointer; }
+.r-status { flex-basis: 100%; min-height: 24px; font-size: 15px; color: var(--dim); }
+.r-preview pre { margin: 0 0 8px; padding: 18px 20px; border-radius: 10px; background: var(--paper); white-space: pre-wrap; word-break: break-word;
+  font: 13.5px/1.6 ui-monospace, Consolas, Menlo, monospace; color: var(--text); }
+
+.r-side { position: sticky; top: 100px; display: grid; gap: 14px; }
+.r-side section { padding: 22px 24px; border-radius: 12px; background: var(--paper); }
+.r-side h2 { font: 800 18px/1.25 var(--display); letter-spacing: -.01em; color: var(--black); margin-bottom: 12px; }
+.r-side .feat { margin: 0; gap: 10px; font-size: 15px; color: var(--dim); }
+.r-side .feat b { color: var(--black); font-weight: 600; }
+.r-side p { font-size: 15px; color: var(--dim); }
+.r-side a { color: var(--black); text-underline-offset: 3px; }
+.r-privacy { padding: 0 4px; font-size: 13.5px; }
+
+@media (max-width: 1020px) { .r-grid { grid-template-columns: 1fr; } .r-side { position: static; } }
+@media (max-width: 640px) { .r-form fieldset { grid-template-columns: 1fr; } .r-send .btn { flex: 1 1 100%; } }
