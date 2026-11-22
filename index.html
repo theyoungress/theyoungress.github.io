@@ -66,15 +66,41 @@
     <div class="wrap">
       <div class="sec-head">
         <h2 id="catalog-title">All plug-ins</h2>
-        <div class="chips" role="group" aria-label="Show">
-          <button class="chip on" type="button" data-filter="all" aria-pressed="true">All</button>
-          <button class="chip" type="button" data-filter="vocal" aria-pressed="false">Vocal chain</button>
-          <button class="chip" type="button" data-filter="reverb" aria-pressed="false">Reverb &amp; echo</button>
-          <button class="chip" type="button" data-filter="fx" aria-pressed="false">Effects &amp; dynamics</button>
-          <button class="chip" type="button" data-filter="inst" aria-pressed="false">Instruments &amp; MIDI</button>
-          <button class="chip" type="button" data-filter="free" aria-pressed="false">Free</button>
-        </div>
       </div>
+      <!-- toolbar: needs site.js, so it starts hidden and the Gumroad copy leaves it out -->
+      <div class="toolbar" id="toolbar" hidden>
+        <details class="filters">
+          <summary><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h8M15 6h2M3 14h2M9 14h8"/><circle cx="13" cy="6" r="2"/><circle cx="7" cy="14" r="2"/></svg>Filters<span class="fdot" id="fdot" hidden></span></summary>
+          <div class="fpanel">
+            <fieldset><legend>Type</legend>
+              <label><input type="checkbox" name="cat" value="vocal"><span>Vocal chain</span></label>
+              <label><input type="checkbox" name="cat" value="reverb"><span>Reverb &amp; echo</span></label>
+              <label><input type="checkbox" name="cat" value="fx"><span>Effects &amp; dynamics</span></label>
+              <label><input type="checkbox" name="cat" value="inst"><span>Instruments &amp; MIDI</span></label>
+            </fieldset>
+            <fieldset><legend>Price</legend>
+              <label><input type="checkbox" name="price" value="free"><span>Free</span></label>
+              <label><input type="checkbox" name="price" value="low"><span>Up to $30</span></label>
+              <label><input type="checkbox" name="price" value="high"><span>Over $30</span></label>
+            </fieldset>
+            <fieldset><legend>Show</legend>
+              <label><input type="checkbox" name="new" value="new"><span>New releases</span></label>
+            </fieldset>
+          </div>
+        </details>
+        <label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search plug-ins" autocomplete="off"></label>
+        <button class="clear" type="button" id="clear">Clear all</button>
+        <span class="count" id="count" role="status"></span>
+        <span class="tb-right">
+          <label class="switch"><span>Free only</span><input type="checkbox" id="t-free" role="switch"><i aria-hidden="true"></i></label>
+          <label class="switch"><span>Mac</span><input type="checkbox" id="t-mac" role="switch" aria-describedby="mac-tip"><i aria-hidden="true"></i></label>
+          <span class="vh" id="mac-tip">Only plug-ins that also run on a Mac (VST3 and Audio Unit)</span>
+          <label class="sort"><span class="vh">Sort by</span><select id="sort">
+            <option value="featured">Featured</option><option value="new">New first</option><option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option><option value="name">Name: A to Z</option></select></label>
+        </span>
+      </div>
+      <!-- /toolbar -->
       <ul class="cards">
         <li class="card" data-cat="vocal free">
           <a href="#trinity">
@@ -286,6 +312,9 @@
           </a>
         </li>
       </ul>
+      <!-- toolbar -->
+      <p class="nomatch" id="nomatch" hidden>No plug-in matches that. <button class="clear" type="button" id="clear2">Clear all</button></p>
+      <!-- /toolbar -->
     </div>
   </section>
 
