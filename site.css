@@ -2,7 +2,8 @@
    and the footer). The page is a catalogue first: every plug-in in one grid, then the same layout for
    each one, grouped by what it does. */
 :root {
-  --paper: #f3f4f6;       /* cool light grey: section bands, picture mats */
+  --paper: #f3f4f6;       /* cool light grey: picture mats */
+  --studio: #eef0f3;      /* the catalogue floor: the same grey the plug-in pictures stand on */
   --white: #fff;
   --black: #000;          /* the brand black: headings, buttons, the dark bands */
   --text: #2a2e35;
@@ -29,7 +30,7 @@ h1, h2, h3, h4, p, ol, ul, dl, figure { margin: 0; }
 .skip:focus { left: 12px; top: 12px; z-index: 50; padding: 10px 14px; background: var(--black); color: var(--white); border-radius: 6px; }
 
 /* ---- small type shared by every section ---- */
-.eyebrow, .role, .kicker, .tag { font: 700 12.5px/1.2 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--dim); }
+.eyebrow, .role, .kicker, .tag { font: 600 15px/1.3 var(--body); color: var(--dim); }
 .badge { display: inline-block; padding: 4px 8px; border-radius: 999px; background: var(--white); border: 1px solid var(--rule); color: var(--black);
   font: 700 11px/1 var(--body); letter-spacing: .08em; text-transform: uppercase; vertical-align: 1px; }
 .badge.new { background: var(--black); border-color: var(--black); color: var(--white); }
@@ -68,9 +69,9 @@ h1, h2, h3, h4, p, ol, ul, dl, figure { margin: 0; }
 .mnav nav a:first-child { border-top: 0; }
 
 /* ---- hero: the vocal chain stacked like a rack, then four plain facts ---- */
-.hero { background: var(--paper); overflow: hidden; }
+.hero { background: var(--white); overflow: hidden; }
 .hero-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: clamp(28px, 4vw, 72px); padding-block: clamp(48px, 7vw, 96px) clamp(40px, 5vw, 64px); }
-.hero h1 { margin-top: 16px; font: 800 clamp(40px, 5vw, 72px)/1.02 var(--display); letter-spacing: -.035em; color: var(--black); }
+.hero h1 { margin-top: 0; font: 800 clamp(40px, 5vw, 72px)/1.02 var(--display); letter-spacing: -.035em; color: var(--black); }
 .hero .lede { margin: 22px 0 32px; max-width: 40ch; font-size: clamp(17px, 1.4vw, 19px); color: var(--dim); }
 .rack { position: relative; aspect-ratio: 16 / 12; }
 .rack a { position: absolute; display: block; border-radius: 10px; overflow: hidden; text-decoration: none;
@@ -81,35 +82,30 @@ h1, h2, h3, h4, p, ol, ul, dl, figure { margin: 0; }
 .rack .r-ironglass { width: 76%; left: 0; top: 22%; z-index: 1; }
 .rack .r-air { width: 27%; right: 4%; bottom: 0; z-index: 2; }
 .rack .label { position: absolute; left: 10px; bottom: 10px; padding: 5px 9px; border-radius: 5px; background: rgba(0, 0, 0, .78); color: var(--white); font: 700 12px/1.2 var(--display); }
-.facts { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--rule); }
-.facts li { padding: 22px 24px 26px 0; font-size: 15px; color: var(--dim); }
-.facts li + li { padding-left: 24px; border-left: 1px solid var(--rule); }
-.facts b { display: block; margin-bottom: 2px; font: 700 18px/1.3 var(--display); color: var(--black); }
 
 /* ---- section headings ---- */
 .sec-head h2, .group-head h2, .hub h2, .help h2 { font: 800 clamp(30px, 3.4vw, 46px)/1.06 var(--display); letter-spacing: -.03em; color: var(--black); }
 
 /* ---- the catalogue: every plug-in at a glance ---- */
-.catalog { padding-block: var(--band); }
+.catalog { background: var(--white); padding-block: var(--band); }
 .sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 20px 32px; margin-bottom: 32px; }
 /* The bar: one tab per shelf, then search and two switches, staying under the header. The tabs and
    switches work with CSS alone (the Gumroad copy runs no script); site.js adds the search. */
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-.bar { position: sticky; top: 68px; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; margin: -8px 0 8px; padding: 14px 0;
+.bar { position: sticky; top: 68px; z-index: 20; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin: 0; padding: 6px 0;
   background: rgba(255, 255, 255, .94); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--rule); }
-.tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px 30px; }
 .tabs label { position: relative; cursor: pointer; }
 .tabs input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.tabs span { display: inline-flex; align-items: center; gap: 7px; height: 40px; padding: 0 16px; border: 1px solid rgba(0, 0, 0, .2); border-radius: 999px;
-  background: var(--white); font: 500 15px/1 var(--body); color: var(--black); white-space: nowrap; transition: background .15s, border-color .15s; }
-.tabs span:hover { border-color: var(--black); }
-.tabs i { font-style: normal; font-size: 13px; color: var(--dim); font-variant-numeric: tabular-nums; }
-.tabs input:checked + span { background: var(--black); border-color: var(--black); color: var(--white); }
-.tabs input:checked + span i { color: rgba(255, 255, 255, .62); }
-.tabs input:focus-visible + span { outline: 2px solid var(--black); outline-offset: 3px; }
+.tabs span { display: inline-flex; align-items: baseline; gap: 6px; padding: 14px 0 12px; border-bottom: 2px solid transparent;
+  font: 600 16px/1 var(--body); color: var(--dim); white-space: nowrap; transition: color .15s, border-color .15s; }
+.tabs span:hover { color: var(--black); }
+.tabs i { font-style: normal; font-size: 13px; font-weight: 500; color: #8a9099; font-variant-numeric: tabular-nums; }
+.tabs input:checked + span { color: var(--black); border-bottom-color: var(--black); }
+.tabs input:focus-visible + span { outline: 2px solid var(--black); outline-offset: 4px; border-radius: 2px; }
 .bar-right { display: flex; align-items: center; gap: 22px; margin-left: auto; }
 .bar svg { width: 18px; height: 18px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
-.search { display: flex; align-items: center; gap: 8px; width: 190px; height: 40px; padding: 0 14px 0 12px; border: 1px solid rgba(0, 0, 0, .2); border-radius: 999px;
+.search { display: flex; align-items: center; gap: 8px; width: 190px; height: 38px; padding: 0 14px 0 12px; border: 1px solid rgba(0, 0, 0, .16); border-radius: 999px;
   background: var(--white); color: var(--dim); cursor: text; }
 .search[hidden] { display: none; }
 .search:hover { border-color: var(--black); }
@@ -119,12 +115,12 @@ h1, h2, h3, h4, p, ol, ul, dl, figure { margin: 0; }
 .clear { padding: 4px 2px; border: 0; background: none; font: 500 14px/1 var(--body); color: var(--black); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .switch { position: relative; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--black); cursor: pointer; white-space: nowrap; }
 .switch input { position: absolute; opacity: 0; width: 1px; height: 1px; }
-.switch i { position: relative; width: 42px; height: 24px; border-radius: 999px; border: 1px solid rgba(0, 0, 0, .28); background: var(--paper); transition: background .15s, border-color .15s; }
+.switch i { position: relative; width: 42px; height: 24px; border-radius: 999px; border: 1px solid rgba(0, 0, 0, .22); background: var(--white); transition: background .15s, border-color .15s; }
 .switch i::after { content: ""; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #8a9099; transition: transform .15s, background .15s; }
 .switch input:checked + i { background: var(--black); border-color: var(--black); }
 .switch input:checked + i::after { transform: translateX(18px); background: var(--white); }
 .switch input:focus-visible + i { outline: 2px solid var(--black); outline-offset: 3px; }
-.nomatch { margin-top: 32px; padding: 56px 20px; text-align: center; font-size: 17px; color: var(--dim); background: var(--paper); border-radius: 12px; }
+.nomatch { margin-top: 48px; padding: 56px 20px; text-align: center; font-size: 17px; color: var(--dim); }
 .nomatch[hidden] { display: none; }
 .nomatch .clear { margin-left: 6px; font-size: 17px; }
 /* What the tabs and switches hide: other shelves, cards that don't qualify, shelves left empty. */
@@ -138,25 +134,31 @@ h1, h2, h3, h4, p, ol, ul, dl, figure { margin: 0; }
 .catalog:has(#t-mac:checked) .shelf:not(:has(.card[data-mac])),
 .catalog:has(#t-free:checked):has(#t-mac:checked) .shelf:not(:has(.card[data-cat~="free"][data-mac])) { display: none; }
 .shelf[hidden], .card[hidden] { display: none; }
-/* A shelf: its name and one line, then its cards, four to a row. */
-.shelf { padding-top: 40px; }
-.shelf-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; margin-bottom: 20px; }
-.shelf-head h3 { font: 800 clamp(22px, 2vw, 28px)/1.15 var(--display); letter-spacing: -.02em; color: var(--black); }
-.shelf-head p { flex: 1 1 360px; max-width: 70ch; font-size: 15px; color: var(--dim); }
-.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
-.card a { display: flex; flex-direction: column; height: 100%; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; background: var(--white); text-decoration: none; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
-.card a:hover { border-color: rgba(0, 0, 0, .4); transform: translateY(-3px); box-shadow: 0 18px 40px -24px rgba(10, 20, 35, .4); }
-.thumb { position: relative; display: block; aspect-ratio: 16 / 10; background: var(--paper); overflow: hidden; }
-.thumb img { width: 100%; height: 100%; object-fit: cover; }
-.thumb.tall img { object-fit: contain; padding: 14px; }
-.badges { position: absolute; left: 12px; top: 12px; display: flex; gap: 6px; }
-.card-body { display: flex; flex-direction: column; flex: 1; padding: 16px 16px 15px; }
-.card .tag { font-size: 11px; }
-.card-name { margin-top: 6px; font: 800 20px/1.1 var(--display); letter-spacing: -.02em; color: var(--black); }
-.card-what { margin-top: 6px; font-size: 14px; line-height: 1.45; color: var(--dim); }
-.card-foot { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 14px; }
-.card-price { font: 700 16px/1 var(--display); color: var(--black); }
-.os { font-size: 13px; color: var(--dim); }
+/* A shelf: a big name and one line, then the plug-ins three to a row, standing on the floor. */
+.shelf { padding-top: 72px; }
+.shelf-head { margin-bottom: 30px; }
+.shelf-head h3 { font: 800 clamp(30px, 3.2vw, 44px)/1.05 var(--display); letter-spacing: -.03em; color: var(--black); }
+.shelf-head p { margin-top: 10px; max-width: 62ch; font-size: 16px; color: var(--dim); }
+.cards { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 52px 40px; }
+.card a { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
+/* Every picture whole and sharp, nothing faded: the plug-in's own photo as one rounded tile. AIR's tall
+   card sits inside a tile of the same light grey as the other photos' backdrops. */
+.thumb { position: relative; display: block; aspect-ratio: 16 / 10; border-radius: 12px; overflow: hidden; background: #eef0f3; }
+.thumb::after { content: ""; position: absolute; inset: 0; border-radius: inherit; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .07); pointer-events: none; }
+.thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.thumb.tall img { object-fit: contain; padding: 5%; }
+.card a:hover .thumb img { transform: scale(1.03); }
+/* Name and price on top, one line on what it does, then (New), the kind of plug-in and the systems. */
+.card-body { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "name name price" "what what what" "new tag os"; align-items: baseline; padding-top: 12px; }
+.card-foot { display: contents; }
+.card-name { grid-area: name; padding-right: 12px; font: 800 21px/1.15 var(--display); letter-spacing: -.02em; color: var(--black); }
+.card a:hover .card-name { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.new-mark { grid-area: new; align-self: center; margin: 8px 8px 0 0; padding: 3px 7px; border-radius: 4px; background: var(--black); color: var(--white); font: 700 11px/1 var(--body); letter-spacing: .02em; }
+.card-price { grid-area: price; justify-self: end; white-space: nowrap; font: 700 18px/1 var(--display); color: var(--black); }
+.card-what { grid-area: what; margin-top: 6px; font-size: 15px; line-height: 1.5; color: var(--text); }
+.card .tag { grid-area: tag; margin-top: 8px; font: 500 13.5px/1.3 var(--body); color: var(--dim); }
+.os { grid-area: os; margin-top: 8px; padding-left: 12px; white-space: nowrap; font-size: 13.5px; color: var(--dim); }
+@media (max-width: 1100px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 28px; } }   /* long names stay on one line */
 
 /* ---- a plug-in's own page: where it sits, the plug-in, then more from the same shelf ---- */
 .crumbs { display: flex; gap: 10px; padding-top: 28px; font-size: 14px; color: var(--dim); }
@@ -164,7 +166,7 @@ h1, h2, h3, h4, p, ol, ul, dl, figure { margin: 0; }
 .crumbs a:hover { color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
 .product { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: start; padding-block: 28px var(--band); }
 .product h1 { margin: 10px 0 14px; font: 800 clamp(40px, 4.6vw, 64px)/1 var(--display); letter-spacing: -.035em; color: var(--black); }
-.related { background: var(--paper); padding-block: 64px var(--band); }
+.related { background: var(--studio); padding-block: 64px var(--band); }
 .related h2 { margin-bottom: 24px; font: 800 clamp(24px, 2.4vw, 32px)/1.1 var(--display); letter-spacing: -.02em; color: var(--black); }
 .related .all { margin-top: 32px; }
 .what { max-width: 44ch; font-size: 18px; }
@@ -190,11 +192,25 @@ details.more[open] summary::after { content: "\2212"; }
 .more-in p + p { margin-top: 10px; }
 .more-in b { color: var(--black); }
 
+/* ---- the Everything bundle: every plug-in as one tilted wall, on black ---- */
+.bundle { background: var(--black); color: var(--on-dark); overflow: hidden; }
+.bundle-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 80px); align-items: center; min-height: 560px; padding-block: 72px; }
+.bundle-text { position: relative; z-index: 1; }
+.bundle h2 { font: 800 clamp(52px, 5.6vw, 84px)/.95 var(--display); letter-spacing: -.045em; color: var(--white); }
+.bundle-text > p:not(.note) { margin-top: 24px; max-width: 36ch; font-size: 19px; color: var(--on-dark); }
+.bundle .buy { margin-top: 30px; }
+.bundle .price { color: var(--white); font-size: 34px; }
+.bundle .note { color: var(--on-dark-dim); }
+.wall { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-right: calc(-1 * var(--gutter) - 120px);
+  transform: rotate(-6deg); transform-origin: 0 50%; }
+.wall a { display: block; border-radius: 7px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, .08); }
+.wall img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+
 /* ---- MONDAY: the one piece of software that is not a plug-in ---- */
-.daw { background: var(--paper); padding-block: var(--band); }
+.daw { background: var(--white); padding-block: var(--band); }
 .daw-in { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
 .daw h2 { margin: 10px 0 14px; font: 800 clamp(40px, 4.6vw, 64px)/1 var(--display); letter-spacing: -.035em; color: var(--black); }
-.daw .shot { background: var(--white); }
+.daw .shot { background: var(--studio); }
 .daw .buy a:not(.btn) { font-size: 15px; color: var(--dim); text-underline-offset: 3px; }
 
 /* ---- Aphotic Hub: the one dark band (the app itself is dark) ---- */
@@ -241,12 +257,10 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
 
 /* ---- smaller screens ---- */
 @media (max-width: 1020px) {
-  .hero-in, .hub-head, .daw-in, .product { grid-template-columns: 1fr; }
+  .hero-in, .hub-head, .daw-in, .product, .bundle-in { grid-template-columns: 1fr; }
+  .wall { margin-right: 0; transform: rotate(-4deg); }
   .rack { max-width: 640px; }
-  .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .facts, .steps { grid-template-columns: 1fr 1fr; }
-  .facts li:nth-child(3) { padding-left: 0; border-left: 0; }
-  .facts li:nth-child(n + 3) { border-top: 1px solid var(--rule); }
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 44px 28px; }
   .help-grid { grid-template-columns: 1fr; gap: 28px; }
   .foot { grid-template-columns: 1fr 1fr 1fr; }
   .foot > div:first-child { grid-column: 1 / -1; }
@@ -254,7 +268,6 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
 @media (max-width: 1020px) { .bar-right { margin-left: 0; width: 100%; } }
 @media (max-width: 760px) {
   .menu { display: none; }
-  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .bar { position: static; }
   .tabs { flex-wrap: nowrap; overflow-x: auto; margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scrollbar-width: none; }
   .tabs::-webkit-scrollbar { display: none; }
@@ -267,13 +280,8 @@ footer { background: var(--black); padding-block: 72px 40px; color: var(--on-dar
 @media (max-width: 640px) {
   .rack .label { display: none; }
   .steps { grid-template-columns: 1fr; }
-  .card-body { padding: 12px 12px 12px; }
-  .card-name { font-size: 17px; }
-  .card-what { font-size: 13px; }
-  .card .os { font-size: 11.5px; }
-  .facts li { padding: 16px 12px 18px 0; }
-  .facts li + li { padding-left: 14px; }
-  .facts li:nth-child(3) { padding-left: 0; }
+  .cards { grid-template-columns: 1fr; }
+  .wall { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
   .foot { grid-template-columns: 1fr 1fr; }
   .specs { grid-template-columns: 7em 1fr; }
 }
