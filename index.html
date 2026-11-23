@@ -47,9 +47,9 @@
         </div>
       </div>
       <div class="rack" role="group" aria-label="TRINITY, IRON &amp; GLASS and AIR">
-        <a class="r-trinity" href="#trinity"><img src="img/trinity.png" width="1120" height="700" alt="TRINITY"><span class="label">TRINITY</span></a>
-        <a class="r-ironglass" href="#ironglass"><img src="img/ironglass.jpg" width="1600" height="1083" alt="IRON &amp; GLASS"><span class="label">IRON &amp; GLASS</span></a>
-        <a class="r-air" href="#air"><img src="img/air-card.png" width="676" height="860" alt="AIR"><span class="label">AIR</span></a>
+        <a class="r-trinity" href="trinity.html"><img src="img/trinity.png" width="1120" height="700" alt="TRINITY"><span class="label">TRINITY</span></a>
+        <a class="r-ironglass" href="ironglass.html"><img src="img/ironglass.jpg" width="1600" height="1083" alt="IRON &amp; GLASS"><span class="label">IRON &amp; GLASS</span></a>
+        <a class="r-air" href="air.html"><img src="img/air-card.png" width="676" height="860" alt="AIR"><span class="label">AIR</span></a>
       </div>
     </div>
     <div class="wrap">
@@ -65,45 +65,26 @@
   <section class="catalog" id="plugins" aria-labelledby="catalog-title">
     <div class="wrap">
       <div class="sec-head">
-        <h2 id="catalog-title">All plug-ins</h2>
+        <h2 id="catalog-title">Plug-ins</h2>
       </div>
-      <!-- toolbar: needs site.js, so it starts hidden and the Gumroad copy leaves it out -->
-      <div class="toolbar" id="toolbar" hidden>
-        <details class="filters">
-          <summary><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h8M15 6h2M3 14h2M9 14h8"/><circle cx="13" cy="6" r="2"/><circle cx="7" cy="14" r="2"/></svg>Filters<span class="fdot" id="fdot" hidden></span></summary>
-          <div class="fpanel">
-            <fieldset><legend>Type</legend>
-              <label><input type="checkbox" name="cat" value="vocal"><span>Vocal chain</span></label>
-              <label><input type="checkbox" name="cat" value="reverb"><span>Reverb &amp; echo</span></label>
-              <label><input type="checkbox" name="cat" value="fx"><span>Effects &amp; dynamics</span></label>
-              <label><input type="checkbox" name="cat" value="inst"><span>Instruments &amp; MIDI</span></label>
-            </fieldset>
-            <fieldset><legend>Price</legend>
-              <label><input type="checkbox" name="price" value="free"><span>Free</span></label>
-              <label><input type="checkbox" name="price" value="low"><span>Up to $30</span></label>
-              <label><input type="checkbox" name="price" value="high"><span>Over $30</span></label>
-            </fieldset>
-            <fieldset><legend>Show</legend>
-              <label><input type="checkbox" name="new" value="new"><span>New releases</span></label>
-            </fieldset>
-          </div>
-        </details>
-        <label class="search"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search plug-ins" autocomplete="off"></label>
-        <button class="clear" type="button" id="clear">Clear all</button>
-        <span class="count" id="count" role="status"></span>
-        <span class="tb-right">
+      <div class="bar" id="bar">
+        <div class="tabs" role="radiogroup" aria-label="Show">
+          <label><input type="radio" name="shelf" value="all" checked><span>All <i>22</i></span></label><label><input type="radio" name="shelf" value="vocal"><span>Vocal <i>7</i></span></label><label><input type="radio" name="shelf" value="reverb"><span>Reverb &amp; echo <i>3</i></span></label><label><input type="radio" name="shelf" value="fx"><span>Effects <i>8</i></span></label><label><input type="radio" name="shelf" value="inst"><span>Instruments <i>4</i></span></label>
+        </div>
+        <div class="bar-right">
+          <!-- search -->
+          <label class="search" hidden><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5"/><path d="M13 13l4 4"/></svg><input type="search" id="q" placeholder="Search" aria-label="Search plug-ins" autocomplete="off"></label>
+          <!-- /search -->
           <label class="switch"><span>Free only</span><input type="checkbox" id="t-free" role="switch"><i aria-hidden="true"></i></label>
           <label class="switch"><span>Mac</span><input type="checkbox" id="t-mac" role="switch" aria-describedby="mac-tip"><i aria-hidden="true"></i></label>
           <span class="vh" id="mac-tip">Only plug-ins that also run on a Mac (VST3 and Audio Unit)</span>
-          <label class="sort"><span class="vh">Sort by</span><select id="sort">
-            <option value="featured">Featured</option><option value="new">New first</option><option value="price-asc">Price: low to high</option>
-            <option value="price-desc">Price: high to low</option><option value="name">Name: A to Z</option></select></label>
-        </span>
+        </div>
       </div>
-      <!-- /toolbar -->
-      <ul class="cards">
-        <li class="card" data-cat="vocal free">
-          <a href="#trinity">
+      <section class="shelf" id="vocal" data-shelf="vocal" aria-labelledby="vocal-title">
+        <header class="shelf-head"><h3 id="vocal-title">The vocal chain</h3><p>Tune it, give it body and weight, then open up the top. Use them in this order on a vocal, or each one on its own, on any track.</p></header>
+        <ul class="cards">
+        <li class="card" data-mac="1" data-cat="vocal free">
+          <a href="trinity.html">
             <span class="thumb"><img src="img/trinity.png" width="1120" height="700" loading="lazy" alt=""><span class="badges"><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Pitch correction</span>
@@ -113,8 +94,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="vocal">
-          <a href="#ironglass">
+        <li class="card" data-mac="1" data-cat="vocal">
+          <a href="ironglass.html">
             <span class="thumb"><img src="img/ironglass.jpg" width="1600" height="1083" loading="lazy" alt=""></span>
             <span class="card-body">
               <span class="tag">Channel strip</span>
@@ -124,8 +105,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="vocal">
-          <a href="#air">
+        <li class="card" data-mac="1" data-cat="vocal">
+          <a href="air.html">
             <span class="thumb tall"><img src="img/air-card.png" width="676" height="860" loading="lazy" alt=""></span>
             <span class="card-body">
               <span class="tag">Air enhancer</span>
@@ -135,8 +116,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="vocal">
-          <a href="#vantavox">
+        <li class="card" data-mac="1" data-cat="vocal">
+          <a href="vantavox.html">
             <span class="thumb"><img src="img/vantavox.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Vocal rack</span>
@@ -146,8 +127,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="vocal free">
-          <a href="#eq5">
+        <li class="card" data-mac="1" data-cat="vocal free">
+          <a href="eq5.html">
             <span class="thumb"><img src="img/eq5.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Midrange EQ</span>
@@ -157,8 +138,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="vocal">
-          <a href="#photic">
+        <li class="card" data-mac="1" data-cat="vocal">
+          <a href="photic.html">
             <span class="thumb"><img src="img/photic.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Air EQ</span>
@@ -169,7 +150,7 @@
           </a>
         </li>
         <li class="card" data-cat="vocal free">
-          <a href="#split">
+          <a href="split.html">
             <span class="thumb"><img src="img/split.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">De-esser</span>
@@ -179,8 +160,13 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="reverb free">
-          <a href="#zion">
+        </ul>
+      </section>
+      <section class="shelf" id="reverb" data-shelf="reverb" aria-labelledby="reverb-title">
+        <header class="shelf-head"><h3 id="reverb-title">Reverb and space</h3><p>Two reverbs made to sit behind a voice, one that draws the room you are building and one pedal with twelve machines, and a three-head tape echo with its own spring.</p></header>
+        <ul class="cards">
+        <li class="card" data-mac="1" data-cat="reverb free">
+          <a href="zion.html">
             <span class="thumb"><img src="img/zion.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Reverb</span>
@@ -190,8 +176,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="reverb">
-          <a href="#hadal">
+        <li class="card" data-mac="1" data-cat="reverb">
+          <a href="hadal.html">
             <span class="thumb"><img src="img/hadal.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Dual reverb pedal</span>
@@ -202,7 +188,7 @@
           </a>
         </li>
         <li class="card" data-cat="reverb">
-          <a href="#tapeorbit">
+          <a href="tapeorbit.html">
             <span class="thumb"><img src="img/tapeorbit.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Tape echo</span>
@@ -212,8 +198,13 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx">
-          <a href="#santa">
+        </ul>
+      </section>
+      <section class="shelf" id="fx" data-shelf="fx" aria-labelledby="fx-title">
+        <header class="shelf-head"><h3 id="fx-title">Effects and dynamics</h3><p>Width, level control and background layers for the rest of the session.</p></header>
+        <ul class="cards">
+        <li class="card" data-mac="1" data-cat="fx">
+          <a href="santa.html">
             <span class="thumb"><img src="img/santa.jpg" width="1600" height="1000" loading="lazy" alt=""></span>
             <span class="card-body">
               <span class="tag">Stereo chorus pedal</span>
@@ -223,8 +214,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx">
-          <a href="#abyss">
+        <li class="card" data-mac="1" data-cat="fx">
+          <a href="abyss.html">
             <span class="thumb"><img src="img/abyss.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Tube limiter</span>
@@ -234,8 +225,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx free">
-          <a href="#undertow">
+        <li class="card" data-mac="1" data-cat="fx free">
+          <a href="undertow.html">
             <span class="thumb"><img src="img/undertow.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Layer maker</span>
@@ -245,8 +236,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx free">
-          <a href="#lure">
+        <li class="card" data-mac="1" data-cat="fx free">
+          <a href="lure.html">
             <span class="thumb"><img src="img/lure.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Compressor</span>
@@ -256,8 +247,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx">
-          <a href="#tube50">
+        <li class="card" data-mac="1" data-cat="fx">
+          <a href="tube50.html">
             <span class="thumb"><img src="img/tube50.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Valve saturator</span>
@@ -268,7 +259,7 @@
           </a>
         </li>
         <li class="card" data-cat="fx">
-          <a href="#trench">
+          <a href="trench.html">
             <span class="thumb"><img src="img/trench.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Preamp saturator</span>
@@ -278,8 +269,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx">
-          <a href="#jermy">
+        <li class="card" data-mac="1" data-cat="fx">
+          <a href="jermy.html">
             <span class="thumb"><img src="img/jermy.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Distortion</span>
@@ -289,8 +280,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="fx free">
-          <a href="#sounding">
+        <li class="card" data-mac="1" data-cat="fx free">
+          <a href="sounding.html">
             <span class="thumb"><img src="img/sounding.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Metering</span>
@@ -300,8 +291,13 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="inst">
-          <a href="#sope">
+        </ul>
+      </section>
+      <section class="shelf" id="inst" data-shelf="inst" aria-labelledby="inst-title">
+        <header class="shelf-head"><h3 id="inst-title">Instruments and MIDI</h3><p>Something to play, and the notes to play it with.</p></header>
+        <ul class="cards">
+        <li class="card" data-mac="1" data-cat="inst">
+          <a href="sope.html">
             <span class="thumb"><img src="img/sope.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span></span></span>
             <span class="card-body">
               <span class="tag">Synthesizer</span>
@@ -312,7 +308,7 @@
           </a>
         </li>
         <li class="card" data-cat="inst free">
-          <a href="#spool">
+          <a href="spool.html">
             <span class="thumb"><img src="img/spool.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Tape keyboard</span>
@@ -322,8 +318,8 @@
             </span>
           </a>
         </li>
-        <li class="card" data-cat="inst free">
-          <a href="#wavy">
+        <li class="card" data-mac="1" data-cat="inst free">
+          <a href="wavy.html">
             <span class="thumb"><img src="img/wavy.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Audio to MIDI</span>
@@ -334,7 +330,7 @@
           </a>
         </li>
         <li class="card" data-cat="inst free">
-          <a href="#vent">
+          <a href="vent.html">
             <span class="thumb"><img src="img/vent.jpg" width="1600" height="1000" loading="lazy" alt=""><span class="badges"><span class="badge new">New</span><span class="badge">Free</span></span></span>
             <span class="card-body">
               <span class="tag">Acid synthesizer</span>
@@ -344,647 +340,13 @@
             </span>
           </a>
         </li>
-      </ul>
-      <!-- toolbar -->
-      <p class="nomatch" id="nomatch" hidden>No plug-in matches that. <button class="clear" type="button" id="clear2">Clear all</button></p>
-      <!-- /toolbar -->
+        </ul>
+      </section>
+      <!-- search -->
+      <p class="nomatch" id="nomatch" hidden>No plug-in matches that. <button class="clear" type="button" id="clear">Clear</button></p>
+      <!-- /search -->
     </div>
   </section>
-
-    <section class="group" id="vocal" aria-labelledby="vocal-title">
-      <div class="wrap">
-        <header class="group-head">
-          <p class="kicker">01</p>
-          <h2 id="vocal-title">The vocal chain</h2>
-          <p>Tune it, give it body and weight, then open up the top. Use them in this order on a vocal, or each one on its own, on any track.</p>
-          <ol class="chainline" aria-label="Order on a vocal"><li><b>1</b> Pitch<span>TRINITY</span></li><li><b>2</b> Tone<span>IRON &amp; GLASS</span></li><li><b>3</b> Air<span>AIR</span></li></ol>
-        </header>
-        <article class="product" id="trinity" aria-labelledby="trinity-name">
-          <div class="p-text">
-            <p class="role">Pitch correction</p>
-            <h3 id="trinity-name">TRINITY</h3>
-            <p class="what">Pitch correction that goes from natural to hard-locked, with formant-preserving correction that keeps the voice sounding like the singer.</p>
-            <ul class="feat">
-              <li>Classic and Underground tuning styles</li>
-              <li>Live pitch display, with waveform and spectrum views</li>
-              <li>MIDI target notes: play the notes to tune to</li>
-              <li>Retune speed, correction, humanize, transition, tracking and sustain</li>
-              <li>Pitch, formant and mix shaping</li>
-              <li>Key, scale, A4 reference and vocal range</li>
-              <li>Undo and redo, A/B compare and four colour themes</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="trinity" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-            <details class="more">
-              <summary>How it works</summary>
-              <div class="more-in">
-                <p>Classic follows the singer and leaves the expression in. Underground snaps every note to the key for the locked sound modern rap vocals are built on.</p>
-                <p>Set the key and scale, pick a vocal range, and watch the live pitch display show what you sang, what came out and the note it's aiming for. Or send MIDI notes and TRINITY tunes to the notes you play.</p>
-              </div>
-            </details>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/trinity.png" width="1120" height="700" loading="lazy" alt="TRINITY with the Underground tuning style selected, the key set to A minor and the live pitch display showing the sung pitch, the corrected pitch and the target notes on a note grid"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>HQ 10 ms, Low Latency 1.5 ms at 48 kHz</dd>
-              <dt>Formats</dt><dd>Windows VST3, macOS VST3 and AU</dd>
-              <dt>Version</dt><dd><span data-version="trinity">1.2.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="ironglass" aria-labelledby="ironglass-name">
-          <div class="p-text">
-            <p class="role">Channel strip</p>
-            <h3 id="ironglass-name">IRON &amp; GLASS</h3>
-            <p class="what">A British console preamp and EQ, into a tube optical compressor that holds a vocal steady without squashing it.</p>
-            <ul class="feat">
-              <li>Mic and line input modes with iron drive</li>
-              <li>Fixed, Manual and Fix/Man compressor timing</li>
-              <li>VU meter for input, gain reduction and output</li>
-              <li>A/B compare and presets</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="ironglass">$33</span><a class="btn solid" data-buy="ironglass" href="checkout.html?product=ironglass">Buy for $33</a></div>
-            <p class="note" data-pay-note="ironglass">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-            <details class="more">
-              <summary>How it works</summary>
-              <div class="more-in">
-                <p><b>Iron</b> is the console half: a Class-A preamp with transformer iron you can drive from clean to thick, then an EQ with curves fitted to the original circuit.</p>
-                <p><b>Glass</b> is the tube optical compressor. Blend it in with the mix knob, keep the low end from pumping it with the sidechain high-pass, and put it before or after the EQ.</p>
-              </div>
-            </details>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/ironglass.jpg" width="1600" height="1083" loading="lazy" alt="IRON &amp; GLASS: preamp gain, air, mid and low EQ, high-pass filter, then the GLASS compressor with gain, ratio, threshold, mix, attack, release and a VU meter"></figure>
-            <dl class="specs">
-              <dt>EQ</dt><dd>Air 12 kHz, mid 360 Hz to 7.2 kHz, low 35 to 220 Hz, high-pass 50 to 300 Hz</dd>
-              <dt>Oversampling</dt><dd>Off, 2x, 4x or 8x</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="ironglass">1.24.1</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="air" aria-labelledby="air-name">
-          <div class="p-text">
-            <p class="role">Air enhancer</p>
-            <h3 id="air-name">AIR</h3>
-            <p class="what">One knob that lifts the top of a vocal, mix or instrument and never turns harsh: esses get less lift than everything else.</p>
-            <ul class="feat">
-              <li>16 presets for vocals, mix bus, master and instruments</li>
-              <li>Click-free preset switching</li>
-              <li>Live AIR and SMOOTH meters</li>
-              <li>Resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="air">$10</span><a class="btn solid" data-buy="air" href="checkout.html?product=air">Buy for $10</a></div>
-            <p class="note" data-pay-note="air">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-            <details class="more">
-              <summary>How it works</summary>
-              <div class="more-in">
-                <p>A dynamic shelf set above the harsh zone, plus an octave-up sheen for sources that came in dull. Built-in smoothing means pushing it harder only gets smoother.</p>
-              </div>
-            </details>
-          </div>
-          <div class="p-side">
-            <figure class="shot tall"><img src="img/air-card.png" width="676" height="860" loading="lazy" alt="AIR: a single silver knob set to 66 percent on the Vocal Silk preset, with AIR and SMOOTH meters underneath"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="air">1.9.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="vantavox" aria-labelledby="vantavox-name">
-          <div class="p-text">
-            <p class="role">Vocal rack <span class="badge new">New</span></p>
-            <h3 id="vantavox-name">VANTA VOX</h3>
-            <p class="what">Everything a vocal needs, in one unit: pitch correction and harmonies, dynamics, EQ, saturation and doubling, reverb and delay, glitch and a vocoder, and the sound of 25 classic microphones. Five modules in any order, each able to work on part of the voice or in parallel, six scenes you switch on the beat, motion, and Analyze my vocal, which listens to your recording and proposes settings with a reason for each. 55 presets from trap and rap to pop, R&amp;B, harmony stacks and pitched effects.</p>
-            <ul class="feat">
-              <li>Five modules: Tune, Dynamics, Tone, SFX and Space, in any order. Each can work on the middle, the sides, the lows or the highs, and be blended in parallel; Space can work as a send</li>
-              <li>Low Latency for recording (no added delay, about 1.5 ms with pitch correction in; pitch shift and formant add about 22 ms) and Studio for mixing; the real delay is shown, explained and reported to your DAW</li>
-              <li>Tune: pitch correction to a key and scale or to the notes you play on MIDI; pitch shift and formant; up to three harmony voices in the key or on held notes, each panned; a vocoder</li>
-              <li>Dynamics: cleanup (plosives, mouth clicks), gate, de-esser and two compressors with Opto, FET and Vari-Mu models. Tone: a nine-point EQ, Mud, Nasal and Harsh that act only on too much, Warmth, Clarity and Air</li>
-              <li>Mic: the sound of 25 classic microphones over your voice, named by their model numbers (VX-47, VX-67, VX-251, VX-800, VX-87 and more), with your own mic taken off first; polar pattern, Weight, Capsule, Color and the circuit (tube, FET, solid state, transformer)</li>
-              <li>SFX and Space: saturation up to Transformer and Distortion, doubler, chorus, width, lo-fi (Megaphone, Bit Crusher, Vinyl), reverb and delay with ducking, Glitch (Stutter, Reverse, Freeze, Tape Stop) and a 16-step sequencer</li>
-              <li>Analyze my vocal; six Scenes switched by automation; Motion (two LFOs and an envelope); Level Match; Auto Input Level; Simple, Advanced and Help modes; A and B, undo, a safety limiter; resizable interface</li>
-              <li>Clean at every step: every setting glides sample by sample, so nothing clicks when you move, switch or automate it; Studio saturation is oversampled and anti-aliased; the de-esser tells esses from bright vowels</li>
-              <li>MIDI (tuning, harmonies and the vocoder on the notes you play) works in VST3 hosts; in Logic the Audio Unit stays an audio effect</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="vantavox">$45</span><a class="btn solid" data-buy="vantavox" href="checkout.html?product=vantavox">Buy for $45</a></div>
-            <p class="note" data-pay-note="vantavox">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/vantavox.jpg" width="1600" height="1000" loading="lazy" alt="VANTA VOX: a titanium hardware-style unit with a main screen showing a compressor curve, eight knobs with their scales on a glass strip under it, six macro knobs on the left and the signal chain of five modules on the right"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>None in Low Latency (about 1.5 ms with pitch correction, 24 ms with pitch shift or formant), 11.5 ms in Studio (34 ms with pitch shift or formant); reported to your DAW</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="vantavox">2.4.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-            <p class="note">The sound is original work; it is not a copy or a measurement of any hardware or other software.</p>
-          </div>
-        </article>
-        <article class="product" id="eq5" aria-labelledby="eq5-name">
-          <div class="p-text">
-            <p class="role">Midrange EQ <span class="badge new">New</span></p>
-            <h3 id="eq5-name">EQ-5</h3>
-            <p class="what">A three-section midrange equalizer in the tradition of the classic valve units: lift the body with the low-mid peak, take out the box with the dip, bring the voice forward with the high-mid peak. The sections meet like a passive network, so they shape each other instead of cancelling.</p>
-            <ul class="feat">
-              <li>Low-mid peak at 200, 300, 500, 700 Hz or 1 kHz, up to +10.7 dB; a wide, gentle bell</li>
-              <li>Dip from 200 Hz to 7 kHz in eleven steps, down to -11 dB</li>
-              <li>High-mid peak at 1.5, 2, 3, 4 or 5 kHz, up to +8.9 dB, narrowing as it goes up</li>
-              <li>A valve make-up stage and output transformer: a soft second harmonic and bass that thickens when pushed; Analog Drive for more, or switch the colour off for a clean EQ</li>
-              <li>EQ IN and POWER switch without clicks; POWER off passes your audio untouched</li>
-              <li>SETUP: live response curve, input and output trim, level match, oversampling, window size 75 to 200 %; 17 presets</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="eq5" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/eq5.jpg" width="1600" height="1000" loading="lazy" alt="EQ-5: a dark teal rack panel with three sections, each a long black frequency lever beside a large fluted black knob with a 0 to 10 scale, a bat toggle marked IN, a red jewel lamp and an OFF ON switch, above a black bar with the Aphotic logo and a preset window"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>6 samples (0.13 ms at 48 kHz), reported to your DAW</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="eq5">1.0.3</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-            <p class="note">The curves were fitted to measurements of a software model of the classic unit; no hardware was measured. EQ-5 is an original plug-in, not made or endorsed by the makers of the original.</p>
-          </div>
-        </article>
-        <article class="product" id="photic" aria-labelledby="photic-name">
-          <div class="p-text">
-            <p class="role">Air EQ <span class="badge new">New</span></p>
-            <h3 id="photic-name">PHOTIC</h3>
-            <p class="what">A six-band equaliser for sweetening, not surgery: broad, musical bands that build on each other, and a gentle air lift that opens up the top of a vocal, a bus or a whole mix.</p>
-            <ul class="feat">
-              <li>SUB (10 Hz), 40 Hz, 160 Hz and 650 Hz bands and a 2.5 kHz shelf, 5 dB of cut to 5 dB of boost each</li>
-              <li>The low bands are summed, as in the classic air-band equalisers: they overlap and build on each other</li>
-              <li>An air lift at 2.5, 5, 10, 15, 20 or 40 kHz, up to 10 dB, gentle enough that the 40 kHz setting still opens up the top</li>
-              <li>Every curve computed from its analog original at your sample rate, so the 40 kHz air works at 44.1 kHz too</li>
-              <li>Clean and transparent: no saturation, and with every knob at 0 your audio passes through untouched</li>
-              <li>Half-dB click-stops, Alt-click to hear a band on and off, A/B, undo, a response-curve drawer, 15 presets plus your own</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="photic">$30</span><a class="btn solid" data-buy="photic" href="checkout.html?product=photic">Buy for $30</a></div>
-            <p class="note" data-pay-note="photic">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/photic.jpg" width="1600" height="1000" loading="lazy" alt="PHOTIC: a blue equaliser panel with seven knobs in two staggered rows, black, steel blue, green, red, orange, yellow and white caps on black ribbed skirts, white scales, black cross-head screws, a black IN/OUT button and green and red lamps, under a dark toolbar with a preset window"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="photic">1.0.2</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-            <p class="note">Original software, inspired by the classic air-band style of vocal equaliser. It is not made, licensed or endorsed by the maker of any equaliser it may be compared with.</p>
-          </div>
-        </article>
-        <article class="product" id="split" aria-labelledby="split-name">
-          <div class="p-text">
-            <p class="role">De-esser <span class="badge new">New</span></p>
-            <h3 id="split-name">SPLIT</h3>
-            <p class="what">A de-esser that listens for the balance between the S band and the rest of the voice, not for level. A whisper and a shout are treated the same, so there is no threshold to chase: set how much it may take and how hard it gets there, and every S comes down by the same measure.</p>
-            <ul class="feat">
-              <li>Key filter, high pass or band pass, from 500 Hz to 15 kHz with FOCUS; KEY LISTEN to hear exactly what it hears</li>
-              <li>RANGE up to 36 dB (it never takes more), RATIO 2:1 to 20:1, RELEASE 1 to 100 ms</li>
-              <li>HF ONLY turns down only the highs, and SHIFT moves that band up to an octave either way; or let the whole voice dip</li>
-              <li>A 1.15 ms look-ahead catches the start of every S; steady hiss and room noise between words are left alone</li>
-              <li>A live display: the key filter, the reduction across the spectrum as it happens, stereo input and output meters and gain reduction</li>
-              <li>16 presets for vocals, speech, instruments and the mix bus, A/B and undo</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="split" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/split.jpg" width="1600" height="1000" loading="lazy" alt="SPLIT: a white panel with green, orange and yellow knobs and a black fluted output knob, small square keys for the key filter type, listen and HF only, a row of white preset keys along the top, and a black display with a gold key-filter curve, a red reduction curve and input, reduction and output meters"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>55 samples (1.15 ms at 48 kHz), reported to your DAW</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit)</dd>
-              <dt>Version</dt><dd><span data-version="split">1.0.0</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-            <p class="note">Original software. It is not made, licensed or endorsed by the maker of any de-esser it may be compared with.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="group" id="reverb" aria-labelledby="reverb-title">
-      <div class="wrap">
-        <header class="group-head">
-          <p class="kicker">02</p>
-          <h2 id="reverb-title">Reverb and space</h2>
-          <p>Two reverbs made to sit behind a voice, one that draws the room you are building and one pedal with twelve machines, and a three-head tape echo with its own spring.</p>
-        </header>
-        <article class="product" id="zion" aria-labelledby="zion-name">
-          <div class="p-text">
-            <p class="role">Reverb</p>
-            <h3 id="zion-name">ZION</h3>
-            <p class="what">A reverb that draws the space you are building and keeps your mix clear while it blooms. Turn a knob and the display shows the gap, the reflections, the swell and the decay.</p>
-            <ul class="feat">
-              <li>Six spaces: Hall, Room, Plate, Chamber, Cloud and Vintage, from 0.2 to 30 seconds</li>
-              <li>A live display, a five-band reverb EQ and a decay EQ you drag</li>
-              <li>Clear, Duck and Gate keep the mix clean, with a sidechain input; tempo-locked Pulse, Onset and Length</li>
-              <li>Halo shimmer an octave up, a fifth up or an octave down; Drift, Hold, Mono Lows and Guard</li>
-              <li>71 presets with search and favourites, A/B morph, Inspire, undo</li>
-              <li>Zero latency, low CPU, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="zion" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/zion.jpg" width="1600" height="1000" loading="lazy" alt="ZION: a pearl-grey reverb panel with black knobs ringed in teal, a dark display drawing the reverb&#x27;s decay and tone, and Shape, Levels, Colour, Motion and Clearance sections"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="zion">1.5.0</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="hadal" aria-labelledby="hadal-name">
-          <div class="p-text">
-            <p class="role">Dual reverb pedal <span class="badge new">New</span></p>
-            <h3 id="hadal-name">HADAL</h3>
-            <p class="what">Two reverbs in one pedal. Pick from twelve machines, run one into the other or side by side, and switch between two complete sounds with a footswitch.</p>
-            <ul class="feat">
-              <li>Twelve machines: Room, Hall, Chamber, Plate, Spring, Impulse, Cloud, Shimmer, Swell, Choir, Tape and Nonlinear</li>
-              <li>Two engines in series or in parallel, each with its own machine and knobs</li>
-              <li>Footswitches A and B hold two sounds; Infinite freezes the reverb while you keep playing</li>
-              <li>Impulse plays six built-in spaces or your own WAV impulse responses</li>
-              <li>Made for vocals: Duck, Low Cut and De-Ess work on the reverb only, so the words stay clear</li>
-              <li>45 presets with Pop Vocals and Rap Vocals banks, MIDI learn and a LAB panel with live meters; zero latency, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="hadal">$30</span><a class="btn solid" data-buy="hadal" href="checkout.html?product=hadal">Buy for $30</a></div>
-            <p class="note" data-pay-note="hadal">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/hadal.jpg" width="1600" height="1000" loading="lazy" alt="HADAL: a deep navy brushed-metal pedal with a twelve-position type selector, a green dot-matrix display, seven black knobs with steel collars and three chrome footswitches"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="hadal">1.2.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="tapeorbit" aria-labelledby="tapeorbit-name">
-          <div class="p-text">
-            <p class="role">Tape echo <span class="badge new">New</span></p>
-            <h3 id="tapeorbit-name">TAPE ORBIT</h3>
-            <p class="what">A three-head tape echo with a spring reverb beside it, built like the classic tape echo units of the 1970s: warm repeats, pitch swoops when you move the tape speed, and self-oscillation you can play.</p>
-            <ul class="feat">
-              <li>A moving tape with three playback heads: turn Repeat Rate and the motor takes about a second to catch up, so the echoes swoop in pitch like the old machines</li>
-              <li>A 12-position mode selector: four echo only, seven echo and spring, one spring only</li>
-              <li>Intensity from a single slap to endless repeats and controlled self-oscillation</li>
-              <li>Warm tape saturation, wow and flutter, Bass and Treble on the echo only, a VU meter and a PEAK lamp</li>
-              <li>A dispersive three-spring reverb, tempo sync, mono or stereo; a calibration drawer for wow, flutter, tape age, hiss, dropouts and more</li>
-              <li>16 presets plus your own, zero latency, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="tapeorbit">$20</span><a class="btn solid" data-buy="tapeorbit" href="checkout.html?product=tapeorbit">Buy for $20</a></div>
-            <p class="note" data-pay-note="tapeorbit">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/tapeorbit.jpg" width="1600" height="1000" loading="lazy" alt="TAPE ORBIT: a black tape echo unit with a brushed silver band, a VU meter with a green and red scale, a large twelve-position mode selector and six chrome knobs on a green plate, and toggles on a silver strip"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit). Not on Mac yet</dd>
-              <dt>Version</dt><dd><span data-version="tapeorbit">1.0.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-            <p class="note">Original software. It follows published measurements and descriptions of classic three-head tape echoes; it is not made, licensed or endorsed by the maker of any of them.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="group" id="fx" aria-labelledby="fx-title">
-      <div class="wrap">
-        <header class="group-head">
-          <p class="kicker">03</p>
-          <h2 id="fx-title">Effects and dynamics</h2>
-          <p>Width, level control and background layers for the rest of the session.</p>
-        </header>
-        <article class="product" id="santa" aria-labelledby="santa-name">
-          <div class="p-text">
-            <p class="role">Stereo chorus pedal</p>
-            <h3 id="santa-name">SANTA</h3>
-            <p class="what">A lush stereo chorus in a pedal you can actually use: three knobs, a footswitch, and Santa's nose. Click it and it glows red and adds warm tube drive.</p>
-            <ul class="feat">
-              <li>Three-voice stereo ensemble with a slow random drift: wide, smooth and never seasick</li>
-              <li>Lows stay dry and tight; the chorus is rounded off like a vintage analog chip</li>
-              <li>Rate, Depth and Mix, plus a footswitch with a status LED</li>
-              <li>Tube drive on the nose: soft warmth on quiet parts, real crunch when you hit it</li>
-              <li>Zero latency, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="santa">$30</span><a class="btn solid" data-buy="santa" href="checkout.html?product=santa">Buy for $30</a></div>
-            <p class="note" data-pay-note="santa">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/santa.jpg" width="1600" height="1000" loading="lazy" alt="SANTA: a red chorus pedal with Rate, Depth and Mix knobs, Santa&#x27;s face with a glowing red nose, a red LED and a chrome footswitch"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="santa">1.4.1</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="abyss" aria-labelledby="abyss-name">
-          <div class="p-text">
-            <p class="role">Tube limiter <span class="badge new">New</span></p>
-            <h3 id="abyss-name">ABYSS DUAL</h3>
-            <p class="what">A two-channel tube limiter in a rack unit. A smooth optical limiter and a fast FET limiter work in a row on each side: what the first one misses, the second one catches.</p>
-            <ul class="feat">
-              <li>OPTO: slow, smooth and deep (10:1), with a sidechain cut so bass does not pump it</li>
-              <li>FET: fast and firm (20:1), attack from 0.1 to 10 ms, release from 10 ms to 2 s, and a CLIP position</li>
-              <li>A tube stage that stays clean at normal levels and adds colour as you push it</li>
-              <li>Dual, Link or Max stereo modes; two VU meters with real VU movement and LED bars</li>
-              <li>MIX for parallel limiting, AUTO GAIN to keep the level steady, DELTA to hear what the limiters remove</li>
-              <li>20 presets, an analyzer panel, oversampling up to 8x, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="abyss">$30</span><a class="btn solid" data-buy="abyss" href="checkout.html?product=abyss">Buy for $30</a></div>
-            <p class="note" data-pay-note="abyss">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/abyss.jpg" width="1600" height="1000" loading="lazy" alt="ABYSS DUAL: a deep purple rack unit with two amber VU meters, LED bar graphs, black control plates with knobs for input, output, release and the two limiter thresholds, and an analyzer panel underneath"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>3 samples at the default 2x oversampling (none at 1x), reported to your DAW</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="abyss">1.2.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="undertow" aria-labelledby="undertow-name">
-          <div class="p-text">
-            <p class="role">Layer maker <span class="badge new">New</span></p>
-            <h3 id="undertow-name">UNDERTOW</h3>
-            <p class="what">Turns any melody, vocal or pad into a background layer of itself: an octave up, at half speed, broken into grains, moving on the beat and sitting in its own reverb.</p>
-            <ul class="feat">
-              <li>Octave switch (+1, +2) and pitch in semitones, with a pitch shifter that keeps held notes steady</li>
-              <li>Grains: a cloud cut from the last few seconds, free or on the beat. Surge makes it wilder</li>
-              <li>Half speed at 1/2 or 1/4, in a loop that restarts on the beat</li>
-              <li>Six volume shapes and autopan in time with your song; width from mono to wide</li>
-              <li>Four reverbs: Classic, Plate, Room and Shimmer</li>
-              <li>16 presets, and Generate rolls a new layer in one click</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="undertow" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/undertow.jpg" width="1600" height="1000" loading="lazy" alt="UNDERTOW: a dark graphite panel with metal knobs and lit arcs around a round glass porthole, where teal lines of water move with the sound"></figure>
-            <dl class="specs">
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="undertow">1.0.2</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="lure" aria-labelledby="lure-name">
-          <div class="p-text">
-            <p class="role">Compressor <span class="badge new">New</span></p>
-            <h3 id="lure-name">LURE</h3>
-            <p class="what">Two kinds of compressor in one rack. A fast FET compressor catches the peaks, then a smooth optical leveler evens out the level. Use both, one alone, or swap their order.</p>
-            <ul class="feat">
-              <li>FET compressor: attack from about 0.1 to 2 ms, release from 45 ms to 1.1 s, ratios 4, 8, 12 and 20, and all buttons in</li>
-              <li>Ratios tighten on held notes, and the release slows after long passages and keeps a little grip between phrases, as on classic units of this kind</li>
-              <li>Optical leveler: Compress or Limit; it holds a vocal or a mix firmly, lets a short hit go in milliseconds and a long passage in seconds</li>
-              <li>Emphasis, a sidechain high-pass and stereo link, so bass does not pump it</li>
-              <li>Mix for parallel compression; swap the order of the two units with one click</li>
-              <li>Two VU meters with real VU movement, showing gain reduction or output</li>
-              <li>15 presets, oversampling up to 8x with its small latency reported to your DAW, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="lure" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/lure.jpg" width="1600" height="1000" loading="lazy" alt="LURE: a black rack unit with two large knobs, small attack and release knobs, grey ratio buttons and an amber VU meter, above a brushed silver unit with a VU meter in the middle between two black knobs, a red lamp and two toggle switches"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>None at 1x, 0.1 ms at 4x (reported to your DAW)</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="lure">1.3.0</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="tube50" aria-labelledby="tube50-name">
-          <div class="p-text">
-            <p class="role">Valve saturator <span class="badge new">New</span></p>
-            <h3 id="tube50-name">TUBE 50</h3>
-            <p class="what">Fifty valves in one plug-in. Each sits in a circuit of its own kind, simulated sample by sample, so every valve reacts to your signal in its own way. Pick one, turn DRIVE.</p>
-            <ul class="feat">
-              <li>24 small-signal valves (12AX7, 6SN7, 6922, EF86 and more) and 26 output valves (6L6, EL34, EL84, KT88, 300B, 845 and more)</li>
-              <li>Triode and pentode gain stages; single-ended and push-pull output stages with a transformer</li>
-              <li>Three knobs: DRIVE, AMOUNT from dry to valve, and TONE</li>
-              <li>Browser with PREAMP, DRIVER and POWER tabs, search and favourites; click-free valve changes</li>
-              <li>BIAS, SUPPLY SAG, AUTO GAIN, A and B, 15 presets, oversampling up to 8x; zero latency, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="tube50">$30</span><a class="btn solid" data-buy="tube50" href="checkout.html?product=tube50">Buy for $30</a></div>
-            <p class="note" data-pay-note="tube50">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/tube50.jpg" width="1600" height="1000" loading="lazy" alt="TUBE 50 three times: a dark panel with a glass valve glowing inside a lit ring, three knobs with aluminium caps for drive, amount and tone, and the list of all fifty valves"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="tube50">1.2.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-            <p class="note">The valves are modelled from their published data sheets and the circuits are simulated; they are not measured copies of particular hardware.</p>
-          </div>
-        </article>
-        <article class="product" id="trench" aria-labelledby="trench-name">
-          <div class="p-text">
-            <p class="role">Preamp saturator <span class="badge new">New</span></p>
-            <h3 id="trench-name">TRENCH</h3>
-            <p class="what">One knob of preamp colour. DRIVE pushes your sound into a two-stage preamp and brings the level back, so you hear thickness and warm harmonics, not a jump in volume.</p>
-            <ul class="feat">
-              <li>Transformer stage that works on the low end only: bass thickens first, everything above passes untouched</li>
-              <li>Amplifier stage whose harmonics follow how loud you play; highs reach it softer, so esses stay clean</li>
-              <li>Level-matched: a vocal keeps its loudness from 0 to 100% while its loudest peaks are tamed</li>
-              <li>Input, Output and Mix; High Pass and Low Pass that sit before or after the preamp; Phase</li>
-              <li>Oversampled inside, zero latency, click-free automation, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="trench">$45</span><a class="btn solid" data-buy="trench" href="checkout.html?product=trench">Buy for $45</a></div>
-            <p class="note" data-pay-note="trench">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/trench.jpg" width="1600" height="1000" loading="lazy" alt="TRENCH: a brushed silver panel with one large dark knob inside a ring of orange lights numbered 0 to 10, a dark display reading DRIVE 62 %, seven small value windows and two rows of level lights"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit). Not on Mac yet</dd>
-              <dt>Version</dt><dd><span data-version="trench">1.0.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-            <p class="note">TRENCH is an original design; it is not a copy of a particular hardware preamp.</p>
-          </div>
-        </article>
-        <article class="product" id="jermy" aria-labelledby="jermy-name">
-          <div class="p-text">
-            <p class="role">Distortion <span class="badge new">New</span></p>
-            <h3 id="jermy-name">JERMY</h3>
-            <p class="what">A clean white box that sounds filthy. Eight distortion circuits, from warm to wrecked, and a monkey on the display who shows you how hard you are driving it. Pick a circuit, turn DRIVE.</p>
-            <ul class="feat">
-              <li>Eight circuits, each its own algorithm: FUR, FANG, GUT, BRICK, RUST, BARK, BONE and RIOT</li>
-              <li>JERMY reads the real meters: asleep when bypassed, teeth out as you drive harder, feral with RIOT</li>
-              <li>RIOT footswitch with three modes; a 16-step sequencer, an LFO and an envelope in time with your song</li>
-              <li>DEEP: bias, shape, threshold, dynamic drive, sag, three bands, filters before and after the circuit</li>
-              <li>40 presets, A and B, undo, AUTO GAIN, output protection, oversampling up to 16x; zero latency, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="jermy">$50</span><a class="btn solid" data-buy="jermy" href="checkout.html?product=jermy">Buy for $50</a></div>
-            <p class="note" data-pay-note="jermy">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/jermy.jpg" width="1600" height="1000" loading="lazy" alt="JERMY: an off-white box with a black deck, a display showing a frowning monkey, a large DRIVE knob and eight smaller knobs, a row of sixteen white step keys and three metal footswitches for bypass, riot and A/B"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="jermy">1.1.2</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-            <p class="note">The circuits are original designs; they are not copies or measurements of any hardware.</p>
-          </div>
-        </article>
-        <article class="product" id="sounding" aria-labelledby="sounding-name">
-          <div class="p-text">
-            <p class="role">Metering <span class="badge new">New</span></p>
-            <h3 id="sounding-name">SOUNDING</h3>
-            <p class="what">A meter for the whole mix. See how loud it is against a target, where its peaks are, how wide it is and where its energy sits, all on one screen. It only measures: the sound passes through untouched.</p>
-            <ul class="feat">
-              <li>Loudness to ITU-R BS.1770-4 and EBU R 128 on a dial with your target: momentary, short-term, integrated, loudness range and true peak</li>
-              <li>Targets for streaming, podcasts and broadcast, or type your own; a history of the whole session</li>
-              <li>Spectrum standing on a waterfall spectrogram with the same frequency scale; 3D views as well</li>
-              <li>Stereo dial: a vectorscope with balance and correlation on its rim</li>
-              <li>Level meters with true or sample peak, RMS and crest, from mono to 7.1.2</li>
-              <li>Voice clarity: send the vocal to the sidechain and see how clearly it stands out from the mix</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="sounding" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/sounding.jpg" width="1600" height="1000" loading="lazy" alt="SOUNDING: a deep blue window with a round loudness dial showing minus 13.9 LUFS, a spectrum curve above a blue waterfall spectrogram, a round stereo scope, two level meters and a loudness history along the bottom"></figure>
-            <dl class="specs">
-              <dt>Latency</dt><dd>Zero</dd>
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="sounding">1.2.2</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="group" id="inst" aria-labelledby="inst-title">
-      <div class="wrap">
-        <header class="group-head">
-          <p class="kicker">04</p>
-          <h2 id="inst-title">Instruments and MIDI</h2>
-          <p>Something to play, and the notes to play it with.</p>
-        </header>
-        <article class="product" id="sope" aria-labelledby="sope-name">
-          <div class="p-text">
-            <p class="role">Synthesizer <span class="badge new">New</span></p>
-            <h3 id="sope-name">SOPE</h3>
-            <p class="what">A semi-modular analog-style synth you can play the moment it opens, and rewire when you want more. Drag from one jack to another and a cable hangs between them.</p>
-            <ul class="feat">
-              <li>Two oscillators with hard sync, a mixer that overdrives and a four-pole ladder filter</li>
-              <li>37 patch points, saved with your project and your presets</li>
-              <li>LFO, sample &amp; hold, spring reverb; arpeggiator and 256-note sequencer with rests, ties, swing and tap tempo</li>
-              <li>34 presets, A/B compare, keys that light up as you play</li>
-              <li>Low CPU, resizable interface</li>
-            </ul>
-            <div class="buy"><span class="price" data-price="sope">$30</span><a class="btn solid" data-buy="sope" href="checkout.html?product=sope">Buy for $30</a></div>
-            <p class="note" data-pay-note="sope">One-time purchase. Use your Hub email at checkout, then install in Aphotic Hub.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/sope.jpg" width="1600" height="1000" loading="lazy" alt="SOPE: a black synthesizer panel with cream, orange, teal and rose modules, silver-capped knobs, patch cables hanging between hex-nut jacks, and a 32-key keyboard"></figure>
-            <dl class="specs">
-              <dt>Formats</dt><dd>Windows VST3 instrument (64-bit). Mac: VST3 and Audio Unit instrument (macOS 11 or later, Apple silicon or Intel)</dd>
-              <dt>Version</dt><dd><span data-version="sope">1.3.0</span></dd>
-              <dt>Computers</dt><dd>Up to 3 per license</dd>
-            </dl>
-          </div>
-        </article>
-        <article class="product" id="spool" aria-labelledby="spool-name">
-          <div class="p-text">
-            <p class="role">Tape keyboard <span class="badge new">New</span></p>
-            <h3 id="spool-name">SPOOL</h3>
-            <p class="what">A keyboard that plays tapes, built like the tape-replay keyboards of the 1960s and 70s. Every key has its own 8-second length of tape with three sounds side by side on it; press a key and the tape runs past the head, let go and it springs home.</p>
-            <ul class="feat">
-              <li>Three tracks on every tape: the TRACK selector (or the mod wheel) moves the head from A to B to C, or plays all three</li>
-              <li>Notes run out after about 8 seconds, as on the old machines, or loop them; a key pressed before its tape is home starts part-way in</li>
-              <li>Wow, flutter, per-note tape saturation, hiss and hum, key and tape mechanics, adjustable tape return</li>
-              <li>26 sounds made from scratch (flutes, strings, choirs, brass, organs, keys and more), plus your own WAV, AIFF or FLAC with loops, envelope and Stretch</li>
-              <li>Four pedal slots with twelve effects, a combo amp or rotary speaker, a room, an LFO and two modulation routes</li>
-              <li>53 presets in 11 categories; open the lid for the engine</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="spool" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/spool.jpg" width="1600" height="1000" loading="lazy" alt="SPOOL: a cream keyboard cabinet on black tapered legs, with 35 keys, a silver control plate with Volume, Tone and Pitch knobs, a red power rocker and a track selector, and the names of the three tracks below it"></figure>
-            <dl class="specs">
-              <dt>Formats</dt><dd>Windows VST3 instrument (64-bit)</dd>
-              <dt>Version</dt><dd><span data-version="spool">1.0.1</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-            <p class="note">Original software with original, synthesised sounds. It is not made, licensed or endorsed by the maker of any instrument it may be compared with.</p>
-          </div>
-        </article>
-        <article class="product" id="wavy" aria-labelledby="wavy-name">
-          <div class="p-text">
-            <p class="role">Audio to MIDI <span class="badge new">New</span></p>
-            <h3 id="wavy-name">WAVY</h3>
-            <p class="what">Drop any recording on WAVY and it hands you the notes as MIDI: a sung hook becomes a synth lead, a sample's chords become a piano part, a drum loop becomes a pattern. Drag the notes straight into your DAW.</p>
-            <ul class="feat">
-              <li>Four listeners: Melody (a singer or a lead), Bass, Chords (piano, guitar) and Drums (kick, snare, hats, toms and cymbals as General MIDI notes)</li>
-              <li>Drag the notes into your playlist or piano roll, or save a .mid file</li>
-              <li>Sensitivity, minimum note length, quantize (1/32 to 1/4) and heard or fixed velocity change the catch at once</li>
-              <li>Notes it is unsure of are shown fainter, so you know what to check by ear</li>
-              <li>The MIDI follows your DAW's tempo, and every mode's notes are saved with your project</li>
-              <li>Reads WAV, AIFF, FLAC, MP3, OGG and M4A</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="wavy" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/wavy.jpg" width="1600" height="1000" loading="lazy" alt="WAVY: a dark navy panel with a glass window showing a waveform, rows of dark keys with teal lights, two black knobs with silver caps, a DRAG MIDI key, and a glass tray with a rope net where teal note bars have landed"></figure>
-            <dl class="specs">
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), macOS VST3 and AU (Apple silicon and Intel)</dd>
-              <dt>Version</dt><dd><span data-version="wavy">1.0.1</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-            <p class="note">Hearing notes is an estimate: WAVY marks the notes it is unsure of so you can check them by ear.</p>
-          </div>
-        </article>
-        <article class="product" id="vent" aria-labelledby="vent-name">
-          <div class="p-text">
-            <p class="role">Acid synthesizer <span class="badge new">New</span></p>
-            <h3 id="vent-name">VENT</h3>
-            <p class="what">A free acid bass synthesizer. Hold a key and the pattern plays in time with your DAW; turn the filter and the line starts to squelch. Accents climb, slides glide, and fourteen distortions take it from warm to wrecked.</p>
-            <ul class="feat">
-              <li>A monophonic acid voice: saw and square, a 4-pole diode-ladder filter, Env Mod, Decay and Accent</li>
-              <li>Accent and slide that behave like the classic boxes: runs of accents climb higher, slides glide without retriggering</li>
-              <li>64-step sequencer and arpeggiator: per-step octave, slide, accent and vibrato, swing, polymetric lanes, scales, randomisers and generate</li>
-              <li>Sub-oscillator, vibrato on the steps you pick, and fourteen distortions</li>
-              <li>Three drawn modulators and four effect slots with seventeen effects</li>
-              <li>40 presets and 29 patterns</li>
-            </ul>
-            <div class="buy"><span class="price">Free</span><a class="btn solid" data-buy="vent" href="#hub">Get it free in Aphotic Hub</a></div>
-            <p class="note">Free with an Aphotic Audio account. Installs in one click.</p>
-          </div>
-          <div class="p-side">
-            <figure class="shot"><img src="img/vent.jpg" width="1600" height="1000" loading="lazy" alt="VENT: a brushed silver panel with black knobs with aluminium caps and amber light rings, a waveform switch, a green distortion display, and below it a black bezel with piano keys, red step lights and grey mode buttons"></figure>
-            <dl class="specs">
-              <dt>Formats</dt><dd>Windows VST3 (64-bit), instrument</dd>
-              <dt>Version</dt><dd><span data-version="vent">1.0.0</span></dd>
-              <dt>License</dt><dd>Free with an Aphotic Audio account</dd>
-            </dl>
-          </div>
-        </article>
-      </div>
-    </section>
 
   <section class="daw" id="monday" aria-labelledby="monday-name">
     <div class="wrap daw-in">
@@ -1087,8 +449,8 @@
         <p>Vocal plug-ins for Windows and Mac, installed and kept up to date by Aphotic Hub.</p>
         <a class="social" href="https://www.instagram.com/aphoticaudio/"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle class="dot" cx="17.3" cy="6.7" r="1.1"/></svg><span>@aphoticaudio on Instagram</span></a>
       </div>
-      <div><h4>Vocal chain</h4><ul><li><a href="#trinity">TRINITY</a></li><li><a href="#ironglass">IRON &amp; GLASS</a></li><li><a href="#air">AIR</a></li><li><a href="#vantavox">VANTA VOX</a></li><li><a href="#eq5">EQ-5</a></li><li><a href="#photic">PHOTIC</a></li><li><a href="#split">SPLIT</a></li></ul><h4>Reverb &amp; echo</h4><ul><li><a href="#zion">ZION</a></li><li><a href="#hadal">HADAL</a></li><li><a href="#tapeorbit">TAPE ORBIT</a></li></ul></div>
-      <div><h4>Effects &amp; dynamics</h4><ul><li><a href="#santa">SANTA</a></li><li><a href="#abyss">ABYSS DUAL</a></li><li><a href="#undertow">UNDERTOW</a></li><li><a href="#lure">LURE</a></li><li><a href="#tube50">TUBE 50</a></li><li><a href="#trench">TRENCH</a></li><li><a href="#jermy">JERMY</a></li><li><a href="#sounding">SOUNDING</a></li></ul><h4>Instruments &amp; software</h4><ul><li><a href="#sope">SOPE</a></li><li><a href="#spool">SPOOL</a></li><li><a href="#wavy">WAVY</a></li><li><a href="#vent">VENT</a></li><li><a href="#monday">MONDAY</a></li></ul></div>
+      <div><h4>Vocal chain</h4><ul><li><a href="trinity.html">TRINITY</a></li><li><a href="ironglass.html">IRON &amp; GLASS</a></li><li><a href="air.html">AIR</a></li><li><a href="vantavox.html">VANTA VOX</a></li><li><a href="eq5.html">EQ-5</a></li><li><a href="photic.html">PHOTIC</a></li><li><a href="split.html">SPLIT</a></li></ul><h4>Reverb &amp; echo</h4><ul><li><a href="zion.html">ZION</a></li><li><a href="hadal.html">HADAL</a></li><li><a href="tapeorbit.html">TAPE ORBIT</a></li></ul></div>
+      <div><h4>Effects &amp; dynamics</h4><ul><li><a href="santa.html">SANTA</a></li><li><a href="abyss.html">ABYSS DUAL</a></li><li><a href="undertow.html">UNDERTOW</a></li><li><a href="lure.html">LURE</a></li><li><a href="tube50.html">TUBE 50</a></li><li><a href="trench.html">TRENCH</a></li><li><a href="jermy.html">JERMY</a></li><li><a href="sounding.html">SOUNDING</a></li></ul><h4>Instruments &amp; software</h4><ul><li><a href="sope.html">SOPE</a></li><li><a href="spool.html">SPOOL</a></li><li><a href="wavy.html">WAVY</a></li><li><a href="vent.html">VENT</a></li><li><a href="#monday">MONDAY</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="#hub">Download Aphotic Hub</a></li><li><a href="#help">Help</a></li><li><a href="report.html">Report a bug</a></li><li><a href="mailto:aphoticsupport@gmail.com">Email support</a></li></ul></div>
       <div><h4>Legal</h4><ul><li><a href="legal.html#terms">Terms of Service</a></li><li><a href="legal.html#privacy">Privacy Policy</a></li><li><a href="legal.html#eula">Plug-in License</a></li></ul></div>
     </div>
