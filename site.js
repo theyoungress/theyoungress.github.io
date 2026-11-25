@@ -1,6 +1,6 @@
 // Every page: live versions from the store catalogue; the home page also gets the newest Hub installers
 // and the catalogue's search. Each plug-in has its own page (<id>.html).
-const IDS = ["trinity", "ironglass", "air", "vantavox", "eq5", "photic", "split", "santa", "zion", "sope", "spool", "hadal", "tapeorbit", "abyss", "undertow", "lure", "tube50", "trench", "jermy", "sounding", "wavy", "vent"];
+const IDS = ["trinity", "ironglass", "air", "vantavox", "eq5", "photic", "split", "santa", "zion", "sope", "spool", "hadal", "tapeorbit", "abyss", "undertow", "lure", "tube50", "trench", "jermy", "mband", "sounding", "wavy", "vent"];
 // Old links to a plug-in's section on the home page (./#split) open its page.
 if (IDS.includes(location.hash.slice(1)) && document.getElementById("plugins")) location.replace(location.hash.slice(1) + ".html");
 // Refresh versions without letting a pending catalog change the approved prices.
