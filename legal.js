@@ -3,7 +3,7 @@
 // <span class="contact"></span> is filled in with the support email from config.js.
 window.YR_LEGAL = {
   version: "2026-10-19",
-  updated: "October 25, 2026",
+  updated: "November 27, 2026",
   docs: {
     terms: {
       title: "Terms of Service",
@@ -174,7 +174,8 @@ advertising.</p>
 
 <h3>Who we share it with</h3>
 <ul>
-<li><b>Supabase</b>: hosts our database, sign-in system, store functions and plug-in downloads.</li>
+<li><b>Cloudflare</b>: hosts our database, sign-in system, store functions and plug-in downloads.</li>
+<li><b>Supabase</b>: hosted our store before Cloudflare and keeps a copy of its data until we close our account there.</li>
 <li><b>Google (Gmail)</b>: delivers our sign-in and verification emails, so it receives your email address and the
 message.</li>
 <li><b>Gumroad</b>: our reseller (merchant of record). It handles checkout, payment, tax and receipts under its own

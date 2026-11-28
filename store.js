@@ -1,7 +1,6 @@
 // Public, read-only catalog access shared with Aphotic Hub.
 window.YoungRessStore = (() => {
-  const store = 'https://zxeuoqrnwxopohtcbhep.supabase.co';
-  const key = 'sb_publishable_4vWXSIQDY0aYhfaKtc3ZuA_cvWQo3yP';
+  const store = 'https://aphotic-hub.aphotic-store.workers.dev';
   const products = Object.freeze({
     ironglass: Object.freeze({ name: 'IRON & GLASS', price: 33, image: 'img/ironglass.jpg', description: 'Preamp, EQ and tube optical compressor', format: 'Windows VST3 · macOS VST3 and AU' }),
     air: Object.freeze({ name: 'AIR', price: 10, image: 'img/air-card.png', description: 'One-knob air enhancer', format: 'Windows VST3 · macOS VST3 and AU' }),
@@ -18,7 +17,8 @@ window.YoungRessStore = (() => {
     mband: Object.freeze({ name: 'MBAND', price: 49, image: 'img/mband.jpg', description: 'Multiband host for your own VST3 effects', format: 'Windows VST3' }),
   });
   async function catalog() {
-    const response = await fetch(store + '/rest/v1/products?select=*', { headers: { apikey: key }, signal: AbortSignal.timeout(10000) });
+    // A plain GET (no custom header), so the browser sends no CORS preflight.
+    const response = await fetch(store + '/api/products', { signal: AbortSignal.timeout(10000) });
     if (!response.ok) throw new Error('Catalog unavailable');
     const rows = await response.json();
     if (!Array.isArray(rows)) throw new Error('Invalid catalog');
